@@ -13,6 +13,8 @@ public class PointSystem : MonoBehaviour
     private GameObject[] _beans;
     [SerializeField]
     private GameObject _mud;
+    [SerializeField]
+    private float _spawnRadius = 5;
     // Start is called before the first frame update
     void Awake()
     {
@@ -38,10 +40,12 @@ public class PointSystem : MonoBehaviour
 
     private void SpawnBeans()
     {
-        for(int i=0; i< _beanCount; i++)
+        
+        for (int i=0; i< _beanCount; i++)
         {
+            Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount -1);
-            Instantiate(_beans[x], transform.position, Quaternion.identity);
+            Instantiate(_beans[x], transform.position + pos, Quaternion.identity);   
         }
     }
 }

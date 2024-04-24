@@ -1362,6 +1362,7 @@ MonoBehaviour:
   - {fileID: 396312875909874599, guid: 14d6323cc363f92479798879dbed5699, type: 3}
   - {fileID: 4378174362847711364, guid: c0dff7d1347bb3b488e673fa24d9ad4f, type: 3}
   _mud: {fileID: 8330503868322143424, guid: de2a058a1f788ea4683c30f4bd047858, type: 3}
+  _spawnRadius: 0.5
 --- !u!4 &1022786567
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,7 +1372,7 @@ Transform:
   m_GameObject: {fileID: 1022786565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 1.41, z: -9.56}
+  m_LocalPosition: {x: 0.13, y: 1.76, z: -9.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
