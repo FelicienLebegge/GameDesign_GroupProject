@@ -16,8 +16,9 @@ public class CameraSwitch : MonoBehaviour
     private float _elapsedTime;
     private bool _isLerping;
 
-    private Vector3 _targetPosition;
+    private Vector3 _targetPosition;    
 
+    [SerializeField]
     private int _index;
 
     // Start is called before the first frame update
@@ -29,18 +30,9 @@ public class CameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _isLerping = true;
-            _index++;
-
-            if (_index >= _cams.Length)
-            {
-                _index = 0;
-            }
-
-            _elapsedTime = 0;
-        }
+        _buttons[0].onClick.AddListener(() => OnButtonClick(0));
+        _buttons[1].onClick.AddListener(() => OnButtonClick(1));
+        _buttons[2].onClick.AddListener(() => OnButtonClick(2));
 
         if (_isLerping)
         {
@@ -55,6 +47,13 @@ public class CameraSwitch : MonoBehaviour
                 _elapsedTime = 0f;
             }
         }
+    }
+
+    void OnButtonClick(int i)
+    {
+        _isLerping = true;
+        _index = i;
+        _elapsedTime = 0;
     }
 
     private void UpdateCamera(float completionPercentage)
