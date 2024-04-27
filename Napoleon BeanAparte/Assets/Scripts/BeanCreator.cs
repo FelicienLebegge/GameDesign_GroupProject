@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +6,25 @@ public class PointSystem : MonoBehaviour
 {
     [SerializeField]
     private bool _orderComplete;
+
     [SerializeField]
     private int _beanCount = 20;
+
     [SerializeField]
     private GameObject[] _beans;
+
     [SerializeField]
-    private GameObject _mud;
+    private GameObject _dirt;
+
     [SerializeField]
     private float _spawnRadius = 5;
+
+    private float _dirtPivotAdjustment = 1.5f;
+
     // Start is called before the first frame update
     void Awake()
     {
-        SpawnMud();
+        SpawnDirt();
     }
 
     // Update is called once per frame
@@ -26,14 +32,15 @@ public class PointSystem : MonoBehaviour
     {
         if(_orderComplete)
         {
-            SpawnMud();
+            SpawnDirt();
         }
 
     }
 
-    private void SpawnMud()
+    private void SpawnDirt()
     {
-        Instantiate(_mud, transform.position, Quaternion.identity);
+        Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);
+        Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
         
     }
@@ -45,7 +52,8 @@ public class PointSystem : MonoBehaviour
         {
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount -1);
-            Instantiate(_beans[x], transform.position + pos, Quaternion.identity);   
+            GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
+            bean.transform.SetParent(transform); //keeps it clean
         }
     }
 }
