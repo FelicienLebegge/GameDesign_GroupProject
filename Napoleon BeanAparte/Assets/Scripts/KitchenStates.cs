@@ -21,9 +21,9 @@ public class KitchenStates : MonoBehaviour
 
     }
 
-    public void SetKitchenState(CookingStation newSation)
+    public void SetKitchenState(CookingStation newStation)
     {
-        KitchenState = newSation;
+        KitchenState = newStation;
 
         switch (KitchenState)
         {
