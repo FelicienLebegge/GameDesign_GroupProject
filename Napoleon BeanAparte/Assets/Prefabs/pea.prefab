@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7382437218230100720}
   - component: {fileID: 8896928198188932091}
   - component: {fileID: 1639853644373173241}
+  - component: {fileID: -4574499195793959736}
   m_Layer: 0
-  m_Name: pea
+  m_Name: Pea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,3 +106,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4574499195793959736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109917084696604440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeanType: 0

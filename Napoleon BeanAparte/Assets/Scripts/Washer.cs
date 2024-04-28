@@ -43,7 +43,7 @@ public class Washer : MonoBehaviour
             }
         }
 
-        if (_isWashingDirt)
+        if (_isDragging &&_isWashingDirt)
         {
             WashDirt();
         }
@@ -76,6 +76,7 @@ public class Washer : MonoBehaviour
         }
         else                                  //allows for smooth movement to _originalPosition
         {
+            _isWashingDirt = false;
             ReturnToOriginalPosition();
         }
     }
@@ -83,28 +84,40 @@ public class Washer : MonoBehaviour
     private void ExecuteWashing()
     {
         //make washer follow the mouse
-        Vector3 mouseposition = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distanceFromCamera)); //.y bacause topdown
-        transform.position = mouseposition;
+        Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _distanceFromCamera)); //.y because topdown
+        transform.position = mousePosition;
 
-        //check if we are above dirt
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        // Define layer mask for dirt
+        int dirtLayerMask = 1 << LayerMask.NameToLayer("Dirt"); 
+            //https://docs.unity3d.com/ScriptReference/LayerMask.NameToLayer.html
+            //https://learn.microsoft.com/en-us/cpp/cpp/left-shift-and-right-shift-operators-input-and-output?view=msvc-170
+
+
+        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition); //check if we are above dirt
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, dirtLayerMask))
         {
             GameObject other = hit.collider.gameObject;
-            if(other.CompareTag("Dirt"))
+            if (other.CompareTag("Dirt"))
             {
                 _dirt = other; //make sure to assign _dirt
                 _isWashingDirt = true;
-                return;
             }
+            else
+            {
+                _isWashingDirt = false; // If not above dirt, stop washing
+            }
+        }
+        else
+        {
+            _isWashingDirt = false; // If not hitting anything, stop washing
         }
     }
 
     private void WashDirt()
     {
-        Vector3 shrunkenScale = _dirt.transform.localScale * 0.9999f; //shrink by very small amound
+        Vector3 shrunkenScale = _dirt.transform.localScale * 0.9999f; //shrink by very small amount
         _dirt.transform.localScale = shrunkenScale;
     }
 

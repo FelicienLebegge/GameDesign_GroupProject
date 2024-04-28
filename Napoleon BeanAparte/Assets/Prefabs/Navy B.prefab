@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6434803527001146525}
   - component: {fileID: 2560031369884296275}
   - component: {fileID: 3327760656027454619}
+  - component: {fileID: 3716865663885618494}
   m_Layer: 0
   m_Name: Navy B
   m_TagString: Untagged
@@ -107,3 +108,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3716865663885618494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084736146429087653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeanType: 1

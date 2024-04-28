@@ -13,8 +13,11 @@ public class CameraSwitch : MonoBehaviour
 
     [SerializeField]
     private float _lerpDuration = 5.0f;
+
     private float _elapsedTime;
     private bool _isLerping;
+
+    [SerializeField] private KitchenStates _kitchenStates;
 
     private Vector3 _targetPosition;    
 
@@ -51,9 +54,24 @@ public class CameraSwitch : MonoBehaviour
 
     void OnButtonClick(int i)
     {
+        
         _isLerping = true;
         _index = i;
         _elapsedTime = 0;
+
+        //update kitchen state according to active station
+        switch (_index)
+        {
+            case 0:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Washing);
+                break;
+            case 1:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
+                break;
+            case 2:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
+                break;
+        }
     }
 
     private void UpdateCamera(float completionPercentage)
