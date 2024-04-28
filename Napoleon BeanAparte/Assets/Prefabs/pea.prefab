@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1639853644373173241}
   - component: {fileID: -4574499195793959736}
   m_Layer: 0
-  m_Name: Pea
+  m_Name: pea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeanType: 0
+  BeanValue: 1
