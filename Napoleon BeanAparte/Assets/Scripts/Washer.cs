@@ -106,12 +106,12 @@ public class Washer : MonoBehaviour
             }
             else
             {
-                _isWashingDirt = false; // If not above dirt, stop washing
+                _isWashingDirt = false; // If not above dirt --> stop washing
             }
         }
         else
         {
-            _isWashingDirt = false; // If not hitting anything, stop washing
+            _isWashingDirt = false; // If not hitting anything --> stop washing
         }
     }
 
