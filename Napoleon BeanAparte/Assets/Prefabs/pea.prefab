@@ -118,5 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _kitchenStates: 0
+  _collider: {fileID: 7915832060568400657, guid: 42c054759fbdcc24999c1207960717bd, type: 3}
+  _moveSpeed: 3
+  _beanPosition: {fileID: 0}
+  _beanlocation: {fileID: 0}
+  _offset: {x: 4, y: 5, z: 6, w: 7}
   BeanType: 0
   BeanValue: 1
