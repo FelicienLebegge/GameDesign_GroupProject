@@ -13,6 +13,7 @@ public class CuttingScript : MonoBehaviour
 
     [SerializeField]
     private Transform _kitchenKnife;
+<<<<<<< Updated upstream
 
     [SerializeField]
     private float _knifeDownSpeed = 5f;
@@ -26,40 +27,90 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private int completeMissPoints = 2;
 
+=======
+    [SerializeField] private float _knifeDownSpeed = 5f;
+    [SerializeField] private float _knifeupSpeed = 2f;
+    [SerializeField] private int partialMissPoints = 15;
+    [SerializeField] private int completeMissPoints = 2;
+    private Camera _mainCamera;
+    private Vector3 _originalPosition;
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Awake()
     {
-         _kitchenKnife = GetComponent<Transform>();
+        _kitchenKnife = GetComponent<Transform>();
+        _mainCamera = Camera.main;
+        _originalPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
+        
+        if (_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
         {
-            if(Input.GetMouseButtonDown(0) & !isCutting)
+            HandleInputs();
+            if (Input.GetMouseButtonDown(0))
             {
                 KnifeDown();
-                isCutting = true;
+
                 Debug.Log("Click detected");
             }
         }
     }
+    private void HandleInputs()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject) //check if washer is under mouse click
+                {
+                    isCutting = true;
+                }
+            }
+        }
+
+        if (isCutting)
+        {
+            KnifeDown();
+        }
+        else                                  //allows for smooth movement to _originalPosition
+        {
+            isCutting = true;
+            ReturnToOriginalPosition();
+        }
+    }
     private void KnifeDown()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * _knifeDownSpeed);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+
+        if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.CompareTag("Bean"))
+            if (hit.collider.gameObject == gameObject) //check if washer is under mouse click
             {
-                GetPoints();
-                KnifeUp();
-            }
-            if (hit.collider.CompareTag("table"))
-            {
-                KnifeUp();
+                isCutting = true;
+                transform.Translate(Vector3.down * Time.deltaTime * _knifeDownSpeed);
+
+                RaycastHit ahit;
+                if (Physics.Raycast(transform.position, Vector3.down, out ahit, Mathf.Infinity))
+                {
+                    if (ahit.collider.CompareTag("Bean"))
+                    {
+                        GetPoints();
+                        KnifeUp();
+                        isCutting = false;
+                    }
+                    if (ahit.collider.CompareTag("Table"))
+                    {
+                        KnifeUp();
+                        isCutting = false;
+                    }
+                }
             }
         }
     }
@@ -70,36 +121,13 @@ public class CuttingScript : MonoBehaviour
     }
 
     private void GetPoints()
-        {
-        throw new NotImplementedException();
-        }
-
-    public class CutMechanic : MonoBehaviour
     {
-        
-        bool IsAccuratelyCut(GameObject target)
-        {
-            // Check if the target is destroyed
-            // You may want to replace this with more sophisticated logic based on your game's requirements
-            return target == null;
-        }
+        throw new NotImplementedException();
+    }
 
-        // Method to check if the target is partially missed
-        bool IsPartiallyMissed(GameObject target)
-        {
-            // Check if the target still exists
-            // You may want to replace this with more sophisticated logic based on your game's requirements
-            return target != null;
-        }
-
-        // Method to increase player points
-        void IncreasePoints(int points)
-        {
-            // Implement your points management logic here
-            // For demonstration, let's just print the points to the console
-            Debug.Log("Points Increased: " + points);
-        }
-
-        
+    private void ReturnToOriginalPosition()
+    {
+        transform.position = Vector3.Lerp(transform.position, _originalPosition, Time.deltaTime * _knifeupSpeed);
     }
 }
+

@@ -19,6 +19,17 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
+<<<<<<< Updated upstream
+=======
+// HEAD
+    [SerializeField]
+    private ListManagers ListManager;
+//
+    [SerializeField] 
+    private KitchenStates _kitchenStates;
+// parent of 72882cf (ListManager addition)
+
+>>>>>>> Stashed changes
 
     private float _dirtPivotAdjustment = 1.5f;
 

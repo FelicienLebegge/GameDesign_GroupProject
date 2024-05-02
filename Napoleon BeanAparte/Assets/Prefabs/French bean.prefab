@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8800313644628794945}
   m_Layer: 0
   m_Name: French bean
-  m_TagString: Untagged
+  m_TagString: Bean
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

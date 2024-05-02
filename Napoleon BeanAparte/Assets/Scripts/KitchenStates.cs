@@ -7,6 +7,12 @@ public class KitchenStates : MonoBehaviour
 {
     public static List<GameObject> BeansList = new List<GameObject>();
 
+<<<<<<< Updated upstream
+=======
+    public List<GameObject> BeansList = new List<GameObject>();
+
+
+>>>>>>> Stashed changes
     public enum CookingStation
     {
         Washing,
