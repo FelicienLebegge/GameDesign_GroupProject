@@ -19,13 +19,9 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
-<<<<<<< HEAD
-    [SerializeField]
-    private ListManagers ListManager;
-=======
     [SerializeField] 
     private KitchenStates _kitchenStates;
->>>>>>> parent of 72882cf (ListManager addition)
+
 
 
     private float _dirtPivotAdjustment = 1.5f;
@@ -63,7 +59,6 @@ public class PointSystem : MonoBehaviour
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
             bean.transform.SetParent(transform); //keeps it clean
             _kitchenStates.BeansList.Add(bean);
-
         }
     }
 }
