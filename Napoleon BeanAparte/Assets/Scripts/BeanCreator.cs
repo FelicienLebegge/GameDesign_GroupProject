@@ -19,6 +19,10 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
+    [SerializeField] 
+    private KitchenStates _kitchenStates;
+
+
     private float _dirtPivotAdjustment = 1.5f;
 
     // Start is called before the first frame update
@@ -42,7 +46,6 @@ public class PointSystem : MonoBehaviour
         Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);
         Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
-        
     }
 
     private void SpawnBeans()
@@ -54,6 +57,8 @@ public class PointSystem : MonoBehaviour
             int x = Random.Range(0, _beanCount -1);
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
             bean.transform.SetParent(transform); //keeps it clean
+            _kitchenStates.ActiveBeansList.Add(bean);
+
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class KitchenStates : MonoBehaviour
 {
 
-    public List<Bean> ActiveBeansList = new List<Bean>();
+    public List<GameObject> ActiveBeansList = new List<GameObject>();
 
     public enum CookingStation
     {
