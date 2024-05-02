@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 
 public class Bean : MonoBehaviour
 {
-    [SerializeField] private KitchenStates _kitchenStates;
+    KitchenStates _kitchenStates;
 
     [SerializeField] private KitchenStates.CookingStation _cookingStation;
     
