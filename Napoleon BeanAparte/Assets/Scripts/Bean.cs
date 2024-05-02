@@ -66,7 +66,7 @@ public class Bean : MonoBehaviour
 
     private void AddBean()
     {
-        _kitchenStates.ActiveBeansList.Add(gameObject);
+        _kitchenStates.ActiveBeansList.Add(this);
     }
 
     private void OnTriggerExit(Collider collision)
