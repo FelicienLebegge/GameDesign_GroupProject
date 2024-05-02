@@ -57,7 +57,7 @@ public class PointSystem : MonoBehaviour
             int x = Random.Range(0, _beanCount -1);
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
             bean.transform.SetParent(transform); //keeps it clean
-            _kitchenStates.ActiveBeansList.Add(bean);
+            _kitchenStates.BeansList.Add(bean);
 
         }
     }
