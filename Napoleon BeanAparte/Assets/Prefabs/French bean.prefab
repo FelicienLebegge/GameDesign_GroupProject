@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1057943669272939409}
   - component: {fileID: 6195749862620812169}
   - component: {fileID: 8800313644628794945}
-  - component: {fileID: 819781308695917128}
   m_Layer: 0
   m_Name: French bean
   m_TagString: Untagged
@@ -124,18 +123,3 @@ MonoBehaviour:
   _beanPosition: {x: 0.6, y: 1.6, z: -4.5}
   BeanType: 4
   BeanValue: 10
---- !u!114 &819781308695917128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378174362847711364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1736b80479535884fb4be4af2d9ad6ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeansList: []
-  WashedBeansList: []
-  KitchenState: 0

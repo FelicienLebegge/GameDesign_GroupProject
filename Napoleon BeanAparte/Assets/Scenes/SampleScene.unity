@@ -314,10 +314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeansList: []
-<<<<<<< Updated upstream
-=======
-  WashedBeansList: []
->>>>>>> Stashed changes
   KitchenState: 0
 --- !u!65 &205736579
 BoxCollider:

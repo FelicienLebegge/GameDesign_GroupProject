@@ -1,19 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
+using System;
+using static KitchenStates;
+using Unity.VisualScripting;
 
 public class Bean : MonoBehaviour
 {
     KitchenStates _kitchenStates;
 
     [SerializeField] private KitchenStates.CookingStation _cookingStation;
-
-    [SerializeField]
+    
+    [SerializeField] 
     private float _moveSpeed = 3f;
     [SerializeField]
-    private Vector3 _beanPosition = new(0, 1.6f, -4.5f);
-
-    private Vector4 _offset = new(2, 4, 6, 8);
+    private Vector3 _beanPosition = new(0,1.6f, -4.5f);
+     
+    private Vector4 _offset = new(2,4,6,8);
     private bool _isBeanMoving;
-
     public enum BeanTypes //assigned to each bean in the inspector
     {
         Pea,
@@ -37,16 +42,16 @@ public class Bean : MonoBehaviour
     {
     }
 
-    private void Update()
+        private void Update()
     {
         switch (_cookingStation)
         {
             case KitchenStates.CookingStation.Washing:
-                if (_isBeanMoving)
+                if(_isBeanMoving)
                 {
                     MoveBean();
                 };
-                break;
+                    break;
             case KitchenStates.CookingStation.Cutting:
 
                 break;
@@ -55,14 +60,14 @@ public class Bean : MonoBehaviour
         }
     }
 
-
+    
     private void OnTriggerExit(Collider collision)
     {
-
+        
         if (collision.gameObject.CompareTag("Dirt"))
         {
             _isBeanMoving = true;
-
+            
         }
     }
 
@@ -71,7 +76,7 @@ public class Bean : MonoBehaviour
         switch (BeanType)
         {
             case BeanTypes.Pea:
-
+                
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 IsSelectable = true;
                 break;
@@ -89,7 +94,7 @@ public class Bean : MonoBehaviour
                 break;
             case BeanTypes.French:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable = true;
+                IsSelectable=true;
                 break;
         }
         //random unit circle
@@ -98,4 +103,4 @@ public class Bean : MonoBehaviour
     }
 }
 
-
+    
