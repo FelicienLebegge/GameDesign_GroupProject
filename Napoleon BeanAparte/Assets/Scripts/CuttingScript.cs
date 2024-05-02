@@ -1,3 +1,4 @@
+using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,12 @@ public class CuttingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Click detected");
+            }
+        }
     }
 }
