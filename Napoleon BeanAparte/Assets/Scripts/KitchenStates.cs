@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class KitchenStates : MonoBehaviour
 {
 
-    public List<GameObject> BeansList = new List<GameObject>();
+
 
     public enum CookingStation
     {

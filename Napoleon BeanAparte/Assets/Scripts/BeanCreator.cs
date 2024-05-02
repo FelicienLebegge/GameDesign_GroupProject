@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PointSystem : MonoBehaviour
@@ -19,8 +17,8 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
-    [SerializeField] 
-    private KitchenStates _kitchenStates;
+    [SerializeField]
+    private GameObject ListManager;
 
 
     private float _dirtPivotAdjustment = 1.5f;
@@ -34,7 +32,7 @@ public class PointSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_orderComplete)
+        if (_orderComplete)
         {
             SpawnDirt();
         }
@@ -50,15 +48,14 @@ public class PointSystem : MonoBehaviour
 
     private void SpawnBeans()
     {
-        
-        for (int i=0; i< _beanCount; i++)
+
+        for (int i = 0; i < _beanCount; i++)
         {
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount);
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
             bean.transform.SetParent(transform); //keeps it clean
-            _kitchenStates.BeansList.Add(bean);
-
+            ListManager.BeansList.Add(bean);
         }
     }
 }
