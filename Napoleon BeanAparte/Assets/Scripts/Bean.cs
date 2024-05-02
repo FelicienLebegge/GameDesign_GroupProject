@@ -30,8 +30,8 @@ public class Bean : MonoBehaviour
 
     public BeanTypes BeanType;
 
-   
-    private bool _isSelectable = false;
+
+    public bool IsSelectable { get; set; }
 
 
     public int BeanValue;
@@ -78,23 +78,23 @@ public class Bean : MonoBehaviour
             case BeanTypes.Pea:
                 
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                
+                IsSelectable = true;
                 break;
             case BeanTypes.Navy:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                
+                IsSelectable = true;
                 break;
             case BeanTypes.Fava:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                
+                IsSelectable = true;
                 break;
             case BeanTypes.Anasazi:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                
+                IsSelectable = true;
                 break;
             case BeanTypes.French:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                
+                IsSelectable=true;
                 break;
         }
         //random unit circle
