@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 public class KitchenStates : MonoBehaviour
 {
-    public List<GameObject> BeansList = new List<GameObject>();
+    public static List<GameObject> BeansList = new List<GameObject>();
 
     public enum CookingStation
     {
@@ -19,7 +19,7 @@ public class KitchenStates : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+   
     }
 
     public void SetKitchenState(CookingStation newStation)

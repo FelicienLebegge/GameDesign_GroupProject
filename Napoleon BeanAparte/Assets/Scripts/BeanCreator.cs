@@ -19,10 +19,6 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
-    [SerializeField] 
-    private KitchenStates _kitchenStates;
-
-
 
     private float _dirtPivotAdjustment = 1.5f;
 
@@ -58,7 +54,6 @@ public class PointSystem : MonoBehaviour
             int x = Random.Range(0, _beanCount);
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
             bean.transform.SetParent(transform); //keeps it clean
-            _kitchenStates.BeansList.Add(bean);
         }
     }
 }

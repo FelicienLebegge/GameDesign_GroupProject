@@ -78,23 +78,23 @@ public class Bean : MonoBehaviour
             case BeanTypes.Pea:
                 
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable = true;
+                KitchenStates.BeansList.Add(this.gameObject);
                 break;
             case BeanTypes.Navy:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable = true;
+                KitchenStates.BeansList.Add(this.gameObject);
                 break;
             case BeanTypes.Fava:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable = true;
+                KitchenStates.BeansList.Add(this.gameObject);
                 break;
             case BeanTypes.Anasazi:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable = true;
+                KitchenStates.BeansList.Add(this.gameObject);
                 break;
             case BeanTypes.French:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                IsSelectable=true;
+                KitchenStates.BeansList.Add(this.gameObject);
                 break;
         }
         //random unit circle
