@@ -9,7 +9,7 @@ public class CuttingScript : MonoBehaviour
 {
     [SerializeField] private KitchenStates _kitchenStateScripts;
 
-    private bool isCutting = false;
+    private bool _isCutting = false;
 
     [SerializeField]
     private Transform _kitchenKnife;
@@ -26,12 +26,7 @@ public class CuttingScript : MonoBehaviour
 
     [SerializeField]
     private int completeMissPoints = 2;
-
-
-    [SerializeField] private float _knifeDownSpeed = 5f;
-    [SerializeField] private float _knifeupSpeed = 2f;
-    [SerializeField] private int partialMissPoints = 15;
-    [SerializeField] private int completeMissPoints = 2;
+   
     private Camera _mainCamera;
     private Vector3 _originalPosition;
 
@@ -50,11 +45,15 @@ public class CuttingScript : MonoBehaviour
         if (_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
         {
             HandleInputs();
-            if (Input.GetMouseButtonDown(0))
+            
+            if (_isCutting)
             {
                 KnifeDown();
-
-                Debug.Log("Click detected");
+            }
+            else                                  //allows for smooth movement to _originalPosition
+            {
+                _isCutting = false;
+                //ReturnToOriginalPosition();
             }
         }
     }
@@ -67,52 +66,39 @@ public class CuttingScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject) //check if washer is under mouse click
+                if (hit.collider.gameObject == gameObject)
                 {
-                    isCutting = true;
+                    Debug.Log("cut detected");
+                    _isCutting = true;
+                    
                 }
             }
         }
 
-        if (isCutting)
-        {
-            KnifeDown();
-        }
-        else                                  //allows for smooth movement to _originalPosition
-        {
-            isCutting = true;
-            ReturnToOriginalPosition();
-        }
+       
     }
     private void KnifeDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        transform.Translate(Vector3.down * Time.deltaTime * _knifeDownSpeed);
 
-        if (Physics.Raycast(ray, out hit))
+        RaycastHit ahit;
+        if (Physics.Raycast(transform.position, Vector3.down, out ahit, Mathf.Infinity))
         {
-            if (hit.collider.gameObject == gameObject) //check if washer is under mouse click
+            if (ahit.collider.CompareTag("Bean"))
             {
-                isCutting = true;
-                transform.Translate(Vector3.down * Time.deltaTime * _knifeDownSpeed);
-
-                RaycastHit ahit;
-                if (Physics.Raycast(transform.position, Vector3.down, out ahit, Mathf.Infinity))
-                {
-                    if (ahit.collider.CompareTag("Bean"))
-                    {
-                        GetPoints();
-                        KnifeUp();
-                        isCutting = false;
-                    }
-                    if (ahit.collider.CompareTag("Table"))
-                    {
-                        KnifeUp();
-                        isCutting = false;
-                    }
-                }
+                GetPoints();
+                KnifeUp();
+                _isCutting = false;
+            }
+            if (ahit.collider.CompareTag("Table"))
+            {
+                KnifeUp();
+                _isCutting = false;
             }
         }
+
+
+
     }
 
     private void KnifeUp()
