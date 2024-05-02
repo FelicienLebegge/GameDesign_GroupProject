@@ -71,11 +71,12 @@ public class Bean : MonoBehaviour
         }
     }
 
-    private void MoveBean()
+    public void MoveBean()
     {
         switch (BeanType)
         {
             case BeanTypes.Pea:
+                
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 _kitchenStates.ActiveBeansList.Add(this);
                 break;
@@ -102,4 +103,4 @@ public class Bean : MonoBehaviour
     }
 }
 
-
+    
