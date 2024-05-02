@@ -1516,6 +1516,7 @@ MonoBehaviour:
   - {fileID: 4378174362847711364, guid: c0dff7d1347bb3b488e673fa24d9ad4f, type: 3}
   _dirt: {fileID: 7824042180073134040, guid: 42c054759fbdcc24999c1207960717bd, type: 3}
   _spawnRadius: 0.5
+  _kitchenStates: {fileID: 205736578}
 --- !u!4 &1022786567
 Transform:
   m_ObjectHideFlags: 0
