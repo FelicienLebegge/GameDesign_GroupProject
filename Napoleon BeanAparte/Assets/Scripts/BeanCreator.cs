@@ -18,7 +18,7 @@ public class PointSystem : MonoBehaviour
     private float _spawnRadius = 5;
 
     [SerializeField]
-    private GameObject ListManager;
+    private ListManagers ListManager;
 
 
     private float _dirtPivotAdjustment = 1.5f;
