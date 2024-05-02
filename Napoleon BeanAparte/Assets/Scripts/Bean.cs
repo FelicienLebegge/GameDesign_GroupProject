@@ -8,8 +8,10 @@ using Unity.VisualScripting;
 
 public class Bean : MonoBehaviour
 {
-    [SerializeField] private KitchenStates.CookingStation _kitchenStates;
-   
+    [SerializeField] private KitchenStates _kitchenStates;
+
+    [SerializeField] private KitchenStates.CookingStation _cookingStation;
+    
     [SerializeField] 
     private float _moveSpeed = 3f;
     [SerializeField]
@@ -35,15 +37,14 @@ public class Bean : MonoBehaviour
     public int BeanValue;
 
 
-    
+
     void Start()
     {
-        
     }
 
-    private void Update()
+        private void Update()
     {
-        switch (_kitchenStates)
+        switch (_cookingStation)
         {
             case KitchenStates.CookingStation.Washing:
                 if(_isBeanMoving)
@@ -65,7 +66,7 @@ public class Bean : MonoBehaviour
 
     private void AddBean()
     {
-        throw new NotImplementedException();
+        _kitchenStates.ActiveBeansList.Add(gameObject);
     }
 
     private void OnTriggerExit(Collider collision)
