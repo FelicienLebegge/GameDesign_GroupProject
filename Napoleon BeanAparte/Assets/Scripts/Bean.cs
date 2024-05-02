@@ -44,6 +44,10 @@ public class Bean : MonoBehaviour
 
         private void Update()
     {
+        if (_isSelectable)
+        {
+            AddBean(this);
+        }
         switch (_cookingStation)
         {
             case KitchenStates.CookingStation.Washing:
@@ -51,10 +55,6 @@ public class Bean : MonoBehaviour
                 {
                     MoveBean();
                 };
-                if(_isSelectable)
-                {
-                    AddBean();
-                }
                     break;
             case KitchenStates.CookingStation.Cutting:
 
@@ -64,7 +64,7 @@ public class Bean : MonoBehaviour
         }
     }
 
-    private void AddBean()
+    private void AddBean(Bean bean)
     {
         _kitchenStates.ActiveBeansList.Add(this);
     }
