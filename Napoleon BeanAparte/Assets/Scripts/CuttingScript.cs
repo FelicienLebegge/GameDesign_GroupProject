@@ -13,7 +13,7 @@ public class CuttingScript : MonoBehaviour
 
     [SerializeField]
     private Transform _kitchenKnife;
-<<<<<<< Updated upstream
+
 
     [SerializeField]
     private float _knifeDownSpeed = 5f;
@@ -27,14 +27,14 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private int completeMissPoints = 2;
 
-=======
+
     [SerializeField] private float _knifeDownSpeed = 5f;
     [SerializeField] private float _knifeupSpeed = 2f;
     [SerializeField] private int partialMissPoints = 15;
     [SerializeField] private int completeMissPoints = 2;
     private Camera _mainCamera;
     private Vector3 _originalPosition;
->>>>>>> Stashed changes
+
     // Start is called before the first frame update
     void Awake()
     {
