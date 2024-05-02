@@ -10,9 +10,12 @@ public class Bean : MonoBehaviour
 {
     [SerializeField] private KitchenStates.CookingStation _kitchenStates;
    
-    [SerializeField] private float _moveSpeed = 3f;
-    [SerializeField] private Transform _beanPosition;
-    [SerializeField] private Vector4 _offset = new(2,4,6,8);
+    [SerializeField] 
+    private float _moveSpeed = 3f;
+    [SerializeField]
+    private Vector3 _beanPosition = new(0,1.6f, -4.5f);
+     
+    private Vector4 _offset = new(2,4,6,8);
     private bool _isBeanMoving;
     public enum BeanTypes //assigned to each bean in the inspector
     {
@@ -47,6 +50,10 @@ public class Bean : MonoBehaviour
                 {
                     MoveBean();
                 };
+                if(_isSelectable)
+                {
+                    AddBean();
+                }
                     break;
             case KitchenStates.CookingStation.Cutting:
 
@@ -55,14 +62,19 @@ public class Bean : MonoBehaviour
                 break;
         }
     }
-     
+
+    private void AddBean()
+    {
+        throw new NotImplementedException();
+    }
+
     private void OnTriggerExit(Collider collision)
     {
         
         if (collision.gameObject.CompareTag("Dirt"))
         {
             _isBeanMoving = true;
-            _isSelectable = true;
+            
         }
     }
 
@@ -71,21 +83,24 @@ public class Bean : MonoBehaviour
         switch (BeanType)
         {
             case BeanTypes.Pea:
-                transform.position = Vector3.Lerp(transform.position, new(0,0,0), Time.deltaTime * _moveSpeed);
+                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 break;
             case BeanTypes.Navy:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition.position, Time.deltaTime * _moveSpeed);
+                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 break;
             case BeanTypes.Fava:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition.position, Time.deltaTime * _moveSpeed);
+                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 break;
             case BeanTypes.Anasazi:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition.position, Time.deltaTime * _moveSpeed);
+                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 break;
             case BeanTypes.French:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition.position, Time.deltaTime * _moveSpeed);
+                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
                 break;
+
+                
         }
+        _isSelectable = true;
         //random unit circle
         //clipping niet erg als types dezelfde zijn
 
