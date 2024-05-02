@@ -123,6 +123,6 @@ MonoBehaviour:
   _kitchenStates: {fileID: 0}
   _cookingStation: 0
   _moveSpeed: 3
-  _beanPosition: {x: 3, y: 1.6, z: -4.5}
+  _beanPosition: {x: 0.15, y: 1.6, z: -4.5}
   BeanType: 3
   BeanValue: 7
