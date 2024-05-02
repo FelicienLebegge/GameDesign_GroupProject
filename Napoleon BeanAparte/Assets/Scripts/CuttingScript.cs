@@ -8,13 +8,24 @@ using static UnityEngine.GraphicsBuffer;
 public class CuttingScript : MonoBehaviour
 {
     [SerializeField] private KitchenStates _kitchenStateScripts;
+
     private bool isCutting = false;
+
     [SerializeField]
     private Transform _kitchenKnife;
-    [SerializeField] private float _knifeDownSpeed = 5f;
-    [SerializeField] private float _knifeupSpeed = 2f;
-    [SerializeField] private int partialMissPoints = 15;
-    [SerializeField] private int completeMissPoints = 2;
+
+    [SerializeField]
+    private float _knifeDownSpeed = 5f;
+
+    [SerializeField]
+    private float _knifeupSpeed = 2f;
+
+    [SerializeField]
+    private int partialMissPoints = 15;
+
+    [SerializeField]
+    private int completeMissPoints = 2;
+
     // Start is called before the first frame update
     void Awake()
     {
