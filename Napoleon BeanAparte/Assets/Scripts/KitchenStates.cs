@@ -3,8 +3,6 @@ using UnityEngine;
 public class KitchenStates : MonoBehaviour
 {
 
-
-
     public enum CookingStation
     {
         Washing,
