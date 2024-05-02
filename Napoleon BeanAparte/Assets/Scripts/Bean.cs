@@ -44,10 +44,6 @@ public class Bean : MonoBehaviour
 
         private void Update()
     {
-        if (_isSelectable)
-        {
-            AddBean(this);
-        }
         switch (_cookingStation)
         {
             case KitchenStates.CookingStation.Washing:
@@ -64,11 +60,7 @@ public class Bean : MonoBehaviour
         }
     }
 
-    private void AddBean(Bean bean)
-    {
-        _kitchenStates.ActiveBeansList.Add(this);
-    }
-
+    
     private void OnTriggerExit(Collider collision)
     {
         
@@ -85,23 +77,25 @@ public class Bean : MonoBehaviour
         {
             case BeanTypes.Pea:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
+                _kitchenStates.ActiveBeansList.Add(this);
                 break;
             case BeanTypes.Navy:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
+                _kitchenStates.ActiveBeansList.Add(this);
                 break;
             case BeanTypes.Fava:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
+                _kitchenStates.ActiveBeansList.Add(this);
                 break;
             case BeanTypes.Anasazi:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
+                _kitchenStates.ActiveBeansList.Add(this);
                 break;
             case BeanTypes.French:
                 transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
+                _kitchenStates.ActiveBeansList.Add(this);
                 break;
-
-                
         }
-        _isSelectable = true;
         //random unit circle
         //clipping niet erg als types dezelfde zijn
 
