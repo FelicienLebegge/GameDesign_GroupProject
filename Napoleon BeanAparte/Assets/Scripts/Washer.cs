@@ -117,7 +117,7 @@ public class Washer : MonoBehaviour
 
     private void WashDirt()
     {
-        Vector3 shrunkenScale = _dirt.transform.localScale * 0.9999f; //shrink by very small amount
+        Vector3 shrunkenScale = _dirt.transform.localScale * 0.9998f; //shrink by very small amount
         _dirt.transform.localScale = shrunkenScale;
     }
 
