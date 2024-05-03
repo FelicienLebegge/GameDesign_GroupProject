@@ -25,7 +25,7 @@ public class CuttingScript : MonoBehaviour
     private float _knifeUpSpeed = 10f;
 
     [SerializeField]
-    private int partialMissPoints = 15;
+    private int Points = 15;
 
     [SerializeField]
     private int completeMissPoints = 2;
@@ -120,7 +120,7 @@ public class CuttingScript : MonoBehaviour
 
     private void GetPoints()
     {
-        throw new NotImplementedException();
+        //Score += Points
     }
 }
 
