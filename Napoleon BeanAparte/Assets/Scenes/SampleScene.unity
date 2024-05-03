@@ -217,8 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _kitchenStateScripts: {fileID: 205736578}
   _kitchenKnife: {fileID: 166063793}
-  _knifeDownSpeed: 5
-  _knifeupSpeed: 2
+  _knifeDownSpeed: 6
+  _knifeUpSpeed: 10
   partialMissPoints: 15
   completeMissPoints: 2
   _loc: {fileID: 716035351}
