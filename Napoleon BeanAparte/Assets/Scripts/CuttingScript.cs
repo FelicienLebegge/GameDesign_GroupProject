@@ -2,6 +2,7 @@ using OpenCover.Framework.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -10,16 +11,18 @@ public class CuttingScript : MonoBehaviour
     [SerializeField] private KitchenStates _kitchenStateScripts;
 
     private bool _isCutting = false;
+    private bool _canCut = true;
+
 
     [SerializeField]
     private Transform _kitchenKnife;
 
 
     [SerializeField]
-    private float _knifeDownSpeed = 5f;
+    private float _knifeDownSpeed = 20f;
 
     [SerializeField]
-    private float _knifeupSpeed = 2f;
+    private float _knifeUpSpeed = 10f;
 
     [SerializeField]
     private int partialMissPoints = 15;
@@ -29,10 +32,15 @@ public class CuttingScript : MonoBehaviour
    
     private Camera _mainCamera;
     private Vector3 _originalPosition;
+    private Rigidbody _rb;
+
+    [SerializeField]
+    private Transform _loc;
 
     // Start is called before the first frame update
     void Awake()
     {
+        _rb = GetComponent<Rigidbody>();
         _kitchenKnife = GetComponent<Transform>();
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
@@ -45,16 +53,24 @@ public class CuttingScript : MonoBehaviour
         if (_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
         {
             HandleInputs();
+            if (_isCutting && _canCut)
+            {
+                this.transform.position = Vector3.Lerp(this.transform.position, _loc.transform.position, Time.deltaTime * _knifeDownSpeed);
+               
+            }
+            else
+            {
+                this.transform.position = Vector3.Lerp(this.transform.position, _originalPosition, Time.deltaTime * _knifeUpSpeed);
+                if (transform.position == _originalPosition)
+                {
+                    _canCut = true;
+                }
+            }
+
+
+           
             
-            if (_isCutting)
-            {
-                KnifeDown();
-            }
-            else                                  //allows for smooth movement to _originalPosition
-            {
-                _isCutting = false;
-                //ReturnToOriginalPosition();
-            }
+            
         }
     }
     private void HandleInputs()
@@ -77,43 +93,34 @@ public class CuttingScript : MonoBehaviour
 
        
     }
-    private void KnifeDown()
+    
+    void OnTriggerEnter(Collider collision)
     {
-        transform.Translate(Vector3.down * Time.deltaTime * _knifeDownSpeed);
-
-        RaycastHit ahit;
-        if (Physics.Raycast(transform.position, Vector3.down, out ahit, Mathf.Infinity))
+        //Check for a match with the specified name on any GameObject that collides with your GameObject
+        if (collision.gameObject.CompareTag("Bean"))
         {
-            if (ahit.collider.CompareTag("Bean"))
-            {
-                GetPoints();
-                KnifeUp();
-                _isCutting = false;
-            }
-            if (ahit.collider.CompareTag("Table"))
-            {
-                KnifeUp();
-                _isCutting = false;
-            }
+            GetPoints();
+            _isCutting = false;
+
+            
+
         }
 
-
-
+        //Check for a match with the specific tag on any GameObject that collides with your GameObject
+        if (collision.gameObject.CompareTag("Table"))
+        {
+            
+            _isCutting = false;
+            
+            Debug.Log("Do something else here");
+        }
     }
 
-    private void KnifeUp()
-    {
-        transform.position = Vector3.Lerp(transform.position, _kitchenKnife.position, Time.deltaTime * _knifeupSpeed);
-    }
+        
 
     private void GetPoints()
     {
         throw new NotImplementedException();
-    }
-
-    private void ReturnToOriginalPosition()
-    {
-        transform.position = Vector3.Lerp(transform.position, _originalPosition, Time.deltaTime * _knifeupSpeed);
     }
 }
 

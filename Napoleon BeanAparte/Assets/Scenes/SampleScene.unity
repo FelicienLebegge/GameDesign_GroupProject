@@ -221,6 +221,56 @@ MonoBehaviour:
   _knifeupSpeed: 2
   partialMissPoints: 15
   completeMissPoints: 2
+  _loc: {fileID: 716035351}
+--- !u!64 &2776945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776940}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8346931171589140447, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
+--- !u!54 &2776946
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776940}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &166063792
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +316,6 @@ GameObject:
   - component: {fileID: 205736575}
   - component: {fileID: 205736574}
   - component: {fileID: 205736578}
-  - component: {fileID: 205736580}
   - component: {fileID: 205736579}
   m_Layer: 0
   m_Name: Table
@@ -373,7 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1736b80479535884fb4be4af2d9ad6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeansList: []
   KitchenState: 0
 --- !u!65 &205736579
 BoxCollider:
@@ -391,29 +439,11 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 0.03}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &205736580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205736573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeea39b880c9f264f90347f5ed15c393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _kitchenStateScripts: {fileID: 205736578}
-  _kitchenKnife: {fileID: 166063793}
-  _knifeDownSpeed: 5
-  _knifeupSpeed: 2
-  partialMissPoints: 15
-  completeMissPoints: 2
 --- !u!1 &316582633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1186,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &716035350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716035351}
+  m_Layer: 0
+  m_Name: KnifeLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716035351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716035350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.008736069, y: 1.16, z: 2.1105607}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822112193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1642,6 @@ MonoBehaviour:
   - {fileID: 396312875909874599, guid: 14d6323cc363f92479798879dbed5699, type: 3}
   _dirt: {fileID: 7824042180073134040, guid: 42c054759fbdcc24999c1207960717bd, type: 3}
   _spawnRadius: 0.5
-  ListManager: {fileID: 0}
   _kitchenStates: {fileID: 205736578}
 --- !u!4 &1022786567
 Transform:
@@ -2282,6 +2342,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2776942}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2776945}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2776946}
   m_SourcePrefab: {fileID: 100100000, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
 --- !u!1 &1993431326
 GameObject:
@@ -2603,3 +2669,4 @@ SceneRoots:
   - {fileID: 1619306}
   - {fileID: 1402828478}
   - {fileID: 166063793}
+  - {fileID: 716035351}
