@@ -454,7 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1736b80479535884fb4be4af2d9ad6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KitchenState: 0
 --- !u!65 &205736579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1797,7 +1796,6 @@ MonoBehaviour:
   - {fileID: 396312875909874599, guid: 14d6323cc363f92479798879dbed5699, type: 3}
   _dirt: {fileID: 7824042180073134040, guid: 42c054759fbdcc24999c1207960717bd, type: 3}
   _spawnRadius: 0.5
-  _kitchenStates: {fileID: 205736578}
   _panParent: {fileID: 1560757003}
 --- !u!4 &1022786567
 Transform:
@@ -2612,15 +2610,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4498114
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.512
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0020000935
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2693,7 +2691,7 @@ Transform:
   m_GameObject: {fileID: 1920961752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.622, y: 2.095, z: 4.927}
+  m_LocalPosition: {x: -0.43, y: 2.095, z: 5.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
