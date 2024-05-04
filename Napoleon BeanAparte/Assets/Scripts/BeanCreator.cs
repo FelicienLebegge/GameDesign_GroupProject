@@ -19,8 +19,11 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
-      [SerializeField] 
+    [SerializeField] 
     private KitchenStates _kitchenStates;
+
+    [SerializeField]
+    private GameObject _panParent;
 
 
 
@@ -57,7 +60,7 @@ public class PointSystem : MonoBehaviour
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount);
             GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
-            bean.transform.SetParent(transform); //keeps it clean
+            bean.transform.SetParent(_panParent.transform); //keeps it clean
         }
     }
 }

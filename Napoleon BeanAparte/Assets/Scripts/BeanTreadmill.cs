@@ -70,6 +70,7 @@ public class BeanTreadmill : MonoBehaviour
 
         Collider beanCollider = bean.GetComponent<Collider>(); //make sure the collider is not on trigger anymore to allow collisions
         beanCollider.isTrigger = false;
+
     }
 
     IEnumerator MoveBean(GameObject bean, Vector3 startPosition, Vector3 targetPosition)
