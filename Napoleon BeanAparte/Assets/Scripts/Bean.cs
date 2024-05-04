@@ -34,11 +34,16 @@ public class Bean : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
+        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+        rigidbody.isKinematic = true; //don't use the rigid body yet. Will be enabled in the cooking station
+
+        Collider beanCollider = gameObject.GetComponent<Collider>();
+        beanCollider.isTrigger = true; //make sure the collider is a trigger when instaniated in the dirt
     }
 
-        private void Update()
+    private void Update()
     {
         switch (_cookingStation)
         {
