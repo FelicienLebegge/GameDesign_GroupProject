@@ -5,11 +5,10 @@ using UnityEngine;
 using System;
 using static KitchenStates;
 using Unity.VisualScripting;
+using System.Diagnostics.CodeAnalysis;
 
 public class Bean : MonoBehaviour
-{
-    [SerializeField] private KitchenStates.CookingStation _cookingStation;
-    
+{   
     [SerializeField] 
     private float _moveSpeed = 3f;
     [SerializeField]
@@ -45,7 +44,7 @@ public class Bean : MonoBehaviour
 
     private void Update()
     {
-        switch (_cookingStation)
+        switch (KitchenStates.KitchenState)
         {
             case KitchenStates.CookingStation.Washing:
                 if(_isBeanMoving)
@@ -54,13 +53,26 @@ public class Bean : MonoBehaviour
                 };
                     break;
             case KitchenStates.CookingStation.Cutting:
+
+                if(KitchenStates.AreBeansWashed == true) //if the cutting station is activated and there are beans that are already washed, destroy the leftoverbeans
+                {
+                    Debug.Log("cutting station active");
+                    DestroyUnwashedBeans();
+                }
                 break;
             case KitchenStates.CookingStation.Cooking:
                 break;
         }
     }
 
-    
+    private void DestroyUnwashedBeans()
+    {
+        if(!_hasBeenAddedToList)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerExit(Collider collision)
     {
         
@@ -89,6 +101,7 @@ public class Bean : MonoBehaviour
         if (!_hasBeenAddedToList)
         {
             KitchenStates.BeansList.Add(this.gameObject);
+            KitchenStates.AreBeansWashed = true;
             _hasBeenAddedToList = true;
         }
     }

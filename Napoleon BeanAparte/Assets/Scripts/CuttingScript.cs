@@ -50,7 +50,7 @@ public class CuttingScript : MonoBehaviour
     void Update()
     {
         
-        if (_kitchenStateScripts.KitchenState == KitchenStates.CookingStation.Cutting)
+        if (KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting)
         {
             HandleInputs();
             if (_isCutting && _canCut)

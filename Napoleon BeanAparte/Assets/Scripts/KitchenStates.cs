@@ -7,10 +7,10 @@ public class KitchenStates : MonoBehaviour
 {
     public static List<GameObject> BeansList = new List<GameObject>();
 
+    public static bool AreBeansWashed = false;
 
+    public static bool IsCuttingDone = false;
     
-
-
 
     public enum CookingStation
     {
@@ -19,12 +19,15 @@ public class KitchenStates : MonoBehaviour
         Cooking
     }
 
-    public CookingStation KitchenState;
+    public static CookingStation KitchenState;
 
     // Update is called once per frame
     void Update()
     {
-   
+        if(BeansList.Count < 0) //from the moment a bean is added to the list set this to true
+        {
+            AreBeansWashed = true;
+        }
     }
 
     public void SetKitchenState(CookingStation newStation)

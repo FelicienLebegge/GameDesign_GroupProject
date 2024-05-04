@@ -24,13 +24,16 @@ public class BeanTreadmill : MonoBehaviour
     [SerializeField]
     private float _randomOffsetRange = 0.1f; // range around second target so the beans fall more naturaly
 
+    private bool _hasTreadmillStarted = false;
+
     private void Update()
     {
         Debug.Log(KitchenStates.BeansList.Count);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting && KitchenStates.AreBeansWashed && !_hasTreadmillStarted) //when the beans are washed and cutting is set to active start the treadmill
         {
             StartTreadmill();
+            _hasTreadmillStarted = true;
         }
     }
 
@@ -70,6 +73,8 @@ public class BeanTreadmill : MonoBehaviour
 
         Collider beanCollider = bean.GetComponent<Collider>(); //make sure the collider is not on trigger anymore to allow collisions
         beanCollider.isTrigger = false;
+
+        KitchenStates.IsCuttingDone = true;
 
     }
 

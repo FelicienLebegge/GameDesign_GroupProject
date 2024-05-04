@@ -16,11 +16,10 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private GameObject _dirt;
 
+    private GameObject _dirtInstance;
+
     [SerializeField]
     private float _spawnRadius = 5;
-
-    [SerializeField] 
-    private KitchenStates _kitchenStates;
 
     [SerializeField]
     private GameObject _panParent;
@@ -43,12 +42,18 @@ public class PointSystem : MonoBehaviour
             SpawnDirt();
         }
 
+       if(KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting && KitchenStates.AreBeansWashed)
+        {
+            Debug.Log("true");
+            Destroy(_dirtInstance);
+        }
+
     }
 
     private void SpawnDirt()
     {
         Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);
-        Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
+        _dirtInstance =  Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
     }
 

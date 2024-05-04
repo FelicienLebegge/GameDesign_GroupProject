@@ -27,40 +27,43 @@ public class CookingPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (KitchenStates.IsCuttingDone) //only when the cutting is done may the pan move, otherwise people can cheat the washing system
         {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.gameObject == gameObject) //check if pan is under mouse click
+                Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
                 {
-                    _isDragging = true;
-                    _isSnapping = false;
+                    if (hit.collider.gameObject == gameObject) //check if pan is under mouse click
+                    {
+                        _isDragging = true;
+                        _isSnapping = false;
+                    }
                 }
             }
-        }
 
-        if (_isDragging)
-        {
-            Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.y = transform.position.y; //keep the pan at the same height
+            if (_isDragging)
+            {
+                Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.y = transform.position.y; //keep the pan at the same height
 
-            transform.position = Vector3.Lerp(transform.position, mousePosition, Time.deltaTime * _snapSpeed);
+                transform.position = Vector3.Lerp(transform.position, mousePosition, Time.deltaTime * _snapSpeed);
 
-            UpdateBeanRigidBodies();
-        }
+                UpdateBeanRigidBodies();
+            }
 
-        if (Input.GetMouseButtonUp(0) && _isDragging)
-        {
-            _isDragging = false;
-            SnapToCookingPlate();
-        }
+            if (Input.GetMouseButtonUp(0) && _isDragging)
+            {
+                _isDragging = false;
+                SnapToCookingPlate();
+            }
 
-        if (_isSnapping)
-        {
-            transform.position = Vector3.Lerp(transform.position, _snapPosition.position, Time.deltaTime * _snapSpeed);
+            if (_isSnapping)
+            {
+                transform.position = Vector3.Lerp(transform.position, _snapPosition.position, Time.deltaTime * _snapSpeed);
+            }
         }
     }
 
