@@ -36,6 +36,7 @@ public class KitchenStates : MonoBehaviour
             case CookingStation.Washing:
                 break;
             case CookingStation.Cutting:
+
                 break;
             case CookingStation.Cooking:
                 break;

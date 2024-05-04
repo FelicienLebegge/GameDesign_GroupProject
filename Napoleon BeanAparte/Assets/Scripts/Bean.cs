@@ -8,8 +8,6 @@ using Unity.VisualScripting;
 
 public class Bean : MonoBehaviour
 {
-    KitchenStates _kitchenStates;
-
     [SerializeField] private KitchenStates.CookingStation _cookingStation;
     
     [SerializeField] 
@@ -19,6 +17,8 @@ public class Bean : MonoBehaviour
      
     private Vector4 _offset = new(2,4,6,8);
     private bool _isBeanMoving;
+
+    private bool _hasBeenAddedToList = false;
     public enum BeanTypes //assigned to each bean in the inspector
     {
         Pea,
@@ -29,10 +29,6 @@ public class Bean : MonoBehaviour
     }
 
     public BeanTypes BeanType;
-
-
-    public bool IsSelectable { get; set; }
-
 
     public int BeanValue;
 
@@ -53,7 +49,6 @@ public class Bean : MonoBehaviour
                 };
                     break;
             case KitchenStates.CookingStation.Cutting:
-
                 break;
             case KitchenStates.CookingStation.Cooking:
                 break;
@@ -64,42 +59,33 @@ public class Bean : MonoBehaviour
     private void OnTriggerExit(Collider collision)
     {
         
-        if (collision.gameObject.CompareTag("Dirt"))
+        if (collision.gameObject.CompareTag("Dirt")) //fixes a bug where the list kept growing once a bean is moved out
         {
             _isBeanMoving = true;
-            
         }
     }
 
     public void MoveBean()
     {
-        switch (BeanType)
+        if (transform.position != _beanPosition)
         {
-            case BeanTypes.Pea:
-                
-                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                KitchenStates.BeansList.Add(this.gameObject);
-                break;
-            case BeanTypes.Navy:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                KitchenStates.BeansList.Add(this.gameObject);
-                break;
-            case BeanTypes.Fava:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                KitchenStates.BeansList.Add(this.gameObject);
-                break;
-            case BeanTypes.Anasazi:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                KitchenStates.BeansList.Add(this.gameObject);
-                break;
-            case BeanTypes.French:
-                transform.position = Vector3.Lerp(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
-                KitchenStates.BeansList.Add(this.gameObject);
-                break;
+            transform.position = Vector3.MoveTowards(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
         }
-        //random unit circle
-        //clipping niet erg als types dezelfde zijn
+        else
+        {
+            // Bean has reached the target position
+            _isBeanMoving = false;
+            AddBean();
+        }
+    }
 
+    private void AddBean() //prevents a bug where the beans kept on adding to the list each frame
+    {
+        if (!_hasBeenAddedToList)
+        {
+            KitchenStates.BeansList.Add(this.gameObject);
+            _hasBeenAddedToList = true;
+        }
     }
 }
 
