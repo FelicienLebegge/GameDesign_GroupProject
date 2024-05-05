@@ -24,7 +24,7 @@ public class KitchenStates : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(BeansList.Count < 0) //from the moment a bean is added to the list set this to true
+        if (BeansList.Count < 0) //from the moment a bean is added to the list set this to true
         {
             AreBeansWashed = true;
         }

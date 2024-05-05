@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: -6272870155611385979}
   m_Layer: 0
   m_Name: Worst_Pan_Ever
-  m_TagString: Untagged
+  m_TagString: Pan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,6 +443,9 @@ MonoBehaviour:
   _snapPosition: {fileID: 0}
   _snapThreshold: 1
   _snapSpeed: 5
+  _rawThreshold: 10
+  _cookedThreshold: 20
+  _burnedThreshold: 25
 --- !u!1 &6240671510352342772
 GameObject:
   m_ObjectHideFlags: 0

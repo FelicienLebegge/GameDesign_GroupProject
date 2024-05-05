@@ -19,9 +19,6 @@ public class BeanTreadmill : MonoBehaviour
     private float _speed = 0.5f;
 
     [SerializeField]
-    private float _secondSpeed = 10f; //the speed to move to the second pan
-
-    [SerializeField]
     private float _randomOffsetRange = 0.1f; // range around second target so the beans fall more naturaly
 
     private bool _hasTreadmillStarted = false;

@@ -7,6 +7,7 @@ TagManager:
   - Dirt
   - Table
   - Bean
+  - Pan
   layers:
   - Default
   - TransparentFX

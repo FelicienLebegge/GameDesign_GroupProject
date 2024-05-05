@@ -5,9 +5,6 @@ using UnityEngine;
 public class PointSystem : MonoBehaviour
 {
     [SerializeField]
-    private bool _orderComplete;
-
-    [SerializeField]
     private int _beanCount = 20;
 
     [SerializeField]
@@ -24,12 +21,9 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private GameObject _panParent;
 
-
-
     private float _dirtPivotAdjustment = 1.5f;
 
-    // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         SpawnDirt();
     }
@@ -37,10 +31,6 @@ public class PointSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_orderComplete)
-        {
-            SpawnDirt();
-        }
 
        if(KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting && KitchenStates.AreBeansWashed)
         {

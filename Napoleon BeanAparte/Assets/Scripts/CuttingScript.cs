@@ -53,26 +53,25 @@ public class CuttingScript : MonoBehaviour
         if (KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting)
         {
             HandleInputs();
+
+
             if (_isCutting && _canCut)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, _loc.transform.position, Time.deltaTime * _knifeDownSpeed);
+                transform.position = Vector3.Lerp(transform.position, _loc.transform.position, Time.deltaTime * _knifeDownSpeed);
                
             }
             else
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, _originalPosition, Time.deltaTime * _knifeUpSpeed);
+                transform.position = Vector3.Lerp(transform.position, _originalPosition, Time.deltaTime * _knifeUpSpeed);
+
                 if (transform.position == _originalPosition)
                 {
                     _canCut = true;
                 }
             }
-
-
-           
-            
-            
         }
     }
+
     private void HandleInputs()
     {
         if (Input.GetMouseButtonDown(0))
@@ -101,9 +100,7 @@ public class CuttingScript : MonoBehaviour
         {
             GetPoints();
             _isCutting = false;
-
-            
-
+            Debug.Log("Bean cut");
         }
 
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
