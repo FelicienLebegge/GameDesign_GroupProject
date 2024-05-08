@@ -48,7 +48,7 @@ public class CookingPan : MonoBehaviour
     private bool _isCooking;
     private bool _isCollecting;
     private bool _isTrashing;
-
+    private int _cookingpoints;
 
     // Start is called before the first frame update
     void Awake()
@@ -120,9 +120,10 @@ public class CookingPan : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
 
                 if(collectProgress > _collectDuration) //give some time to let the lerp play out
-                GetPoints();
-                ResetPan();
                 
+                ResetPan();
+
+                KitchenStates.Score += _cookingpoints;
                 KitchenStates.IsOrderCompleted = true;
             }
 
@@ -133,10 +134,7 @@ public class CookingPan : MonoBehaviour
         }
     }
 
-    private void GetPoints()
-    {
-        throw new NotImplementedException();
-    }
+    
 
     private void SnapToCookingSpot()
     {
@@ -211,16 +209,20 @@ public class CookingPan : MonoBehaviour
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _burnedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is burned!");
+            _cookingpoints = 5;
+
         }
         else if (_cookingTime >= _cookedThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _cookedMaterial.color, Time.deltaTime * _colorChangeSpeed);
-            Debug.Log("The dish is cooked!");
+            Debug.Log("The dish is perfectly cooked!");
+            _cookingpoints = 25;
         }
         else if (_cookingTime >= _rawThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _rawMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is still raw!");
+            _cookingpoints = 10;
         }
     }
 
