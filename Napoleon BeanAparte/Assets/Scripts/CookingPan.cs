@@ -49,6 +49,7 @@ public class CookingPan : MonoBehaviour
     private bool _isCollecting;
     private bool _isTrashing;
     private int _cookingpoints;
+    private bool _isServing;
 
     // Start is called before the first frame update
     void Awake()
@@ -113,18 +114,30 @@ public class CookingPan : MonoBehaviour
                 CheckCookingStage();
             }
 
-            if(_isCollecting)
+            if(_isServing)
             {
                 float collectProgress = (Time.time - _collectStartTime) / _collectDuration;
 
                 transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
 
-                if(collectProgress > _collectDuration) //give some time to let the lerp play out
-                
-                ResetPan();
+                if (collectProgress > _collectDuration) //give some time to let the lerp play out
+
+                    ResetPan();
+
+                if(transform.position == _collectorEnd.position)
+                _isServing = false;
+
+
+            }
+            if(_isCollecting)
+            {
+                Debug.Log("Collected and spawned a dirt");
+                _isServing = true;
 
                 KitchenStates.Score += _cookingpoints;
                 KitchenStates.IsOrderCompleted = true;
+                
+                _isCollecting = false;
             }
 
             if (_isTrashing)

@@ -28,7 +28,7 @@ public class BeanTreadmill : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(KitchenStates.BeansList.Count);
+        //Debug.Log(KitchenStates.BeansList.Count);
 
         if (KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting && KitchenStates.AreBeansWashed && !_hasTreadmillStarted) //when the beans are washed and cutting is set to active start the treadmill
         {
@@ -51,11 +51,11 @@ public class BeanTreadmill : MonoBehaviour
             StartCoroutine(TreadMillCoroutine(bean.gameObject, delay));
             yield return new WaitForSeconds(delay);
 
-            
+            AddBeanPoints(bean); //bean points
         }
     }
 
-    private void AddBeanPoint(Bean bean)
+    private void AddBeanPoints(Bean bean)
     {
         _beanTypes = bean.BeanType;
             
