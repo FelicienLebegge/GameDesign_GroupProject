@@ -25,7 +25,7 @@ public class CuttingScript : MonoBehaviour
     private float _knifeUpSpeed = 10f;
 
     [SerializeField]
-    private int Points = 15;
+    private int _points = 25;
 
     [SerializeField]
     private int completeMissPoints = 2;
@@ -117,7 +117,7 @@ public class CuttingScript : MonoBehaviour
 
     private void GetPoints()
     {
-        KitchenStates.Score += 20;
+        KitchenStates.Score += _points;
         Debug.Log("Added 20 points");
     }
 }
