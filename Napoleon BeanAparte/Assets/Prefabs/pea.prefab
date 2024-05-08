@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1639853644373173241}
   - component: {fileID: -4574499195793959736}
   - component: {fileID: -2460813812903306044}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pea
   m_TagString: Bean
   m_Icon: {fileID: 0}
@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cookingStation: 0
   _moveSpeed: 3
   _beanPosition: {x: 0, y: 1.6, z: -4.5}
   BeanType: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,10 +25,17 @@ public class CameraSwitch : MonoBehaviour
     [SerializeField]
     private int _index;
 
+    private DrawCut _drawCut;
+    private MouseClickCut _mouseClickCut;
+
     // Start is called before the first frame update
     void Start()
     {
         Camera.main.transform.position = _cams[0].transform.position;
+        _drawCut = gameObject.GetComponent<DrawCut>();
+        _mouseClickCut = gameObject.GetComponent<MouseClickCut>();
+
+        
     }
 
     // Update is called once per frame
@@ -64,12 +72,18 @@ public class CameraSwitch : MonoBehaviour
         {
             case 0:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Washing);
+                _drawCut.enabled = false;
+                _mouseClickCut.enabled = false;
                 break;
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
+                _drawCut.enabled = true;
+                _mouseClickCut.enabled = true;
                 break;
             case 2:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
+                _drawCut.enabled = false;
+                _mouseClickCut.enabled = false;
                 break;
         }
     }

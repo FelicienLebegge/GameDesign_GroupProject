@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3327760656027454619}
   - component: {fileID: 3716865663885618494}
   - component: {fileID: -8734332637827251024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Navy B
   m_TagString: Bean
   m_Icon: {fileID: 0}
@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cookingStation: 0
   _moveSpeed: 3
   _beanPosition: {x: 0.15, y: 1.6, z: -4.5}
   BeanType: 1
