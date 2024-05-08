@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -14,6 +15,7 @@ public class KitchenStates : MonoBehaviour
     public static bool IsOrderCompleted = false;
 
     public static float Score;
+
     public enum CookingStation
     {
         Washing,
@@ -47,4 +49,6 @@ public class KitchenStates : MonoBehaviour
                 break;
         }
     }
+
+    
 }
