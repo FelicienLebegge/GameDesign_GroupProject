@@ -117,7 +117,8 @@ public class CuttingScript : MonoBehaviour
 
     private void GetPoints()
     {
-        //Score += Points
+        KitchenStates.Score += 20;
+        Debug.Log("Added 20 points");
     }
 }
 
