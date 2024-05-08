@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using static KitchenStates;
 
 public class BeanTreadmill : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class BeanTreadmill : MonoBehaviour
     private float _randomOffsetRange = 0.1f; // range around second target so the beans fall more naturaly
 
     private bool _hasTreadmillStarted = false;
+    private Bean.BeanTypes _beanTypes;
 
     private void Update()
     {
@@ -40,13 +43,40 @@ public class BeanTreadmill : MonoBehaviour
         float minDelay = 0.5f; 
         float delayMultiplier = 0.5f; 
 
-        foreach (GameObject bean in KitchenStates.BeansList)
+        foreach (Bean bean in BeansList)
         {
             float delay = maxDelay / (KitchenStates.BeansList.Count * delayMultiplier); //make the delay dependent on the amount of beans --> The more beans the less delay
             delay = Mathf.Clamp(delay, minDelay, maxDelay);
-
-            StartCoroutine(TreadMillCoroutine(bean, delay));
+            
+            StartCoroutine(TreadMillCoroutine(bean.gameObject, delay));
             yield return new WaitForSeconds(delay);
+
+            
+        }
+    }
+
+    private void AddBeanPoint(Bean bean)
+    {
+        _beanTypes = bean.BeanType;
+            
+        switch(_beanTypes)
+        {
+            case (Bean.BeanTypes.Pea):
+                KitchenStates.Score += 2;
+                break;
+            case (Bean.BeanTypes.Navy):
+                KitchenStates.Score += 4;
+                break;
+            case (Bean.BeanTypes.Fava):
+                KitchenStates.Score += 6;
+                break;
+            case (Bean.BeanTypes.Anasazi):
+                KitchenStates.Score += 8;
+                break;
+            case (Bean.BeanTypes.French):
+                KitchenStates.Score += 10;
+                break;
+
         }
     }
 

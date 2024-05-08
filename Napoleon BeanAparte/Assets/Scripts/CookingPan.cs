@@ -120,7 +120,10 @@ public class CookingPan : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
 
                 if(collectProgress > _collectDuration) //give some time to let the lerp play out
+                GetPoints();
                 ResetPan();
+                
+                KitchenStates.IsOrderCompleted = true;
             }
 
             if (_isTrashing)
@@ -128,6 +131,11 @@ public class CookingPan : MonoBehaviour
                 ResetPan();
             }
         }
+    }
+
+    private void GetPoints()
+    {
+        throw new NotImplementedException();
     }
 
     private void SnapToCookingSpot()
@@ -179,7 +187,7 @@ public class CookingPan : MonoBehaviour
 
     private void UpdateBeanRigidBodies()
     {
-        foreach (GameObject bean in KitchenStates.BeansList)
+        foreach (Bean bean in KitchenStates.BeansList)
         {
             Rigidbody rigidbody = bean.GetComponent<Rigidbody>();
             if (rigidbody != null)
@@ -221,7 +229,7 @@ public class CookingPan : MonoBehaviour
         _cookingTime = 0;
         _renderer.material.color = _defaultMaterial.color; //go back to default material
 
-        foreach(GameObject bean in KitchenStates.BeansList)
+        foreach(Bean bean in KitchenStates.BeansList)
         {
             Destroy(bean);
         }

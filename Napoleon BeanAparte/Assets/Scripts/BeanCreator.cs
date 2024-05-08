@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointSystem : MonoBehaviour
 {
+
     [SerializeField]
     private int _beanCount = 20;
 
@@ -37,7 +38,10 @@ public class PointSystem : MonoBehaviour
             Debug.Log("true");
             Destroy(_dirtInstance);
         }
-
+       if(KitchenStates.IsOrderCompleted)
+        {
+            SpawnDirt();
+        }
     }
 
     private void SpawnDirt()
@@ -45,8 +49,9 @@ public class PointSystem : MonoBehaviour
         Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);
         _dirtInstance =  Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
+        KitchenStates.IsOrderCompleted = false;
     }
-
+     
     private void SpawnBeans()
     {
         

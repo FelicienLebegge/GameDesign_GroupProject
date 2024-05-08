@@ -5,13 +5,15 @@ using UnityEngine.Playables;
 
 public class KitchenStates : MonoBehaviour
 {
-    public static List<GameObject> BeansList = new List<GameObject>();
+    public static List<Bean> BeansList = new List<Bean>();
 
     public static bool AreBeansWashed = false;
 
     public static bool IsCuttingDone = false;
     
+    public static bool IsOrderCompleted = false;
 
+    public static float Score;
     public enum CookingStation
     {
         Washing,
