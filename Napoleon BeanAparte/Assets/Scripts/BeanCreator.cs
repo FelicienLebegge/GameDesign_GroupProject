@@ -44,6 +44,7 @@ public class PointSystem : MonoBehaviour
         }
     }
 
+    
     private void SpawnDirt()
     {
         Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);

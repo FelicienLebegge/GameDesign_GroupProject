@@ -100,7 +100,7 @@ public class Bean : MonoBehaviour
     {
         if (!_hasBeenAddedToList)
         {
-            KitchenStates.BeansList.Add(this.gameObject);
+            KitchenStates.BeansList.Add(this);
             KitchenStates.AreBeansWashed = true;
             _hasBeenAddedToList = true;
         }

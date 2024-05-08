@@ -130,7 +130,7 @@ public class CookingPan : MonoBehaviour
             if (_isTrashing)
             {
                 ResetPan();
-            }
+            }   
         }
     }
 
@@ -233,7 +233,7 @@ public class CookingPan : MonoBehaviour
 
         foreach(Bean bean in KitchenStates.BeansList)
         {
-            Destroy(bean);
+            Destroy(bean.gameObject);
         }
 
         KitchenStates.BeansList.Clear();
