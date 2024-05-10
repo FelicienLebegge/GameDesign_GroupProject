@@ -22,9 +22,9 @@ public class CookingPan : MonoBehaviour
     [SerializeField] private float _snapSpeed = 5f;
 
     private float _cookingTime = 0f;
-    [SerializeField] private float _rawThreshold = 10f; // Time in seconds for raw stage
-    [SerializeField] private float _cookedThreshold = 20f; // Time in seconds for cooked stage, 5 seconds to get it off the stove
-    [SerializeField] private float _burnedThreshold = 25f; // Time in seconds for burned stage
+    [SerializeField] private float _rawThreshold = 1f; // Time in seconds for raw stage
+    [SerializeField] private float _cookedThreshold = 10f; // Time in seconds for cooked stage, 5 seconds to get it off the stove
+    [SerializeField] private float _burnedThreshold = 15f; // Time in seconds for burned stage
 
     [SerializeField] private float _colorChangeSpeed = 3f;
 

@@ -154,8 +154,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1369455404}
   - {fileID: 1137638815}
+  - {fileID: 1369455404}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1619307
@@ -172,6 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 10
   _distanceFromCamera: 2
+  _shrinkSpeed: 0.1
+  _transparancyTreshold: 0.5
 --- !u!65 &1619308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ MonoBehaviour:
   _kitchenKnife: {fileID: 166063793}
   _knifeDownSpeed: 6
   _knifeUpSpeed: 10
-  Points: 15
+  _points: 25
   completeMissPoints: 2
   _loc: {fileID: 716035351}
 --- !u!64 &2776945
@@ -2082,7 +2084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2d5e9078474714b45b400beb06b9c660, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2258,7 +2260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2d5e9078474714b45b400beb06b9c660, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2922,9 +2924,9 @@ MonoBehaviour:
   _cookingSnapPosition03: {fileID: 1728632044}
   _snapThreshold: 0.5
   _snapSpeed: 5
-  _rawThreshold: 10
-  _cookedThreshold: 20
-  _burnedThreshold: 25
+  _rawThreshold: 1
+  _cookedThreshold: 10
+  _burnedThreshold: 15
   _colorChangeSpeed: 3
   _rawMaterial: {fileID: 2100000, guid: b7b194936a6c31843be7f0cbd5f2320d, type: 2}
   _cookedMaterial: {fileID: 2100000, guid: fcd95f55f2a902b419bd80331582f864, type: 2}

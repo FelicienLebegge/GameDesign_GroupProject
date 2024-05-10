@@ -13,6 +13,12 @@ public class Washer : MonoBehaviour
     [SerializeField]
     private float _distanceFromCamera = 2f;
 
+    [SerializeField]
+    private float _shrinkSpeed = 0.1f;
+
+    [SerializeField]
+    private float _transparancyTreshold = 0.5f; //how small can the dirt get before the washer has to become seethrough
+
     private GameObject _dirt; //will get assigned in ExecuteWashing() method
 
     private Vector3 _originalPosition;
@@ -22,10 +28,13 @@ public class Washer : MonoBehaviour
 
     private Camera _mainCamera;
 
+    private Renderer _renderer;
+
     private void Awake()
     {
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
+        _renderer = transform.GetChild(0).GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -46,6 +55,25 @@ public class Washer : MonoBehaviour
         if (_isDragging &&_isWashingDirt)
         {
             WashDirt();
+            AdjustTransparancy();
+        }
+    }
+
+    private void AdjustTransparancy()
+    {
+        float dirtSize = _dirt.transform.localScale.magnitude;
+
+        if (dirtSize < _transparancyTreshold)
+        {
+            Color color = _renderer.material.color;
+            color.a = 0.3f;
+            _renderer.material.color = color;
+        }
+        else
+        {
+            Color color = _renderer.material.color;
+            color.a = 1.0f;
+            _renderer.material.color = color;
         }
     }
 
@@ -117,7 +145,7 @@ public class Washer : MonoBehaviour
 
     private void WashDirt()
     {
-        Vector3 shrunkenScale = _dirt.transform.localScale * 0.9998f; //shrink by very small amount
+        Vector3 shrunkenScale = _dirt.transform.localScale * (1 - _shrinkSpeed * Time.deltaTime); //shrink by very small amount
         _dirt.transform.localScale = shrunkenScale;
     }
 
