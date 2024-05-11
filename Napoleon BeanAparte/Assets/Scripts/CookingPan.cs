@@ -50,6 +50,10 @@ public class CookingPan : MonoBehaviour
     private bool _isTrashing;
     private int _cookingpoints; //statemachine is beter 
     private bool _isServing;
+        
+    //test
+    [SerializeField]
+    private GameObject _panParent;
 
     // Start is called before the first frame update
     void Awake()
@@ -134,7 +138,7 @@ public class CookingPan : MonoBehaviour
 
                 KitchenStates.Score += _cookingpoints;
                 KitchenStates.IsOrderCompleted = true;
-                
+   
                 _isCollecting = false;
             }
 
@@ -200,6 +204,7 @@ public class CookingPan : MonoBehaviour
     {
         foreach (Bean bean in KitchenStates.BeansList)
         {
+            bean.transform.SetParent(_panParent.transform); //keeps it clean
             Rigidbody rigidbody = bean.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
@@ -258,9 +263,8 @@ public class CookingPan : MonoBehaviour
         }
 
      _isCooking = false;
-     _isCollecting = false;
      _isTrashing = false;
-     _isServing = false;
+     
 
         KitchenStates.BeansList.Clear();
         KitchenStates.IsTrashed = false;

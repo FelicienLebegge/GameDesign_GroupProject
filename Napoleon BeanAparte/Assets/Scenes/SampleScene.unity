@@ -2014,6 +2014,7 @@ MonoBehaviour:
   - {fileID: 396312875909874599, guid: 14d6323cc363f92479798879dbed5699, type: 3}
   - {fileID: 396312875909874599, guid: 14d6323cc363f92479798879dbed5699, type: 3}
   _dirt: {fileID: 7824042180073134040, guid: 42c054759fbdcc24999c1207960717bd, type: 3}
+  _dirttransform: {fileID: 1022786567}
   _spawnRadius: 0.5
   _panParent: {fileID: 1560757003}
 --- !u!4 &1022786567
@@ -2935,6 +2936,7 @@ MonoBehaviour:
   _collectorStart: {fileID: 1873623579}
   _collectorEnd: {fileID: 2009149993}
   _trash: {fileID: 1928280630}
+  _panParent: {fileID: 1560757003}
 --- !u!65 &1560757006
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class PointSystem : MonoBehaviour
 
     [SerializeField]
     private GameObject _dirt;
+    [SerializeField]
+    Transform _dirttransform;
 
     private GameObject _dirtInstance;
 
@@ -47,7 +49,8 @@ public class PointSystem : MonoBehaviour
     
     private void SpawnDirt()
     {
-        Vector3 targetDirtPostion = new Vector3(transform.position.x, _dirtPivotAdjustment, transform.position.z);
+        
+        Vector3 targetDirtPostion = new Vector3(_dirttransform.position.x, _dirtPivotAdjustment, _dirttransform.position.z);
         _dirtInstance =  Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
         KitchenStates.IsOrderCompleted = false;
@@ -55,13 +58,12 @@ public class PointSystem : MonoBehaviour
      
     private void SpawnBeans()
     {
-        
         for (int i=0; i< _beanCount; i++)
         {
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount);
-            GameObject bean = Instantiate(_beans[x], transform.position + pos, Quaternion.identity);
-            bean.transform.SetParent(_panParent.transform); //keeps it clean
+            GameObject bean = Instantiate(_beans[x], _dirttransform.position + pos, Quaternion.identity);
+            //bean.transform.SetParent(_panParent.transform); //keeps it clean but give replay issues
         }
     }
 }

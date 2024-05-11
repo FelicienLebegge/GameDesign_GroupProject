@@ -54,11 +54,9 @@ public class CuttingScript : MonoBehaviour
         {
             HandleInputs();
 
-
             if (_isCutting && _canCut)
             {
                 transform.position = Vector3.Lerp(transform.position, _loc.transform.position, Time.deltaTime * _knifeDownSpeed);
-               
             }
             else
             {
@@ -78,14 +76,12 @@ public class CuttingScript : MonoBehaviour
         {
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.gameObject == gameObject)
                 {
                     Debug.Log("cut detected");
                     _isCutting = true;
-                    
                 }
             }
         }
@@ -102,13 +98,10 @@ public class CuttingScript : MonoBehaviour
             _isCutting = false;
             Debug.Log("Bean cut");
         }
-
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Table"))
         {
-            
             _isCutting = false;
-            
             Debug.Log("Do something else here");
         }
     }
