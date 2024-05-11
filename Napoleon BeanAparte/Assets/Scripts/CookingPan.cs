@@ -205,6 +205,14 @@ public class CookingPan : MonoBehaviour
             {
                 rigidbody.isKinematic = true;
             }
+
+            /*
+            Rigidbody rigidbodyChild = bean.GetComponentInChildren<Rigidbody>();
+            if (rigidbody != null)
+            {
+                rigidbody.isKinematic = true;
+            }
+            */
         }
     }
 

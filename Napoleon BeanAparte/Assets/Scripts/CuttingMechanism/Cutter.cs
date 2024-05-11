@@ -83,6 +83,8 @@ public class Cutter : MonoBehaviour
         right.transform.tag = originalGameObject.transform.tag;
         right.name = originalGameObject.name + "right";
         right.AddComponent<MeshRenderer>();
+        right.AddComponent<Rigidbody>();
+        right.GetComponent<Rigidbody>().isKinematic = true;
         right.transform.SetParent(originalGameObject.transform);
         
 
@@ -484,7 +486,6 @@ public class Cutter : MonoBehaviour
                 FlipTriangel(currentTriangle);
             }
             _rightMesh.AddTriangle(currentTriangle);
-        
         } 
     }
 }

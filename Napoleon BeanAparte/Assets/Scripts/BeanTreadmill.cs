@@ -98,6 +98,11 @@ public class BeanTreadmill : MonoBehaviour
         Rigidbody rigidbody = bean.GetComponent<Rigidbody>(); //set the rigidbody active
         rigidbody.isKinematic = false;
 
+        /*
+        Rigidbody rigidbodyChild = bean.GetComponentInChildren<Rigidbody>(); //set the rigidbody active of child
+        rigidbodyChild.isKinematic = false;
+        */
+
         Collider beanCollider = bean.GetComponent<Collider>(); //make sure the collider is not on trigger anymore to allow collisions
         beanCollider.isTrigger = false;
 
