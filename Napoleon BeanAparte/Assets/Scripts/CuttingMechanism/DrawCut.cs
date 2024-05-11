@@ -66,6 +66,5 @@ public class DrawCut : MonoBehaviour
                 Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal);
             }
         }
-        
     }
 }

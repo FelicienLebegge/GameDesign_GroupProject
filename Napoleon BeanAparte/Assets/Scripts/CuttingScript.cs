@@ -85,8 +85,6 @@ public class CuttingScript : MonoBehaviour
                 }
             }
         }
-
-       
     }
     
     void OnTriggerEnter(Collider collision)
