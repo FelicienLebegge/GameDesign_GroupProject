@@ -126,8 +126,6 @@ public class CookingPan : MonoBehaviour
 
                 if(transform.position == _collectorEnd.position)
                 _isServing = false;
-
-
             }
             if(_isCollecting)
             {
@@ -142,6 +140,7 @@ public class CookingPan : MonoBehaviour
 
             if (_isTrashing)
             {
+                
                 ResetPan();
             }   
         }
@@ -180,6 +179,7 @@ public class CookingPan : MonoBehaviour
                 else if(_targetSnappingPosition == _trash)
                 {
                     _isTrashing = true;
+                    KitchenStates.IsTrashed = true;
                 }
 
                 break; //get out of here once a snapping point is found
@@ -263,6 +263,8 @@ public class CookingPan : MonoBehaviour
      _isServing = false;
 
         KitchenStates.BeansList.Clear();
+        KitchenStates.IsTrashed = false;
+
         ReturnToOriginalPosition();
     }
 }

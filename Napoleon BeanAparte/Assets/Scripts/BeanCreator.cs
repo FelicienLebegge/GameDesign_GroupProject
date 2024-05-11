@@ -38,7 +38,7 @@ public class PointSystem : MonoBehaviour
             Debug.Log("true");
             Destroy(_dirtInstance);
         }
-       if(KitchenStates.IsOrderCompleted)
+       if(KitchenStates.IsOrderCompleted || KitchenStates.IsTrashed)
         {
             SpawnDirt();
         }

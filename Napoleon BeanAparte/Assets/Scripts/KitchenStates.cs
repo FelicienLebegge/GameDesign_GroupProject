@@ -14,6 +14,8 @@ public class KitchenStates : MonoBehaviour
     
     public static bool IsOrderCompleted = false;
 
+    public static bool IsTrashed = false;
+
     public static float Score;
 
     public enum CookingStation
