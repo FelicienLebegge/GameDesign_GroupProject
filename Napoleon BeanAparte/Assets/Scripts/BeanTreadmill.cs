@@ -35,6 +35,11 @@ public class BeanTreadmill : MonoBehaviour
             StartTreadmill();
             _hasTreadmillStarted = true;
         }
+
+        if (KitchenStates.KitchenState == KitchenStates.CookingStation.Washing && _hasTreadmillStarted == true)
+        {
+            _hasTreadmillStarted = false;
+        }
     }
 
     IEnumerator StartBeans()

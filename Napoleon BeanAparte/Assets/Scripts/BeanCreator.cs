@@ -42,6 +42,7 @@ public class PointSystem : MonoBehaviour
         }
        if(KitchenStates.IsOrderCompleted || KitchenStates.IsTrashed)
         {
+            KitchenStates.AreBeansWashed = false;
             SpawnDirt();
         }
     }

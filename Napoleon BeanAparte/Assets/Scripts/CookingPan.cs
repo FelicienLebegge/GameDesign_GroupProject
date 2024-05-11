@@ -127,9 +127,6 @@ public class CookingPan : MonoBehaviour
                 if (collectProgress > _collectDuration) //give some time to let the lerp play out
 
                     ResetPan();
-
-                if(transform.position == _collectorEnd.position)
-                _isServing = false;
             }
             if(_isCollecting)
             {
@@ -264,8 +261,8 @@ public class CookingPan : MonoBehaviour
 
      _isCooking = false;
      _isTrashing = false;
-     
-
+     _isServing = false;
+     _isCollecting = false;
         KitchenStates.BeansList.Clear();
         KitchenStates.IsTrashed = false;
 
