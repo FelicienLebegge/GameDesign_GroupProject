@@ -48,7 +48,7 @@ public class CookingPan : MonoBehaviour
     private bool _isCooking;
     private bool _isCollecting;
     private bool _isTrashing;
-    private int _cookingpoints;
+    private int _cookingpoints; //statemachine is beter 
     private bool _isServing;
 
     // Start is called before the first frame update
@@ -256,6 +256,11 @@ public class CookingPan : MonoBehaviour
         {
             Destroy(bean.gameObject);
         }
+
+     _isCooking = false;
+     _isCollecting = false;
+     _isTrashing = false;
+     _isServing = false;
 
         KitchenStates.BeansList.Clear();
         ReturnToOriginalPosition();
