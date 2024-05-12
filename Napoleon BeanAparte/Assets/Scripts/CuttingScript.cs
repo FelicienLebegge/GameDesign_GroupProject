@@ -27,8 +27,8 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private int _points = 25;
 
-    [SerializeField]
-    private int completeMissPoints = 2;
+    //[SerializeField]
+    //private int completeMissPoints = 2;
    
     private Camera _mainCamera;
     private Vector3 _originalPosition;

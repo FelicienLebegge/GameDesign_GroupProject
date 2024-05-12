@@ -76,6 +76,7 @@ public class CookingPan : MonoBehaviour
     {
         if (KitchenStates.IsCuttingDone) //only when the cutting is done may the pan move, otherwise people can cheat the washing system
         {
+
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -118,16 +119,6 @@ public class CookingPan : MonoBehaviour
                 CheckCookingStage();
             }
 
-            if(_isServing)
-            {
-                float collectProgress = (Time.time - _collectStartTime) / _collectDuration;
-
-                transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
-
-                if (collectProgress > _collectDuration) //give some time to let the lerp play out
-
-                    ResetPan();
-            }
             if(_isCollecting)
             {
                 Debug.Log("Collected and spawned a dirt");
@@ -141,9 +132,22 @@ public class CookingPan : MonoBehaviour
 
             if (_isTrashing)
             {
-                
                 ResetPan();
-            }   
+            }
+
+
+            if (_isServing)
+            {
+                float collectProgress = (Time.time - _collectStartTime) / _collectDuration;
+
+                if(collectProgress < _collectDuration)
+                {
+                    transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
+                } else
+                {
+                    ResetPan();
+                }
+            }
         }
     }
 
@@ -192,6 +196,7 @@ public class CookingPan : MonoBehaviour
             _isCooking = false;
             _isCollecting = false;
             _isTrashing = false;
+            _isServing = false;
 
             ReturnToOriginalPosition();
         }
@@ -254,17 +259,19 @@ public class CookingPan : MonoBehaviour
         _cookingTime = 0;
         _renderer.material.color = _defaultMaterial.color; //go back to default material
 
-        foreach(Bean bean in KitchenStates.BeansList)
+        _isCooking = false;
+        _isTrashing = false;
+        _isCollecting = false;
+        _isServing = false;
+
+        foreach (Bean bean in KitchenStates.BeansList)
         {
             Destroy(bean.gameObject);
         }
 
-     _isCooking = false;
-     _isTrashing = false;
-     _isServing = false;
-     _isCollecting = false;
         KitchenStates.BeansList.Clear();
         KitchenStates.IsTrashed = false;
+        KitchenStates.IsCuttingDone = false;
 
         ReturnToOriginalPosition();
     }
