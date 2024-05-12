@@ -1,11 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using System;
-using static KitchenStates;
-using Unity.VisualScripting;
-using System.Diagnostics.CodeAnalysis;
 
 public class Bean : MonoBehaviour
 {   
