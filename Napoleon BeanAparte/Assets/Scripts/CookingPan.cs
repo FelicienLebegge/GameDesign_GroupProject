@@ -48,8 +48,12 @@ public class CookingPan : MonoBehaviour
     private bool _isCooking;
     private bool _isCollecting;
     private bool _isTrashing;
-    private int _cookingpoints;
+    private int _cookingpoints; //statemachine is beter 
     private bool _isServing;
+        
+    //test
+    [SerializeField]
+    private GameObject _panParent;
 
     // Start is called before the first frame update
     void Awake()
@@ -123,11 +127,6 @@ public class CookingPan : MonoBehaviour
                 if (collectProgress > _collectDuration) //give some time to let the lerp play out
 
                     ResetPan();
-
-                if(transform.position == _collectorEnd.position)
-                _isServing = false;
-
-
             }
             if(_isCollecting)
             {
@@ -136,12 +135,13 @@ public class CookingPan : MonoBehaviour
 
                 KitchenStates.Score += _cookingpoints;
                 KitchenStates.IsOrderCompleted = true;
-                
+   
                 _isCollecting = false;
             }
 
             if (_isTrashing)
             {
+                
                 ResetPan();
             }   
         }
@@ -180,6 +180,7 @@ public class CookingPan : MonoBehaviour
                 else if(_targetSnappingPosition == _trash)
                 {
                     _isTrashing = true;
+                    KitchenStates.IsTrashed = true;
                 }
 
                 break; //get out of here once a snapping point is found
@@ -200,6 +201,7 @@ public class CookingPan : MonoBehaviour
     {
         foreach (Bean bean in KitchenStates.BeansList)
         {
+            bean.transform.SetParent(_panParent.transform); //keeps it clean
             Rigidbody rigidbody = bean.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
@@ -257,7 +259,13 @@ public class CookingPan : MonoBehaviour
             Destroy(bean.gameObject);
         }
 
+     _isCooking = false;
+     _isTrashing = false;
+     _isServing = false;
+     _isCollecting = false;
         KitchenStates.BeansList.Clear();
+        KitchenStates.IsTrashed = false;
+
         ReturnToOriginalPosition();
     }
 }
