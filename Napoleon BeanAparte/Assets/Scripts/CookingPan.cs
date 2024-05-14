@@ -233,22 +233,22 @@ public class CookingPan : MonoBehaviour
         if (_cookingTime >= _burnedThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _burnedMaterial.color, Time.deltaTime * _colorChangeSpeed);
-            Debug.Log("The dish is burned!");
-            _cookingpoints = 5;
+            Debug.Log("The dish is overcooked!");
+            _cookingpoints = 150;
 
         }
         else if (_cookingTime >= _cookedThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _cookedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is perfectly cooked!");
-            _cookingpoints = 25;
+            _cookingpoints = 300;
         }
         else if (_cookingTime >= _rawThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _rawMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is still raw!");
-            _cookingpoints = 10;
-        }
+            _cookingpoints = 50;
+        } 
     }
 
     private void ResetPan()

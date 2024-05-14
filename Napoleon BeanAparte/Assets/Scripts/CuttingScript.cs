@@ -19,7 +19,7 @@ public class CuttingScript : MonoBehaviour
     private float _knifeUpSpeed = 10f;
 
     [SerializeField]
-    private int _points = 25;
+    private int _points = 18;
 
     //[SerializeField]
     //private int completeMissPoints = 2;
