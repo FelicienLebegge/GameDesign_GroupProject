@@ -12,12 +12,14 @@ public class CookingPan : MonoBehaviour
     private Transform _targetSnappingPosition;
     private Transform[] _possibleSnapTargets;
 
+    [Header("Positions")]
     [SerializeField] private Transform _cookingSnapPosition01;
     [SerializeField] private Transform _cookingSnapPosition02;
     [SerializeField] private Transform _cookingSnapPosition03;
     [SerializeField] private float _snapThreshold = 0.5f;
     [SerializeField] private float _snapSpeed = 5f;
 
+    [Header("Cookingtimers")]
     private float _cookingTime = 0f;
     [SerializeField] private float _rawThreshold = 1f; // Time in seconds for raw stage
     [SerializeField] private float _cookedThreshold = 10f; // Time in seconds for cooked stage, 5 seconds to get it off the stove
@@ -25,10 +27,10 @@ public class CookingPan : MonoBehaviour
 
     [SerializeField] private float _colorChangeSpeed = 3f;
 
+    [Header("Materials")]
     [SerializeField] private Material _rawMaterial;
     [SerializeField] private Material _cookedMaterial;
     [SerializeField] private Material _burnedMaterial;
-
     [SerializeField] private Material _defaultMaterial;
 
     [SerializeField] private Transform _collectorStart;
@@ -236,6 +238,7 @@ public class CookingPan : MonoBehaviour
             _renderer.material.color = Color.Lerp(_renderer.material.color, _burnedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is overcooked!");
             _cookingpoints = 150;
+
 
         }
         else if (_cookingTime >= _cookedThreshold)

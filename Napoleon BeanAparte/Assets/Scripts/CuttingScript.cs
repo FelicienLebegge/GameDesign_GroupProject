@@ -1,4 +1,5 @@
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class CuttingScript : MonoBehaviour
@@ -12,10 +13,11 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private Transform _kitchenKnife;
 
-    [SerializeField] private GameObject _text;
-    [SerializeField] private GameObject _text2;
-    [SerializeField] private GameObject _miss;
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI _miss;
 
+    [Header("KnifeSpeed")]
     [SerializeField]
     private float _knifeDownSpeed = 20f;
 
@@ -78,7 +80,7 @@ public class CuttingScript : MonoBehaviour
 
                 if (_missTimer >= 0.2f)
                 {
-                    _miss.SetActive(false);
+                    _miss.enabled = false;
                     _missTimer = 0;
                     _isMissTimerActive = false;
                 }
@@ -88,7 +90,7 @@ public class CuttingScript : MonoBehaviour
                 _timer += Time.deltaTime;
                 if (_timer >= 0.2f)
                 {
-                    _text.SetActive(false);
+                    _text.enabled = false;
                     _timer = 0;
                     _isTimerActive = false;
                 }
@@ -123,12 +125,12 @@ public class CuttingScript : MonoBehaviour
             _timer = 0f;
             GetPoints();
             _isCutting = false;
-            _text.SetActive(true);
+            _text.enabled = true;
             _isTimerActive = true;
 
             if (_timer >= 0.5f) 
             {
-                _text.SetActive(false);
+                _text.enabled = false;
                 _timer = 0;
                 
             }
@@ -138,13 +140,13 @@ public class CuttingScript : MonoBehaviour
         {
             _missTimer = 0f;
             _isCutting = false;
-            _miss.SetActive(true);
+            _miss.enabled = true;
             _isMissTimerActive = true;
             
 
             if (_missTimer >= 0.5f)    
             {
-                _miss.SetActive(false);
+                _miss.enabled = false;
                 _missTimer = 0;
             }
             
