@@ -15,12 +15,17 @@ public class Washer : MonoBehaviour
     [SerializeField]
     private float _transparancyTreshold = 0.5f; //how small can the dirt get before the washer has to become seethrough
 
+    [SerializeField]
+    private float _activeTreshold = 0.1f; //when the dirt is too small 
+
     private GameObject _dirt; //will get assigned in ExecuteWashing() method
 
     private Vector3 _originalPosition;
 
     private bool _isDragging;
     private bool _isWashingDirt;
+
+    public static bool IsDirtTooSMall = false; //see beanscript
 
     private Camera _mainCamera;
 
@@ -52,6 +57,7 @@ public class Washer : MonoBehaviour
         {
             WashDirt();
             AdjustTransparancy();
+            CheckSize();
         }
     }
 
@@ -70,6 +76,17 @@ public class Washer : MonoBehaviour
             Color color = _renderer.material.color;
             color.a = 1.0f;
             _renderer.material.color = color;
+        }
+    }
+
+    private void CheckSize()
+    {
+        float dirtSize = _dirt.transform.localScale.magnitude;
+
+        if(dirtSize < _activeTreshold)
+        {
+            IsDirtTooSMall = true;
+            Destroy(_dirt);
         }
     }
 

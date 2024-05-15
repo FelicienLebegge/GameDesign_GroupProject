@@ -56,6 +56,11 @@ public class Bean : MonoBehaviour
             case KitchenStates.CookingStation.Cooking:
                 break;
         }
+
+        if(Washer.IsDirtTooSMall)
+        {
+            _isBeanMoving = true;
+        }
     }
 
     private void DestroyUnwashedBeans()
@@ -72,6 +77,7 @@ public class Bean : MonoBehaviour
         if (collision.gameObject.CompareTag("Dirt")) //fixes a bug where the list kept growing once a bean is moved out
         {
             _isBeanMoving = true;
+           
         }
     }
 
