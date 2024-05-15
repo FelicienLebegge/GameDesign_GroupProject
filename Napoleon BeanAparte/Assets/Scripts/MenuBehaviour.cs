@@ -7,6 +7,8 @@ public class MenuBehaviour : MonoBehaviour
 {
     public void Play()
     {
+        KitchenStates.Score = 0;
+        Washer.IsDirtTooSMall = false;
         SceneManager.LoadScene(1);
     }
 
