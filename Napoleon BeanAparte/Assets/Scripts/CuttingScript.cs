@@ -35,7 +35,11 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private Transform _loc;
 
-    private float _timer;
+    [Header("Timers")]
+    private float _timer = 0f;
+    private float _missTimer = 0f;
+    private bool _isMissTimerActive;
+    private bool _isTimerActive;
 
     // Start is called before the first frame update
     void Awake()
@@ -67,6 +71,28 @@ public class CuttingScript : MonoBehaviour
                     _canCut = true;
                 }
             }
+            
+            if(_isMissTimerActive)
+            {
+                _missTimer += Time.deltaTime;
+
+                if (_missTimer >= 0.2f)
+                {
+                    _miss.SetActive(false);
+                    _missTimer = 0;
+                    _isMissTimerActive = false;
+                }
+            }
+            if(_isTimerActive)
+            {
+                _timer += Time.deltaTime;
+                if (_timer >= 0.2f)
+                {
+                    _text.SetActive(false);
+                    _timer = 0;
+                    _isTimerActive = false;
+                }
+            }
         }
     }
 
@@ -93,12 +119,14 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Bean"))
         {
-            _timer += Time.deltaTime;
+            
+            _timer = 0f;
             GetPoints();
             _isCutting = false;
             _text.SetActive(true);
+            _isTimerActive = true;
 
-            if (_timer == 1) 
+            if (_timer >= 0.5f) 
             {
                 _text.SetActive(false);
                 _timer = 0;
@@ -108,16 +136,18 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Table"))
         {
-            _timer += Time.deltaTime;
+            _missTimer = 0f;
+            _isCutting = false;
             _miss.SetActive(true);
+            _isMissTimerActive = true;
+            
 
-            if (_timer == 1)    
+            if (_missTimer >= 0.5f)    
             {
                 _miss.SetActive(false);
-                _timer = 0;
+                _missTimer = 0;
             }
-            _isCutting = false;
-            Debug.Log("Do something else here");
+            
         }
     }
 
