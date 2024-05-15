@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class CuttingScript : MonoBehaviour
@@ -11,6 +12,9 @@ public class CuttingScript : MonoBehaviour
     [SerializeField]
     private Transform _kitchenKnife;
 
+    [SerializeField] private GameObject _text;
+    [SerializeField] private GameObject _text2;
+    [SerializeField] private GameObject _miss;
 
     [SerializeField]
     private float _knifeDownSpeed = 20f;
@@ -30,6 +34,8 @@ public class CuttingScript : MonoBehaviour
 
     [SerializeField]
     private Transform _loc;
+
+    private float _timer;
 
     // Start is called before the first frame update
     void Awake()
@@ -75,6 +81,7 @@ public class CuttingScript : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     Debug.Log("cut detected");
+                    
                     _isCutting = true;
                 }
             }
@@ -86,13 +93,29 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Bean"))
         {
+            _timer += Time.deltaTime;
             GetPoints();
             _isCutting = false;
-            Debug.Log("Bean cut");
+            _text.SetActive(true);
+
+            if (_timer == 1) 
+            {
+                _text.SetActive(false);
+                _timer = 0;
+                
+            }
         }
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Table"))
         {
+            _timer += Time.deltaTime;
+            _miss.SetActive(true);
+
+            if (_timer == 1)    
+            {
+                _miss.SetActive(false);
+                _timer = 0;
+            }
             _isCutting = false;
             Debug.Log("Do something else here");
         }

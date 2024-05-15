@@ -53,6 +53,7 @@ public class PointSystem : MonoBehaviour
         _dirtInstance =  Instantiate(_dirt, targetDirtPostion, Quaternion.identity);
         SpawnBeans();
         KitchenStates.IsOrderCompleted = false;
+        KitchenStates.IsTrashed = false;
     }
      
     private void SpawnBeans()

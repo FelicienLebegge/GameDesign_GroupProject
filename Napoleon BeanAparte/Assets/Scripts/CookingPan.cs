@@ -130,6 +130,7 @@ public class CookingPan : MonoBehaviour
             if (_isTrashing)
             {
                 ResetPan();
+                KitchenStates.IsTrashed = true;
             }
 
 
@@ -257,7 +258,7 @@ public class CookingPan : MonoBehaviour
         _renderer.material.color = _defaultMaterial.color; //go back to default material
 
         _isCooking = false;
-        _isTrashing = false;
+        
         _isCollecting = false;
         _isServing = false;
 
