@@ -151,8 +151,6 @@ public class CookingPan : MonoBehaviour
         }
     }
 
-    
-
     private void SnapToCookingSpot()
     {
         bool snapped = false;
@@ -212,7 +210,7 @@ public class CookingPan : MonoBehaviour
             {
                 rigidbody.isKinematic = true;
             }
-
+            
             /*
             Rigidbody rigidbodyChild = bean.GetComponentInChildren<Rigidbody>();
             if (rigidbody != null)
@@ -264,6 +262,7 @@ public class CookingPan : MonoBehaviour
         
         _isCollecting = false;
         _isServing = false;
+        _isSnapping = false;
 
         foreach (Bean bean in KitchenStates.BeansList)
         {
@@ -273,6 +272,8 @@ public class CookingPan : MonoBehaviour
         KitchenStates.BeansList.Clear();
         KitchenStates.IsTrashed = false;
         KitchenStates.IsCuttingDone = false;
+
+        _targetSnappingPosition = null;
 
         ReturnToOriginalPosition();
     }
