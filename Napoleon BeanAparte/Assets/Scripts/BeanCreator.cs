@@ -19,9 +19,6 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float _spawnRadius = 5;
 
-    [SerializeField]
-    private GameObject _panParent;
-
     private float _dirtPivotAdjustment = 1.5f;
 
     void Start()
@@ -63,7 +60,6 @@ public class PointSystem : MonoBehaviour
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount);
             GameObject bean = Instantiate(_beans[x], _dirttransform.position + pos, Quaternion.identity);
-            //bean.transform.SetParent(_panParent.transform); //keeps it clean but give replay issues
         }
     }
 }
