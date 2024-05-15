@@ -4143,9 +4143,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3263101052014752163, guid: bc7af62f6ef5d6b49bdba2147c7341d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4173762749135204868}
-    - targetCorrespondingSourceObject: {fileID: 3263101052014752163, guid: bc7af62f6ef5d6b49bdba2147c7341d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4173762749135204869}
   m_SourcePrefab: {fileID: 100100000, guid: bc7af62f6ef5d6b49bdba2147c7341d3, type: 3}
 --- !u!4 &4173762749135204866 stripped
 Transform:
@@ -4179,35 +4176,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8697221699698517069, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
---- !u!114 &4173762749135204869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4173762749135204867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c4945f08c56cf240a53d143cf1e9c24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cookingSnapPosition01: {fileID: 0}
-  _cookingSnapPosition02: {fileID: 0}
-  _cookingSnapPosition03: {fileID: 0}
-  _snapThreshold: 0.5
-  _snapSpeed: 5
-  _rawThreshold: 1
-  _cookedThreshold: 10
-  _burnedThreshold: 15
-  _colorChangeSpeed: 3
-  _rawMaterial: {fileID: 0}
-  _cookedMaterial: {fileID: 0}
-  _burnedMaterial: {fileID: 0}
-  _defaultMaterial: {fileID: 0}
-  _collectorStart: {fileID: 0}
-  _collectorEnd: {fileID: 0}
-  _trash: {fileID: 0}
-  _panParent: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
