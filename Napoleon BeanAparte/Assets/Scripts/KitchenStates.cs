@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -66,6 +67,16 @@ public class KitchenStates : MonoBehaviour
                 _hasTimerStarted = false;
 
                 SceneManager.LoadScene(2); //load end screen
+            }
+
+            if(_timeLeft < 60)
+            {
+                _timerUI.color = Color.red;
+
+                if((int)_timeLeft % 2 == 0)
+                {
+                    _timerUI.color = Color.white;
+                }
             }
         }
     }
