@@ -49,7 +49,7 @@ public class CookingPan : MonoBehaviour
     private bool _isTrashing;
     private int _cookingpoints; //statemachine is beter 
     private bool _isServing;
-        
+
     //test
     [SerializeField]
     private GameObject _panParent;
@@ -113,19 +113,19 @@ public class CookingPan : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, _targetSnappingPosition.position, Time.deltaTime * _snapSpeed);
             }
 
-            if(_isCooking)
+            if (_isCooking)
             {
                 CheckCookingStage();
             }
 
-            if(_isCollecting)
+            if (_isCollecting)
             {
                 Debug.Log("Collected and spawned a dirt");
                 _isServing = true;
 
                 KitchenStates.Score += _cookingpoints;
                 KitchenStates.IsOrderCompleted = true;
-   
+
                 _isCollecting = false;
             }
 
@@ -140,10 +140,11 @@ public class CookingPan : MonoBehaviour
             {
                 float collectProgress = (Time.time - _collectStartTime) / _collectDuration;
 
-                if(collectProgress < _collectDuration)
+                if (collectProgress < _collectDuration)
                 {
                     transform.position = Vector3.Lerp(transform.position, _collectorEnd.position, Time.deltaTime * _snapSpeed);
-                } else
+                }
+                else
                 {
                     ResetPan();
                 }
@@ -172,14 +173,14 @@ public class CookingPan : MonoBehaviour
                     _targetSnappingPosition == _cookingSnapPosition03)
                 {
                     _isCooking = true;
-                } 
+                }
                 else if (_targetSnappingPosition == _collectorStart)
                 {
                     _isCollecting = true;
                     _collectStartTime = Time.time;
                 }
 
-                else if(_targetSnappingPosition == _trash)
+                else if (_targetSnappingPosition == _trash)
                 {
                     _isTrashing = true;
                     KitchenStates.IsTrashed = true;
@@ -210,7 +211,7 @@ public class CookingPan : MonoBehaviour
             {
                 rigidbody.isKinematic = true;
             }
-            
+
             /*
             Rigidbody rigidbodyChild = bean.GetComponentInChildren<Rigidbody>();
             if (rigidbody != null)
@@ -250,7 +251,7 @@ public class CookingPan : MonoBehaviour
             _renderer.material.color = Color.Lerp(_renderer.material.color, _rawMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is still raw!");
             _cookingpoints = 50;
-        } 
+        }
     }
 
     private void ResetPan()
@@ -259,7 +260,7 @@ public class CookingPan : MonoBehaviour
         _renderer.material.color = _defaultMaterial.color; //go back to default material
 
         _isCooking = false;
-        
+
         _isCollecting = false;
         _isServing = false;
         _isSnapping = false;
