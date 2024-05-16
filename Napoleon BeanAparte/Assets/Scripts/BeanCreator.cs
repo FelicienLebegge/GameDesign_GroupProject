@@ -60,6 +60,8 @@ public class PointSystem : MonoBehaviour
             Vector3 pos = Random.insideUnitSphere * _spawnRadius;
             int x = Random.Range(0, _beanCount);
             GameObject bean = Instantiate(_beans[x], _dirttransform.position + pos, Quaternion.identity);
+
+            bean.transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         }
     }
 }
