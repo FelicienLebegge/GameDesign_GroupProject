@@ -14,9 +14,8 @@ public class CookingPan : MonoBehaviour
     private Transform[] _possibleSnapTargets;
 
     [Header("Positions")]
-    [SerializeField] private Transform _cookingSnapPosition01;
-    [SerializeField] private Transform _cookingSnapPosition02;
-    [SerializeField] private Transform _cookingSnapPosition03;
+    [SerializeField] private Transform _collectorStart;
+    [SerializeField] private Transform _collectorEnd;
     [SerializeField] private float _snapThreshold = 0.5f;
     [SerializeField] private float _snapSpeed = 5f;
 
@@ -34,17 +33,12 @@ public class CookingPan : MonoBehaviour
     [SerializeField] private Material _burnedMaterial;
     [SerializeField] private Material _defaultMaterial;
 
-    [SerializeField] private Transform _collectorStart;
-    [SerializeField] private Transform _collectorEnd;
-
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _underCooked;
     [SerializeField] private TextMeshProUGUI _cooked;
     [SerializeField] private TextMeshProUGUI _overCooked;
     private float _collectDuration = 0.5f;
     private float _collectStartTime;
-
-    [SerializeField] private Transform _trash;
 
 
     private Renderer _renderer;
@@ -69,7 +63,7 @@ public class CookingPan : MonoBehaviour
             _renderer = pan.GetComponent<Renderer>();
         }
 
-        _possibleSnapTargets = new Transform[] { _cookingSnapPosition01, _cookingSnapPosition02, _cookingSnapPosition03, _collectorStart, _trash }; //fill array with all possible snappingtargets
+        _possibleSnapTargets = new Transform[] { _collectorStart }; //fill array with all possible snappingtargets
 
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
@@ -80,6 +74,8 @@ public class CookingPan : MonoBehaviour
     {
         if (KitchenStates.IsCuttingDone) //only when the cutting is done may the pan move, otherwise people can cheat the washing system
         {
+
+            Debug.Log(_isCooking);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -140,12 +136,6 @@ public class CookingPan : MonoBehaviour
                 _isCollecting = false;
             }
 
-            if (_isTrashing)
-            {
-                ResetPan();
-                KitchenStates.IsTrashed = true;
-            }
-
 
             if (_isServing)
             {
@@ -163,6 +153,24 @@ public class CookingPan : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Stove"))
+        {
+            _isCooking = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Stove"))
+        {
+            _isCooking = false;
+        }
+    }
+
+
+
     private void SnapToCookingSpot()
     {
         bool snapped = false;
@@ -179,22 +187,10 @@ public class CookingPan : MonoBehaviour
                 _targetSnappingPosition = snappingPoint;
                 snapped = true;
 
-                if (_targetSnappingPosition == _cookingSnapPosition01 ||
-                    _targetSnappingPosition == _cookingSnapPosition02 ||
-                    _targetSnappingPosition == _cookingSnapPosition03)
-                {
-                    _isCooking = true;
-                }
-                else if (_targetSnappingPosition == _collectorStart)
+                if (_targetSnappingPosition == _collectorStart)
                 {
                     _isCollecting = true;
                     _collectStartTime = Time.time;
-                }
-
-                else if (_targetSnappingPosition == _trash)
-                {
-                    _isTrashing = true;
-                    KitchenStates.IsTrashed = true;
                 }
 
                 break; //get out of here once a snapping point is found
@@ -222,14 +218,6 @@ public class CookingPan : MonoBehaviour
             {
                 rigidbody.isKinematic = true;
             }
-
-            /*
-            Rigidbody rigidbodyChild = bean.GetComponentInChildren<Rigidbody>();
-            if (rigidbody != null)
-            {
-                rigidbody.isKinematic = true;
-            }
-            */
         }
     }
 

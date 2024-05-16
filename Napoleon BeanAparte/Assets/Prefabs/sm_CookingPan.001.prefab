@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7929f57783b67cc449f36683cecb5fbb, type: 2}
     - target: {fileID: 919132149155446097, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
       propertyPath: m_Name
       value: sm_CookingPan.001
@@ -63,9 +67,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2363701884904487867}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8064368074674827879}
   m_SourcePrefab: {fileID: 100100000, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
 --- !u!1 &110445237068055175 stripped
 GameObject:
@@ -94,32 +95,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8697221699698517069, guid: c739c98dd560b0f4fa535659a1b99df0, type: 3}
---- !u!114 &8064368074674827879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110445237068055175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c4945f08c56cf240a53d143cf1e9c24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cookingSnapPosition01: {fileID: 0}
-  _cookingSnapPosition02: {fileID: 0}
-  _cookingSnapPosition03: {fileID: 0}
-  _snapThreshold: 0.5
-  _snapSpeed: 5
-  _rawThreshold: 1
-  _cookedThreshold: 10
-  _burnedThreshold: 15
-  _colorChangeSpeed: 3
-  _rawMaterial: {fileID: 0}
-  _cookedMaterial: {fileID: 0}
-  _burnedMaterial: {fileID: 0}
-  _defaultMaterial: {fileID: 0}
-  _collectorStart: {fileID: 0}
-  _collectorEnd: {fileID: 0}
-  _trash: {fileID: 0}
-  _panParent: {fileID: 0}
