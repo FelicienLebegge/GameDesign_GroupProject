@@ -118,7 +118,7 @@ public class BeanTreadmill : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * _speed;
+            t += Time.deltaTime * (_speed * KitchenStates.SpeedMultiplier);
 
             t = Mathf.Clamp01(t);
 

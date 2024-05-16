@@ -18,6 +18,8 @@ public class KitchenStates : MonoBehaviour
 
     public static float Score;
 
+    private float _totalTime = 180f; //3 minutes
+
     [SerializeField]
     private TextMeshProUGUI _scoreUI;
 
@@ -26,6 +28,8 @@ public class KitchenStates : MonoBehaviour
 
     private float _timeLeft;
     private bool _hasTimerStarted;
+
+    public static float SpeedMultiplier;
 
     public enum CookingStation
     {
@@ -38,7 +42,7 @@ public class KitchenStates : MonoBehaviour
 
     private void Start()
     {
-        _timeLeft = 180f; //3 minutes
+        _timeLeft = _totalTime; 
         _hasTimerStarted = true;
 
     }
@@ -52,15 +56,24 @@ public class KitchenStates : MonoBehaviour
         }
 
         _scoreUI.text = "Score: " + Score;
+        UpdateTimer();
 
-        if(_hasTimerStarted)
+        SpeedMultiplier = CalculateSpeedMultiplier();
+
+        Debug.Log(SpeedMultiplier);
+    }
+
+    private void UpdateTimer()
+    {
+        if (_hasTimerStarted)
         {
-            if(_timeLeft > 0)
+            if (_timeLeft > 0)
             {
                 _timeLeft -= Time.deltaTime;
                 UpdateTimer(_timeLeft);
 
-            } else
+            }
+            else
             {
                 Debug.Log("time's up");
                 _timeLeft = 0;
@@ -69,11 +82,11 @@ public class KitchenStates : MonoBehaviour
                 SceneManager.LoadScene(2); //load end screen
             }
 
-            if(_timeLeft < 60)
+            if (_timeLeft < 60)
             {
                 _timerUI.color = Color.red;
 
-                if((int)_timeLeft % 2 == 0)
+                if ((int)_timeLeft % 2 == 0)
                 {
                     _timerUI.color = Color.white;
                 }
@@ -90,6 +103,16 @@ public class KitchenStates : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((currentTime * 100) % 100);
 
         _timerUI.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+    }
+
+    private float CalculateSpeedMultiplier()
+    {
+        float timePercentage = _timeLeft / _totalTime;
+
+
+        float speedMultiplier = Mathf.Lerp(1f, 2f, 1 - timePercentage);
+
+        return speedMultiplier;
     }
 
     public void SetKitchenState(CookingStation newStation)

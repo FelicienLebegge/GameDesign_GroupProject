@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SineWave : MonoBehaviour
 {
-    public float speed = 2f; // Adjust the speed of the movement
-    public float amplitude = 1.5f; // Adjust the amplitude of the sine wave
+    private float _speed = 2f; // Adjust the speed of the movement
+    private float _amplitude = 1.5f; // Adjust the amplitude of the sine wave
 
     private Vector3 startPosition;
 
@@ -18,7 +18,7 @@ public class SineWave : MonoBehaviour
     void Update()
     {
 
-        float newY = startPosition.z + Mathf.Sin(Time.time * speed) * amplitude; //move along the z axis
+        float newY = startPosition.z + Mathf.Sin(Time.time * (_speed * KitchenStates.SpeedMultiplier)) * _amplitude; //move along the z axis
 
         transform.position = new Vector3(startPosition.x, startPosition.y, newY);
     }
