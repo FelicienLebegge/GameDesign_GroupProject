@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _beanPosition: {x: 0, y: 1.6, z: -4.5}
+  _beanPosition: {x: -0.1, y: 2, z: -5}
   BeanType: 0
   BeanValue: 1
 --- !u!54 &-2460813812903306044
