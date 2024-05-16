@@ -1,4 +1,5 @@
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CookingPan : MonoBehaviour
@@ -36,6 +37,10 @@ public class CookingPan : MonoBehaviour
     [SerializeField] private Transform _collectorStart;
     [SerializeField] private Transform _collectorEnd;
 
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI _underCooked;
+    [SerializeField] private TextMeshProUGUI _cooked;
+    [SerializeField] private TextMeshProUGUI _overCooked;
     private float _collectDuration = 0.5f;
     private float _collectStartTime;
 
@@ -114,6 +119,12 @@ public class CookingPan : MonoBehaviour
             if (_isCooking)
             {
                 CheckCookingStage();
+            }
+            else
+            {
+                _underCooked.enabled = false;
+                _cooked.enabled = false;
+                _overCooked.enabled = false;
             }
 
             if (_isCollecting)
@@ -230,6 +241,9 @@ public class CookingPan : MonoBehaviour
             Debug.Log("The dish is overcooked!");
             _cookingpoints = 150;
 
+            _underCooked.enabled = true;
+            _cooked.enabled = false;
+            _overCooked.enabled = false;
 
         }
         else if (_cookingTime >= _cookedThreshold)
@@ -237,12 +251,21 @@ public class CookingPan : MonoBehaviour
             _renderer.material.color = Color.Lerp(_renderer.material.color, _cookedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is perfectly cooked!");
             _cookingpoints = 300;
+
+            _underCooked.enabled = false;
+            _cooked.enabled = true;
+            _overCooked.enabled = false;
+
         }
         else if (_cookingTime >= _rawThreshold)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _rawMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is still raw!");
             _cookingpoints = 50;
+
+            _underCooked.enabled = false;
+            _cooked.enabled = false;
+            _overCooked.enabled = true;
         }
     }
 
