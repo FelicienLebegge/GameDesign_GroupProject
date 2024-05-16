@@ -30,6 +30,8 @@ public class Washer : MonoBehaviour
     private Camera _mainCamera;
 
     private Renderer _renderer;
+    [SerializeField]
+    private GameObject _particles;
 
     private void Awake()
     {
@@ -112,13 +114,15 @@ public class Washer : MonoBehaviour
         }
 
         if (_isDragging)
-        {
+        {   
             ExecuteWashing();
+            _particles.SetActive(true);
         }
         else                                  //allows for smooth movement to _originalPosition
         {
             _isWashingDirt = false;
             ReturnToOriginalPosition();
+            _particles.SetActive(false);
         }
     }
 
