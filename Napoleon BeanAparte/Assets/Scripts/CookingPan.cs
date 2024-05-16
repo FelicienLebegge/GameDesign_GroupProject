@@ -44,6 +44,8 @@ public class CookingPan : MonoBehaviour
     private float _collectDuration = 0.5f;
     private float _collectStartTime;
 
+    [SerializeField] private Transform _trash;
+
 
     private Renderer _renderer;
 
@@ -67,7 +69,7 @@ public class CookingPan : MonoBehaviour
             _renderer = pan.GetComponent<Renderer>();
         }
 
-        _possibleSnapTargets = new Transform[] { _cookingSnapPosition01, _cookingSnapPosition02, _cookingSnapPosition03, _collectorStart }; //fill array with all possible snappingtargets
+        _possibleSnapTargets = new Transform[] { _cookingSnapPosition01, _cookingSnapPosition02, _cookingSnapPosition03, _collectorStart, _trash }; //fill array with all possible snappingtargets
 
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
@@ -187,6 +189,12 @@ public class CookingPan : MonoBehaviour
                 {
                     _isCollecting = true;
                     _collectStartTime = Time.time;
+                }
+
+                else if (_targetSnappingPosition == _trash)
+                {
+                    _isTrashing = true;
+                    KitchenStates.IsTrashed = true;
                 }
 
                 break; //get out of here once a snapping point is found
