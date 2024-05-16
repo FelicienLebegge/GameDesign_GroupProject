@@ -194,7 +194,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.6295707, y: 0.24871367, z: 1.3636289}
-  m_Center: {x: 0.19042444, y: -0.060643166, z: 0.67807937}
+  m_Center: {x: -0, y: -0.060643166, z: 0.36}
 --- !u!1 &2776940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d412e8b8bfd53644a1f273581256251, type: 3}
@@ -3365,7 +3365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc871e7daeef544e8447a0168ddda8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21441227
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc871e7daeef544e8447a0168ddda8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3373,7 +3373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc871e7daeef544e8447a0168ddda8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.95599985
+      value: 0.631
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc871e7daeef544e8447a0168ddda8b, type: 3}
       propertyPath: m_LocalRotation.w
