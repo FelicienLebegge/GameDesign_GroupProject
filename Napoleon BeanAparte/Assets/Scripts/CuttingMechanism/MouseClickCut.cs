@@ -14,14 +14,8 @@ public class MouseClickCut : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 3, 1 << 2) && hit.transform.tag == "Bean")
-        {
-            Debug.Log("Object can be cut");
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
-
             if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out hit, 3, 1 << 2) && hit.transform.tag == "Bean")
             {
                 Debug.Log("Object can be cut");
