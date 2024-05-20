@@ -77,7 +77,6 @@ public class Bean : MonoBehaviour
         if (collision.gameObject.CompareTag("Dirt")) //fixes a bug where the list kept growing once a bean is moved out
         {
             _isBeanMoving = true;
-           
         }
     }
 

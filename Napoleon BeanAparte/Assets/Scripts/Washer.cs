@@ -111,6 +111,7 @@ public class Washer : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _isDragging = false;
+
         }
 
         if (_isDragging)
