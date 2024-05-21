@@ -10,7 +10,13 @@ public class Washer : MonoBehaviour
     private float _distanceFromCamera = 2f;
 
     [SerializeField]
-    private float _shrinkSpeed = 0.1f;
+    private float _shrinkSpeed = 0.05f;
+
+    [SerializeField]
+    private float _minShrinkSpeed = 0.03f;
+
+    [SerializeField]
+    private float _maxShrinkSpeed = 0.1f;
 
     [SerializeField]
     private float _transparancyTreshold = 0.5f; //how small can the dirt get before the washer has to become seethrough
@@ -36,6 +42,8 @@ public class Washer : MonoBehaviour
     [SerializeField]
     private CameraSwitch _cameraSwitch;
     private bool _hasLerped;
+
+    private Vector3 _lastMousePosition;
 
     private void Awake()
     {
@@ -178,6 +186,19 @@ public class Washer : MonoBehaviour
 
     private void WashDirt()
     {
+        Vector3 currentMousePosition = Input.mousePosition;
+        float mouseSpeed = Vector3.Distance(currentMousePosition, _lastMousePosition) / Time.deltaTime;
+
+        _lastMousePosition = currentMousePosition;
+
+
+        float adjustedShrinkSpeed = Mathf.Lerp(0, _maxShrinkSpeed, mouseSpeed / 100f);
+
+        adjustedShrinkSpeed = Mathf.Max(adjustedShrinkSpeed, _minShrinkSpeed);
+
+        _shrinkSpeed = adjustedShrinkSpeed;
+
+
         Vector3 shrunkenScale = _dirt.transform.localScale * (1 - _shrinkSpeed * Time.deltaTime); //shrink by very small amount
         _dirt.transform.localScale = shrunkenScale;
     }

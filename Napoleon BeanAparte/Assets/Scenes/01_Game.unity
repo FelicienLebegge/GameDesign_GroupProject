@@ -172,7 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 10
   _distanceFromCamera: 2
-  _shrinkSpeed: 0.1
+  _shrinkSpeed: 0.05
+  _minShrinkSpeed: 0.03
+  _maxShrinkSpeed: 0.25
   _transparancyTreshold: 0.5
   _activeTreshold: 0.1
   _particles: {fileID: 999735147}
