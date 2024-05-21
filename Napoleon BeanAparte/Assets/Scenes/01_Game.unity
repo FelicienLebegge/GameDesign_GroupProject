@@ -9069,7 +9069,7 @@ MonoBehaviour:
   _rawMaterial: {fileID: 2100000, guid: b7b194936a6c31843be7f0cbd5f2320d, type: 2}
   _cookedMaterial: {fileID: 2100000, guid: fcd95f55f2a902b419bd80331582f864, type: 2}
   _burnedMaterial: {fileID: 2100000, guid: 241a5a4874301b944916ddb441dbbeaf, type: 2}
-  _defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  _defaultMaterial: {fileID: 2100000, guid: 7929f57783b67cc449f36683cecb5fbb, type: 2}
   _underCooked: {fileID: 788055913}
   _cooked: {fileID: 1805775458}
   _overCooked: {fileID: 1308659960}
