@@ -166,7 +166,7 @@ public class Cutter : MonoBehaviour
     private static MeshTriangle GetTriangle(int _triangleIndexA, int _triangleIndexB, int _triangleIndexC, int _submeshIndex)
     {
         //Adding the Vertices at the triangleIndex
-        Vector3[] verticesToAdd = 
+        Vector3[] verticesToAdd = new Vector3[3]
         {
             originalMesh.vertices[_triangleIndexA],
             originalMesh.vertices[_triangleIndexB],
@@ -175,21 +175,32 @@ public class Cutter : MonoBehaviour
 
 
         //Adding the normals at the triangleIndex
-        Vector3[] normalsToAdd = 
+        Vector3[] normalsToAdd = new Vector3[3]
         {
             originalMesh.normals[_triangleIndexA],
             originalMesh.normals[_triangleIndexB],
             originalMesh.normals[_triangleIndexC]
         };
 
-
-        //adding the uvs at the triangleIndex
-        Vector2[] uvsToAdd = 
+        Vector2[] uvsToAdd;
+        if (originalMesh.uv.Length != 0) 
         {
+            uvsToAdd = new Vector2[3]
+            {
             originalMesh.uv[_triangleIndexA],
             originalMesh.uv[_triangleIndexB],
             originalMesh.uv[_triangleIndexC]
-        };
+            };
+        }
+        else
+        {
+            uvsToAdd = new Vector2[3]
+            {
+                new Vector2(1, 1),
+                new Vector2(1, 1),
+                new Vector2(1, 1)
+            };
+        }
 
         return new MeshTriangle(verticesToAdd, normalsToAdd, uvsToAdd, _submeshIndex);
     }
