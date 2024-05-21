@@ -1,6 +1,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CookingPan : MonoBehaviour
 {
@@ -22,8 +23,8 @@ public class CookingPan : MonoBehaviour
     [Header("Cookingtimers")]
     private float _cookingTime = 0f;
     [SerializeField] private float _rawThreshold = 1f; // Time in seconds for raw stage
-    [SerializeField] private float _cookedThreshold = 10f; // Time in seconds for cooked stage, 5 seconds to get it off the stove
-    [SerializeField] private float _burnedThreshold = 15f; // Time in seconds for burned stage
+    [SerializeField] private float _cookedThreshold = 5f; // Time in seconds for cooked stage, 5 seconds to get it off the stove
+    [SerializeField] private float _burnedThreshold = 10f; // Time in seconds for burned stage
 
     [SerializeField] private float _colorChangeSpeed = 3f;
 
@@ -52,6 +53,10 @@ public class CookingPan : MonoBehaviour
     //test
     [SerializeField]
     private GameObject _panParent;
+
+    [SerializeField]
+    private CameraSwitch _cameraSwitch;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -127,6 +132,7 @@ public class CookingPan : MonoBehaviour
 
             if (_isCollecting)
             {
+                AudioManager.instance.Play("Bell");
                 Debug.Log("Collected and spawned a dirt");
                 _isServing = true;
 
@@ -282,11 +288,12 @@ public class CookingPan : MonoBehaviour
         }
 
         KitchenStates.BeansList.Clear();
-        KitchenStates.IsTrashed = false;
         KitchenStates.IsCuttingDone = false;
 
         _targetSnappingPosition = null;
 
         ReturnToOriginalPosition();
+
+        _cameraSwitch.StartCameraLerp(0); //lerp back to washing station
     }
 }

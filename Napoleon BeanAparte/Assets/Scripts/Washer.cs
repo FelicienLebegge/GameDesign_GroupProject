@@ -33,6 +33,10 @@ public class Washer : MonoBehaviour
     [SerializeField]
     private GameObject _particles;
 
+    [SerializeField]
+    private CameraSwitch _cameraSwitch;
+    private bool _hasLerped;
+
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -44,6 +48,12 @@ public class Washer : MonoBehaviour
     void Update()
     {
         HandleInputs();
+
+        if (KitchenStates.BeansList.Count == 20 && !_hasLerped)
+        {
+            _hasLerped = true;
+            _cameraSwitch.StartCameraLerp(1); //lerp to cutting station
+        }
 
         if (!_isDragging && _isWashingDirt) // If not dragging and washing dirt, check if we are still hovering over dirt
         {
@@ -104,6 +114,7 @@ public class Washer : MonoBehaviour
                 if (hit.collider.gameObject == gameObject) //check if washer is under mouse click
                 {
                     _isDragging = true;
+                    AudioManager.instance.Play("Washer");
                 }
             }
         }
@@ -111,7 +122,7 @@ public class Washer : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _isDragging = false;
-
+            AudioManager.instance.Stop("Washer");
         }
 
         if (_isDragging)
@@ -124,6 +135,10 @@ public class Washer : MonoBehaviour
             _isWashingDirt = false;
             ReturnToOriginalPosition();
             _particles.SetActive(false);
+
+            Color color = _renderer.material.color; //set transparacy back to normal
+            color.a = 1.0f;
+            _renderer.material.color = color;
         }
     }
 

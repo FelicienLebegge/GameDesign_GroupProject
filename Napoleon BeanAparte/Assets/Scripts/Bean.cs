@@ -76,7 +76,11 @@ public class Bean : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Dirt")) //fixes a bug where the list kept growing once a bean is moved out
         {
-            _isBeanMoving = true;
+            if (!_isBeanMoving) // Makes the sound effect only play once, which is nice
+            {
+                _isBeanMoving = true;
+                AudioManager.instance.Play("BeanPop");
+            }
         }
     }
 

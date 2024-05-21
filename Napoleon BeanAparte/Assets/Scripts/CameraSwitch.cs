@@ -44,6 +44,7 @@ public class CameraSwitch : MonoBehaviour
 
         if (_isLerping)
         {
+
             _elapsedTime += Time.deltaTime;
             float completionPercentage = _elapsedTime / _lerpDuration; //get value between 0 and 1
 
@@ -59,7 +60,7 @@ public class CameraSwitch : MonoBehaviour
 
     void OnButtonClick(int i)
     {
-        
+        AudioManager.instance.Play("Woosh");
         _isLerping = true;
         _index = i;
         _elapsedTime = 0;
@@ -94,5 +95,40 @@ public class CameraSwitch : MonoBehaviour
         float currentFOV = Camera.main.fieldOfView;
 
         Camera.main.transform.position = Vector3.Lerp(currentPosition, _targetPosition, completionPercentage);
+    }
+
+    public void StartCameraLerp(int index)
+    {
+        if (index < 0 || index >= _cams.Length)
+        {
+            Debug.LogWarning("Invalid camera index.");
+            return;
+        }
+
+        _targetPosition = _cams[index].transform.position;
+        _isLerping = true;
+        _elapsedTime = 0f;
+
+        _index = index;
+
+
+        switch (index)
+        {
+            case 0:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Washing);
+                _drawCut.enabled = false;
+                _mouseClickCut.enabled = false;
+                break;
+            case 1:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
+                _drawCut.enabled = true;
+                _mouseClickCut.enabled = true;
+                break;
+            case 2:
+                _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
+                _drawCut.enabled = false;
+                _mouseClickCut.enabled = false;
+                break;
+        }
     }
 }

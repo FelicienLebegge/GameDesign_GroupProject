@@ -59,8 +59,6 @@ public class KitchenStates : MonoBehaviour
         UpdateTimer();
 
         SpeedMultiplier = CalculateSpeedMultiplier();
-
-        Debug.Log(SpeedMultiplier);
     }
 
     private void UpdateTimer()

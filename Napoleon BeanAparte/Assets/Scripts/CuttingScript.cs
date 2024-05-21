@@ -121,7 +121,7 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Bean"))
         {
-            
+            AudioManager.instance.Play("BeanCut");
             _timer = 0f;
             GetPoints();
             _isCutting = false;
@@ -138,6 +138,7 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Table"))
         {
+            AudioManager.instance.Play("CutMiss");
             _missTimer = 0f;
             _isCutting = false;
             _miss.enabled = true;
