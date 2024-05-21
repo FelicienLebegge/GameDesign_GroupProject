@@ -1,6 +1,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CookingPan : MonoBehaviour
 {
@@ -160,7 +161,7 @@ public class CookingPan : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Stove"))
+        if(other.CompareTag("Stove"))
         {
             _isCooking = true;
         }
