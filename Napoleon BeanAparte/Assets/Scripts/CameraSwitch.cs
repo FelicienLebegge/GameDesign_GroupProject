@@ -14,6 +14,7 @@ public class CameraSwitch : MonoBehaviour
 
     private float _elapsedTime;
     private bool _isLerping;
+    private bool IsNotAccesible;
 
     [SerializeField] private KitchenStates _kitchenStates;
 
@@ -31,8 +32,6 @@ public class CameraSwitch : MonoBehaviour
         Camera.main.transform.position = _cams[0].transform.position;
         _drawCut = gameObject.GetComponent<DrawCut>();
         _mouseClickCut = gameObject.GetComponent<MouseClickCut>();
-
-        
     }
 
     // Update is called once per frame
@@ -62,7 +61,14 @@ public class CameraSwitch : MonoBehaviour
     {
         AudioManager.instance.Play("Woosh");
         _isLerping = true;
-        _index = i;
+        if (i == 0)
+        {
+            if (!IsNotAccesible)
+            {
+                _index = i;
+            }
+        }
+        else _index = i;
         _elapsedTime = 0;
 
         //update kitchen state according to active station
@@ -130,5 +136,9 @@ public class CameraSwitch : MonoBehaviour
                 _mouseClickCut.enabled = false;
                 break;
         }
+    }
+    public void AccessabilityChange(bool acces)
+    {
+        IsNotAccesible = acces;
     }
 }

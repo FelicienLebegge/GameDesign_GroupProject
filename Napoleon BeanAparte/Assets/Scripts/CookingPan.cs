@@ -154,6 +154,7 @@ public class CookingPan : MonoBehaviour
                 else
                 {
                     ResetPan();
+                    Camera.main.GetComponent<CameraSwitch>().AccessabilityChange(false);
                 }
             }
         }

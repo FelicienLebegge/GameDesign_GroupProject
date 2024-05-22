@@ -31,6 +31,7 @@ public class BeanTreadmill : MonoBehaviour
         {
             StartTreadmill();
             _hasTreadmillStarted = true;
+            Camera.main.GetComponent<CameraSwitch>().AccessabilityChange(true);
         }
 
         if (KitchenStates.KitchenState == KitchenStates.CookingStation.Washing && _hasTreadmillStarted == true)

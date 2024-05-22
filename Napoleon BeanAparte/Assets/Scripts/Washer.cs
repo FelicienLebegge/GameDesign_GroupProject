@@ -61,6 +61,7 @@ public class Washer : MonoBehaviour
         {
             _hasLerped = true;
             _cameraSwitch.StartCameraLerp(1); //lerp to cutting station
+            Camera.main.GetComponent<CameraSwitch>().AccessabilityChange(true);
         }
 
         if (!_isDragging && _isWashingDirt) // If not dragging and washing dirt, check if we are still hovering over dirt
