@@ -82,7 +82,7 @@ public class MouseClickCut : MonoBehaviour
   
                     AudioManager.instance.Play("BeanCut");
                     _timer = 0f;
-                    GetPoints();
+                    
                     _text.enabled = true;
                     _isTimerActive = true;
 
