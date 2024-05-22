@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4687784997644345322}
   m_Layer: 2
   m_Name: Fava B
-  m_TagString: Bean
+  m_TagString: Fava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 3
   _beanPosition: {x: 0.45, y: 2, z: -4.25}
-  _beanPop: {fileID: 8300000, guid: 3525293752b24c94e91f7f93bde7d001, type: 3}
   BeanType: 2
   BeanValue: 5
 --- !u!54 &-1646690275239871829

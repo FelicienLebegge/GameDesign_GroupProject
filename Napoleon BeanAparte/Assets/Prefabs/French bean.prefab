@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2856804318602553302}
   m_Layer: 2
   m_Name: French bean
-  m_TagString: Bean
+  m_TagString: French
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

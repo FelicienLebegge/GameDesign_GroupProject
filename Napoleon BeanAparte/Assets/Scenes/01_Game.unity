@@ -1958,7 +1958,7 @@ Transform:
   m_GameObject: {fileID: 716035350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.058, y: 1.16, z: -0.018}
+  m_LocalPosition: {x: 1.058, y: 1.462, z: -0.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 559299617}
   _miss: {fileID: 42266000}
-  _points: 18
+  _points: 10
   angle: 1
 --- !u!114 &963194232
 MonoBehaviour:
@@ -10156,9 +10156,9 @@ MonoBehaviour:
   _kitchenKnife: {fileID: 166063793}
   _text: {fileID: 559299617}
   _miss: {fileID: 42266000}
-  _knifeDownSpeed: 6
-  _knifeUpSpeed: 60
-  _points: 25
+  _knifeDownSpeed: 20.87
+  _knifeUpSpeed: 65.2
+  _points: 10
   _loc: {fileID: 716035351}
 --- !u!54 &1971813413
 Rigidbody:
