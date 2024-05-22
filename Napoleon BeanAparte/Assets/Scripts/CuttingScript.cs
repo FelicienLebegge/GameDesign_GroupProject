@@ -1,8 +1,4 @@
-using System.Threading;
 using TMPro;
-using TreeEditor;
-using UnityEditor.Build.Content;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CuttingScript : MonoBehaviour
@@ -35,21 +31,13 @@ public class CuttingScript : MonoBehaviour
    
     private Camera _mainCamera;
     private Vector3 _originalPosition;
-    private Rigidbody _rb;
 
     [SerializeField]
     private Transform _loc;
 
-    [Header("Timers")]
-    private float _timer = 0f;
-    private float _missTimer = 0f;
-    private bool _isMissTimerActive;
-    private bool _isTimerActive;
-
     // Start is called before the first frame update
     void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
         _kitchenKnife = GetComponent<Transform>();
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
@@ -80,31 +68,6 @@ public class CuttingScript : MonoBehaviour
                     _canCut = false;
                 }
             }
-            
-
-
-
-            if (_isMissTimerActive)
-            {
-                _missTimer += Time.deltaTime;
-
-                if (_missTimer >= 0.2f)
-                {
-                    _miss.enabled = false;
-                    _missTimer = 0;
-                    _isMissTimerActive = false;
-                }
-            }
-            if(_isTimerActive)
-            {
-                _timer += Time.deltaTime;
-                if (_timer >= 0.2f)
-                {
-                    _text.enabled = false;
-                    _timer = 0;
-                    _isTimerActive = false;
-                }
-            }
         }
     }
 
@@ -131,50 +94,14 @@ public class CuttingScript : MonoBehaviour
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Bean"))
         {
-            AudioManager.instance.Play("BeanCut");
-            _timer = 0f;
-            GetPoints();
             _isCutting = false;
-            _text.enabled = true;
-            _isTimerActive = true;
-            if(gameObject.name == "French bean")
-            {
-                GetPoints();
-                Debug.Log("Double points GOLDEN BEAT");
-            }
-
-            if (_timer >= 0.5f) 
-            {
-                _text.enabled = false;
-                _timer = 0;
-                
-            }
         }
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Table"))
         {
-            AudioManager.instance.Play("CutMiss");
-            _missTimer = 0f;
             _isCutting = false;
-            _miss.enabled = true;
-            _isMissTimerActive = true;
-            
-
-            if (_missTimer >= 0.5f)    
-            {
-                _miss.enabled = false;
-                _missTimer = 0;
-            }
-            
         }
-    }
-
         
-
-    private void GetPoints()
-    {
-        KitchenStates.Score += _points;
-        Debug.Log("Added 20 points");
     }
 }
 
