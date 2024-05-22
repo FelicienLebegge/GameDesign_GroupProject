@@ -1,6 +1,7 @@
 using System.Threading;
 using TMPro;
 using TreeEditor;
+using UnityEditor.Build.Content;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -136,6 +137,11 @@ public class CuttingScript : MonoBehaviour
             _isCutting = false;
             _text.enabled = true;
             _isTimerActive = true;
+            if(gameObject.name == "French bean")
+            {
+                GetPoints();
+                Debug.Log("Double points GOLDEN BEAT");
+            }
 
             if (_timer >= 0.5f) 
             {

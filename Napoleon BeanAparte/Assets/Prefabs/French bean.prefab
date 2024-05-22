@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 3
   _beanPosition: {x: 0.2, y: 2, z: -4.55}
-  _beanPop: {fileID: 8300000, guid: 3525293752b24c94e91f7f93bde7d001, type: 3}
   BeanType: 4
   BeanValue: 10
 --- !u!54 &-2633307633276441142
