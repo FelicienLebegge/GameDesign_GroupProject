@@ -77,17 +77,17 @@ public class CameraSwitch : MonoBehaviour
             case 0:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Washing);
                 _drawCut.enabled = false;
-                _mouseClickCut.enabled = false;
+                //_mouseClickCut.enabled = false;
                 break;
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
                 _drawCut.enabled = true;
-                _mouseClickCut.enabled = true;
+                //_mouseClickCut.enabled = true;
                 break;
             case 2:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
                 _drawCut.enabled = false;
-                _mouseClickCut.enabled = false;
+                //_mouseClickCut.enabled = false;
                 break;
         }
     }
