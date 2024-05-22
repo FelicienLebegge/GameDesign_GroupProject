@@ -1,5 +1,7 @@
 using System.Threading;
 using TMPro;
+using TreeEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CuttingScript : MonoBehaviour
@@ -72,9 +74,16 @@ public class CuttingScript : MonoBehaviour
                 {
                     _canCut = true;
                 }
+                else
+                {
+                    _canCut = false;
+                }
             }
             
-            if(_isMissTimerActive)
+
+
+
+            if (_isMissTimerActive)
             {
                 _missTimer += Time.deltaTime;
 

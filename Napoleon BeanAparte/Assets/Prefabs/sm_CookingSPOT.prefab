@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2006510672542211300}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70057374, y: -0, z: -0, w: 0.71358}
-  m_LocalPosition: {x: 0.044, y: -0.289, z: -0.037}
+  m_LocalPosition: {x: 0.044, y: -0.02, z: -0.03}
   m_LocalScale: {x: 0.17911404, y: 0.18873028, z: 0.24076732}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3619,15 +3619,16 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    m_Planes: []
+    m_Planes:
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -3737,7 +3738,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3792,7 +3793,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 0
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
