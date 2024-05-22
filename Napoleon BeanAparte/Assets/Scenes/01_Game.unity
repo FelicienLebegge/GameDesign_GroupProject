@@ -3141,11 +3141,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b31ea036b6f4ba044bd67c59700bc42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 559299617}
+  _miss: {fileID: 42266000}
+  _points: 18
   angle: 1
 --- !u!114 &963194232
 MonoBehaviour:
