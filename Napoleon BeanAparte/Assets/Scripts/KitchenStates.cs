@@ -110,6 +110,7 @@ public class KitchenStates : MonoBehaviour
                 Debug.Log("time's up");
                 _timeLeft = 0;
                 _hasTimerStarted = false;
+                LeaderBoard.AddHighScoreEntry((int)Score, MenuBehaviour.Name);
 
                 SceneManager.LoadScene(2); //load end screen
             }
