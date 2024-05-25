@@ -12,14 +12,12 @@ public class LeaderBoard : MonoBehaviour
     [SerializeField]
     private Transform _entryTemplate;
 
-    private static List<HighScoreEntry> _highScoreEntryList;
+    private static List<HighScoreEntry> _highScoreEntryList = new List<HighScoreEntry>();
     private List<Transform> _highScoreEntryTransformList;
 
     private void Awake()
     {
         _entryTemplate.gameObject.SetActive(false);
-
-        _highScoreEntryList = new List<HighScoreEntry>();
 
         string jsonString = PlayerPrefs.GetString("leaderboard");
         if (!string.IsNullOrEmpty(jsonString))
