@@ -98,8 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextGO: {fileID: 8646785479678181936, guid: b9f87ea54ab53f64989f84265d96978c, type: 3}
+  _textTransform: {x: 0, y: 1.5, z: 0}
+  _rarity: Epic
   _moveSpeed: 3
   _beanPosition: {x: -0.1, y: 2, z: -4.25}
+  _offset: {x: 2, y: 4, z: 6, w: 8}
   BeanType: 3
   BeanValue: 10
 --- !u!54 &-6701583920911574513
