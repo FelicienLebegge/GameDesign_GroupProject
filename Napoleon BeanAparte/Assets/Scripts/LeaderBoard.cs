@@ -20,9 +20,12 @@ public class LeaderBoard : MonoBehaviour
         _entryTemplate.gameObject.SetActive(false);
 
         string jsonString = PlayerPrefs.GetString("leaderboard");
+
+        Highscores highscores = new Highscores();
+
         if (!string.IsNullOrEmpty(jsonString))
         {
-            Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+            highscores = JsonUtility.FromJson<Highscores>(jsonString);
             if (highscores != null && highscores.HighScoreEntryList != null)
             {
                 _highScoreEntryList = highscores.HighScoreEntryList;
@@ -38,11 +41,10 @@ public class LeaderBoard : MonoBehaviour
 
 
         _highScoreEntryTransformList = new List<Transform>();
-        foreach (HighScoreEntry highscoreEntry in _highScoreEntryList)
+        foreach (HighScoreEntry highscoreEntry in highscores.HighScoreEntryList)
         {
             CreateHighScoreEntryTransform(highscoreEntry, _entryContainer, _highScoreEntryTransformList);
         }
-
     }
 
     private void Update()
