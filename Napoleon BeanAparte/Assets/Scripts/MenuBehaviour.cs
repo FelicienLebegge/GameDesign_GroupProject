@@ -1,15 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuBehaviour : MonoBehaviour
 {
+
+    public static string Name;
+
     public void Play()
     {
-        KitchenStates.Score = 0;
-        Washer.IsDirtTooSMall = false;
-        SceneManager.LoadScene(1);
+        Debug.Log(Name);
+        if (Name != null)
+        {
+            KitchenStates.Score = 0;
+            Washer.IsDirtTooSMall = false;
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void Quit()
