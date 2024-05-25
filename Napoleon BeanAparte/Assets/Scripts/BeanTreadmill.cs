@@ -54,34 +54,34 @@ public class BeanTreadmill : MonoBehaviour
             StartCoroutine(TreadMillCoroutine(bean.gameObject, delay));
             yield return new WaitForSeconds(delay);
 
-            AddBeanPoints(bean); //bean points
+            //AddBeanPoints(bean); //bean points
         }
     }
 
-    private void AddBeanPoints(Bean bean)
-    {
-        _beanTypes = bean.BeanType;
+    //private void AddBeanPoints(Bean bean)
+    //{
+    //    _beanTypes = bean.BeanType;
             
-        switch(_beanTypes)
-        {
-            case (Bean.BeanTypes.Pea):
-                KitchenStates.Score += 2;
-                break;
-            case (Bean.BeanTypes.Navy):
-                KitchenStates.Score += 4;
-                break;
-            case (Bean.BeanTypes.Fava):
-                KitchenStates.Score += 6;
-                break;
-            case (Bean.BeanTypes.Anasazi):
-                KitchenStates.Score += 8;
-                break;
-            case (Bean.BeanTypes.French):
-                KitchenStates.Score += 10;
-                break;
+    //    switch(_beanTypes)
+    //    {
+    //        case (Bean.BeanTypes.Pea):
+    //            KitchenStates.Score += 2;
+    //            break;
+    //        case (Bean.BeanTypes.Navy):
+    //            KitchenStates.Score += 4;
+    //            break;
+    //        case (Bean.BeanTypes.Fava):
+    //            KitchenStates.Score += 6;
+    //            break;
+    //        case (Bean.BeanTypes.Anasazi):
+    //            KitchenStates.Score += 8;
+    //            break;
+    //        case (Bean.BeanTypes.French):
+    //            KitchenStates.Score += 10;
+    //            break;
 
-        }
-    }
+    //    }
+    //}
 
     IEnumerator TreadMillCoroutine(GameObject bean, float delay)
     {

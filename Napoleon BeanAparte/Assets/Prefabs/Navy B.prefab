@@ -101,7 +101,7 @@ MonoBehaviour:
   _moveSpeed: 3
   _beanPosition: {x: 0.5, y: 2, z: -5}
   BeanType: 1
-  BeanValue: 3
+  BeanValue: 4
 --- !u!54 &-8734332637827251024
 Rigidbody:
   m_ObjectHideFlags: 0

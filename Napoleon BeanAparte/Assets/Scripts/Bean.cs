@@ -1,14 +1,23 @@
+using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bean : MonoBehaviour
-{   
-    [SerializeField] 
+{
+    [Header("Text")]
+    [SerializeField]
+    private TextMeshProUGUI _text;
+    
+    [SerializeField]
     private float _moveSpeed = 3f;
     [SerializeField]
-    private Vector3 _beanPosition = new(0,1.6f, -4.5f);
-     
-    private Vector4 _offset = new(2,4,6,8);
+    private Vector3 _beanPosition = new(0, 1.6f, -4.5f);
+    [SerializeField]
+
+    private Vector4 _offset = new(2, 4, 6, 8);
     private bool _isBeanMoving;
+
 
     private bool _hasBeenAddedToList = false;
     public enum BeanTypes //assigned to each bean in the inspector
@@ -23,7 +32,7 @@ public class Bean : MonoBehaviour
     public BeanTypes BeanType;
 
     public int BeanValue;
-
+    
 
 
     void Awake()
@@ -80,12 +89,14 @@ public class Bean : MonoBehaviour
             {
                 _isBeanMoving = true;
                 AudioManager.instance.Play("BeanPop");
+                KitchenStates.Score += BeanValue;
+                _text.enabled = true;
             }
         }
     }
 
-    public void MoveBean()
-    {
+        public void MoveBean()
+    { 
         if (transform.position != _beanPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);
@@ -93,8 +104,11 @@ public class Bean : MonoBehaviour
         else
         {
             // Bean has reached the target position
+            _text.enabled = true;
             _isBeanMoving = false;
+
             AddBean();
+            
         }
     }
 
@@ -108,5 +122,3 @@ public class Bean : MonoBehaviour
         }
     }
 }
-
-    
