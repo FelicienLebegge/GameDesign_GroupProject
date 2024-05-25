@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -18,10 +19,15 @@ public class KitchenStates : MonoBehaviour
 
     public static float Score;
 
+    public static float Highscore;
+
     private float _totalTime = 180f; //3 minutes
 
     [SerializeField]
     private TextMeshProUGUI _scoreUI;
+
+    [SerializeField]
+    private TextMeshProUGUI _highscoreUI;
 
     [SerializeField]
     private TextMeshProUGUI _timerUI;
@@ -45,6 +51,10 @@ public class KitchenStates : MonoBehaviour
         _timeLeft = _totalTime; 
         _hasTimerStarted = true;
 
+        _highscoreUI.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore", 0).ToString();
+
+        _scoreUI.color = Color.red;
+
     }
 
     // Update is called once per frame
@@ -57,8 +67,21 @@ public class KitchenStates : MonoBehaviour
 
         _scoreUI.text = "Score: " + Score;
         UpdateTimer();
+        UpdateHighScore();
 
         SpeedMultiplier = CalculateSpeedMultiplier();
+    }
+
+    private void UpdateHighScore()
+    {
+        if (Score > PlayerPrefs.GetFloat("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", Score);
+            Highscore = PlayerPrefs.GetFloat("HighScore", Score); //set equal to global float to display at the endscreen
+            _highscoreUI.text = "HighScore: " + Score;
+
+            _scoreUI.color = Color.green;
+        }
     }
 
     private void UpdateTimer()
