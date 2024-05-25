@@ -85,6 +85,7 @@ public class Bean : MonoBehaviour
                 if(KitchenStates.AreBeansWashed == true) //if the cutting station is activated and there are beans that are already washed, destroy the leftoverbeans
                 {
                     Debug.Log("cutting station active");
+                    Destroy(TextGO.gameObject);
                     DestroyUnwashedBeans();
                 }
                 break;
@@ -119,7 +120,6 @@ public class Bean : MonoBehaviour
                 
                 AudioManager.instance.Play("BeanPop");
                 KitchenStates.Score += BeanValue;
-
                 _needsBeanText = true;
             }
         }
