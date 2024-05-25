@@ -70,6 +70,17 @@ public class KitchenStates : MonoBehaviour
         UpdateHighScore();
 
         SpeedMultiplier = CalculateSpeedMultiplier();
+
+        ResetHighscore();
+    }
+
+    private void ResetHighscore()
+    {
+        if(Input.GetKeyDown(KeyCode.Delete))
+        {
+            PlayerPrefs.DeleteKey("HighScore");
+            _highscoreUI.text = "0";
+        }
     }
 
     private void UpdateHighScore()
