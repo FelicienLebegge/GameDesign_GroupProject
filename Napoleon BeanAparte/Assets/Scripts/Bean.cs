@@ -1,11 +1,6 @@
 
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static System.Net.Mime.MediaTypeNames;
 
 public class Bean : MonoBehaviour
 {
