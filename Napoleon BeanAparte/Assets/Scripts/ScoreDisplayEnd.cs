@@ -11,6 +11,9 @@ public class ScoreDisplayEnd : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _highscore;
 
+    [SerializeField]
+    private TextMeshProUGUI _name;
+
     private void Awake()
     {
         if (KitchenStates.Score == KitchenStates.Highscore)
@@ -24,6 +27,7 @@ public class ScoreDisplayEnd : MonoBehaviour
 
         _endScore.text = "You scored: " + KitchenStates.Score;
         _highscore.text = "HighScore: " + KitchenStates.Highscore;
+        _name.text = "by: " + MenuBehaviour.Name;
 
     }
 }
