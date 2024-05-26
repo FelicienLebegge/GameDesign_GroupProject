@@ -27,7 +27,6 @@ public class Bean : MonoBehaviour
     private Vector4 _offset = new(2, 4, 6, 8);
     private bool _isBeanMoving;
     private bool _needsBeanText;
-    private bool _destroyText = false;
 
 
 
@@ -67,13 +66,11 @@ public class Bean : MonoBehaviour
                 if(_needsBeanText)
                 {
                     TextGO.SetActive(true);
-                    _destroyText = true;
                 }
-                if(_destroyText)
+                if(!_needsBeanText)
                 {
                     TextGO.SetActive(false);
-                    _destroyText = false;
-                }
+                }   
                 
 
                 break;
