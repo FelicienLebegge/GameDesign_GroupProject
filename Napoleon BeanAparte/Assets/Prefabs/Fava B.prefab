@@ -98,9 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextGO: {fileID: 8646785479678181936, guid: c0ed6d1123647f2429c8ad54700490bc, type: 3}
-  _textTransform: {x: 0, y: 6.16, z: 0}
-  _rectTransform: {fileID: 8241216733349782418, guid: b9f87ea54ab53f64989f84265d96978c, type: 3}
+  TextGO: {fileID: 8646785479678181936, guid: b9f87ea54ab53f64989f84265d96978c, type: 3}
+  _textTransform: {x: 0, y: 0, z: 0}
   _rarity: Rare
   _moveSpeed: 3
   _beanPosition: {x: 0.45, y: 2, z: -4.25}
