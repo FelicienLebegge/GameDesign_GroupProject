@@ -1,6 +1,12 @@
 
+using System.ComponentModel.Design;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Bean : MonoBehaviour
 {
@@ -58,32 +64,23 @@ public class Bean : MonoBehaviour
                 {
                     MoveBean();
                 };
-                if (_needsBeanText)
+                if(_needsBeanText)
                 {
-
-                    
-                    TextGO.GetComponentInChildren<TextMeshProUGUI>().text = _rarity;
-                    TextGO.GetComponentInChildren<Transform>().position = new(Random.Range(-950, 200), Random.Range(-500, 500), 0);
-                    TextGO = Instantiate(TextGO, TextGO.GetComponentInChildren<Transform>().position, Quaternion.identity);
-                    _needsBeanText = false;
-
+                    TextGO.SetActive(true);
+                    _destroyText = true;
                 }
-                if (!_isBeanMoving && _destroyText)
+                if(_destroyText)
                 {
-                    Debug.Log("help");
                     TextGO.SetActive(false);
-                    Destroy(TextGO.gameObject);
                     _destroyText = false;
-
                 }
+                
 
                 break;
             case KitchenStates.CookingStation.Cutting:
-
                 if(KitchenStates.AreBeansWashed == true) //if the cutting station is activated and there are beans that are already washed, destroy the leftoverbeans
                 {
                     Debug.Log("cutting station active");
-                    Destroy(TextGO.gameObject);
                     DestroyUnwashedBeans();
                 }
                 break;
@@ -115,12 +112,12 @@ public class Bean : MonoBehaviour
             if (!_isBeanMoving) // Makes the sound effect only play once, which is nice
             {
                 _isBeanMoving = true;
-                
                 AudioManager.instance.Play("BeanPop");
                 KitchenStates.Score += BeanValue;
-                _needsBeanText = true;
+                
             }
         }
+        _needsBeanText = true;
     }
 
         public void MoveBean()
@@ -131,12 +128,9 @@ public class Bean : MonoBehaviour
         }
         else
         {
-            // Bean has reached the target position
-            TextGO.SetActive(true);
             _isBeanMoving = false;
-            _destroyText = true;
             AddBean();
-            
+            _needsBeanText = false;
         }
     }
 

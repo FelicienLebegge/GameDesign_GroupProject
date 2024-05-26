@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b400b72886f4f4a80424a8080106e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextGO: {fileID: 8646785479678181936, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
+  TextGO: {fileID: 7923836436158174954, guid: 68c1b37b080a1dc41a5c93f2d8bff35f, type: 3}
   _textTransform: {x: 0, y: 0, z: 0}
   _rectTransform: {fileID: 0}
   _rarity: Epic
