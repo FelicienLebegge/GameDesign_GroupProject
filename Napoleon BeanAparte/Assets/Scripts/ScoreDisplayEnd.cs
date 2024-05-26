@@ -26,8 +26,8 @@ public class ScoreDisplayEnd : MonoBehaviour
         }
 
         _endScore.text = "You scored: " + KitchenStates.Score;
-        _highscore.text = "HighScore: " + KitchenStates.Highscore;
-        _name.text = "by: " + MenuBehaviour.Name;
+        _highscore.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
+        _name.text = "by: " + PlayerPrefs.GetString("HighScoreHolder");
 
     }
 }

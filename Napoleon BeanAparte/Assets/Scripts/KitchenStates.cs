@@ -91,7 +91,8 @@ public class KitchenStates : MonoBehaviour
             Highscore = PlayerPrefs.GetFloat("HighScore", Score); //set equal to global float to display at the endscreen
             _highscoreUI.text = "HighScore: " + Score;
 
-            HighscoreHolder = MenuBehaviour.Name;
+            PlayerPrefs.SetString("HighScoreHolder", MenuBehaviour.Name);
+            HighscoreHolder = PlayerPrefs.GetString("HighScoreHolder");
 
             _scoreUI.color = Color.green;
         }
