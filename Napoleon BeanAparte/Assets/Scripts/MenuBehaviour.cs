@@ -33,6 +33,7 @@ public class MenuBehaviour : MonoBehaviour
 
     public void Menu()
     {
+        Name = null;
         KitchenStates.Score = 0;
         KitchenStates.SpeedMultiplier = 1;
         Washer.IsDirtTooSMall = false;
