@@ -19,6 +19,8 @@ public class KitchenStates : MonoBehaviour
 
     public static float Highscore;
 
+    public static string HighscoreHolder;
+
     private float _totalTime = 60f; //3 minutes
 
     [SerializeField]
@@ -89,6 +91,8 @@ public class KitchenStates : MonoBehaviour
             Highscore = PlayerPrefs.GetFloat("HighScore", Score); //set equal to global float to display at the endscreen
             _highscoreUI.text = "HighScore: " + Score;
 
+            HighscoreHolder = MenuBehaviour.Name;
+
             _scoreUI.color = Color.green;
         }
     }
@@ -110,7 +114,6 @@ public class KitchenStates : MonoBehaviour
                 _hasTimerStarted = false;
 
                 SceneManager.LoadScene(2); //load end screen
-                Debug.Log("Last line executed");
             }
 
             if (_timeLeft < 60)
