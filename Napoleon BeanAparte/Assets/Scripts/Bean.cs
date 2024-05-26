@@ -1,9 +1,11 @@
-using System;
+
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Bean : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Bean : MonoBehaviour
     [SerializeField]
     private GameObject TextGO;
     [SerializeField] private Vector3 _textTransform;
+    [SerializeField] private RectTransform _rectTransform;
     [SerializeField]
     private string _rarity;
     
@@ -51,9 +54,6 @@ public class Bean : MonoBehaviour
         Collider beanCollider = gameObject.GetComponent<Collider>();
         beanCollider.isTrigger = true; //make sure the collider is a trigger when instaniated in the dirt
     }
-    
-
-
     private void Update()
     {
         switch (KitchenStates.KitchenState)
@@ -65,8 +65,11 @@ public class Bean : MonoBehaviour
                 };
                 if (_needsBeanText)
                 {
+
+                    
                     TextGO.GetComponentInChildren<TextMeshProUGUI>().text = _rarity;
-                    TextGO = Instantiate(TextGO, TextGO.transform.position, Quaternion.identity);
+                    TextGO.GetComponentInChildren<Transform>().position = new(Random.Range(-950, 200), Random.Range(-500, 500), 0);
+                    TextGO = Instantiate(TextGO, TextGO.GetComponentInChildren<Transform>().position, Quaternion.identity);
                     _needsBeanText = false;
 
                 }

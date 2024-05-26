@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextGO: {fileID: 8646785479678181936, guid: b9f87ea54ab53f64989f84265d96978c, type: 3}
-  _textTransform: {x: 0, y: 1.5, z: 0}
+  _textTransform: {x: 5.62, y: 0, z: 8.68}
+  _rectTransform: {fileID: 8241216733349782418, guid: b9f87ea54ab53f64989f84265d96978c, type: 3}
   _rarity: Common
   _moveSpeed: 3
   _beanPosition: {x: -0.1, y: 2, z: -5}
