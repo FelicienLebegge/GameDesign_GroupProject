@@ -107,28 +107,21 @@ public class MouseClickCut : MonoBehaviour
 
                     }
                 }
-            }
-            else
-            {
-                AudioManager.instance.Play("CutMiss");
-                _missTimer = 0f;
-                _miss.enabled = true;
-                _isMissTimerActive = true;
-
-                if (_missTimer >= 0.5f)
+                else
                 {
-                    _miss.enabled = false;
-                    _missTimer = 0;
+                    AudioManager.instance.Play("CutMiss");
+                    _missTimer = 0f;
+                    _miss.enabled = true;
+                    _isMissTimerActive = true;
+
+                    if (_missTimer >= 0.5f)
+                    {
+                        _miss.enabled = false;
+                        _missTimer = 0;
+                    }
                 }
-                    
-            }
-                
-        }
-            
-    }
-        
-    
-    
-    
+            }    
+        }     
+    } 
 }
 
