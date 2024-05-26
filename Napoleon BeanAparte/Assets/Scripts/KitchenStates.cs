@@ -19,7 +19,7 @@ public class KitchenStates : MonoBehaviour
 
     public static float Highscore;
 
-    private float _totalTime = 180f; //3 minutes
+    private float _totalTime = 60f; //3 minutes
 
     [SerializeField]
     private TextMeshProUGUI _scoreUI;
@@ -110,7 +110,6 @@ public class KitchenStates : MonoBehaviour
                 _hasTimerStarted = false;
 
                 SceneManager.LoadScene(2); //load end screen
-                //LeaderBoard.AddHighScoreEntry((int)Score, MenuBehaviour.Name);
                 Debug.Log("Last line executed");
             }
 

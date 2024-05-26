@@ -17,6 +17,9 @@ public class LeaderBoard : MonoBehaviour
 
     private void Awake()
     {
+        AddHighScoreEntry((int)KitchenStates.Score, MenuBehaviour.Name);
+
+
         _entryTemplate.gameObject.SetActive(false);
 
         string jsonString = PlayerPrefs.GetString("leaderboard");
@@ -26,10 +29,9 @@ public class LeaderBoard : MonoBehaviour
         if (!string.IsNullOrEmpty(jsonString))
         {
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
-            if (highscores != null && highscores.HighScoreEntryList != null)
-            {
+
                 _highScoreEntryList = highscores.HighScoreEntryList;
-            }
+            
         }
 
         // Sort the high score entries and only keep the top 10
@@ -45,6 +47,7 @@ public class LeaderBoard : MonoBehaviour
         {
             CreateHighScoreEntryTransform(highscoreEntry, _entryContainer, _highScoreEntryTransformList);
         }
+
     }
 
     private void Update()
@@ -111,11 +114,12 @@ public class LeaderBoard : MonoBehaviour
         if (!string.IsNullOrEmpty(jsonString))
         {
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
-            if (highscores != null && highscores.HighScoreEntryList != null)
-            {
+
                 _highScoreEntryList = highscores.HighScoreEntryList;
-            }
+            
         }
+
+        
 
         //add entries list
         highscores.HighScoreEntryList.Add(highScoreEntry);
