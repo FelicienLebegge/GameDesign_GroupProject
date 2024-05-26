@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +10,7 @@ public class KitchenStates : MonoBehaviour
     public static bool AreBeansWashed = false;
 
     public static bool IsCuttingDone = false;
-    
+
     public static bool IsOrderCompleted = false;
 
     public static bool IsTrashed = false;
@@ -21,7 +19,7 @@ public class KitchenStates : MonoBehaviour
 
     public static float Highscore;
 
-    private float _totalTime = 10f; //3 minutes
+    private float _totalTime = 180f; //3 minutes
 
     [SerializeField]
     private TextMeshProUGUI _scoreUI;
@@ -48,7 +46,7 @@ public class KitchenStates : MonoBehaviour
 
     private void Start()
     {
-        _timeLeft = _totalTime; 
+        _timeLeft = _totalTime;
         _hasTimerStarted = true;
 
         _highscoreUI.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore", 0).ToString();
@@ -76,7 +74,7 @@ public class KitchenStates : MonoBehaviour
 
     private void ResetHighscore()
     {
-        if(Input.GetKeyDown(KeyCode.Delete))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
             PlayerPrefs.DeleteKey("HighScore");
             _highscoreUI.text = "0";
@@ -165,5 +163,5 @@ public class KitchenStates : MonoBehaviour
         }
     }
 
-    
+
 }
