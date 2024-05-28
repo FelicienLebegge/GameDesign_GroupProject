@@ -10210,6 +10210,7 @@ GameObject:
   - component: {fileID: 1820076547}
   - component: {fileID: 1820076546}
   - component: {fileID: 1820076548}
+  - component: {fileID: 1820076549}
   m_Layer: 2
   m_Name: Feedback Trigger
   m_TagString: Untagged
@@ -10270,6 +10271,14 @@ MonoBehaviour:
   Rare: {fileID: 543392419}
   Epic: {fileID: 1937999639}
   Godlike: {fileID: 82076146}
+--- !u!33 &1820076549
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820076545}
+  m_Mesh: {fileID: 0}
 --- !u!1 &1837077118
 GameObject:
   m_ObjectHideFlags: 0

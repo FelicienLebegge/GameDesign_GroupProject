@@ -57,7 +57,7 @@ public class Feedbackscript : MonoBehaviour
         switch (_string)
         {
             case "Pea":
-                Uncommon.SetActive(false);
+                Common.SetActive(false);
                 break;
             case "Navy":
                 Uncommon.SetActive(false);
