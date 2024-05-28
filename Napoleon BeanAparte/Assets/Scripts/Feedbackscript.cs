@@ -15,6 +15,8 @@ public class Feedbackscript : MonoBehaviour
     [SerializeField]
     private GameObject Godlike;
     private string _string;
+    
+    
 
 
 
@@ -45,17 +47,17 @@ public class Feedbackscript : MonoBehaviour
 
 
         }
-        StartCoroutine(TwoSecondTimer(other));
+        StartCoroutine(TwoSecondTimer());
 
 
     }
-    IEnumerator TwoSecondTimer(Collider other)
+    IEnumerator TwoSecondTimer()
     {
         yield return new WaitForSeconds(1f);
         switch (_string)
         {
             case "Pea":
-                Common.SetActive(false);
+                Uncommon.SetActive(false);
                 break;
             case "Navy":
                 Uncommon.SetActive(false);
@@ -69,6 +71,19 @@ public class Feedbackscript : MonoBehaviour
             case "French":
                 Godlike.SetActive(false);
                 break;
+        }
+    }
+
+    private void Update()
+    {
+       if(KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting)
+        {
+            Debug.Log("dit is slecht voor performance");
+            Common.SetActive(false);
+            Uncommon.SetActive(false);
+            Rare.SetActive(false);
+            Epic.SetActive(false);
+            Godlike.SetActive(false);
         }
     }
 }
