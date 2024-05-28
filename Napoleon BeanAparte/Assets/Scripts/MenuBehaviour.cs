@@ -17,6 +17,7 @@ public class MenuBehaviour : MonoBehaviour
             KitchenStates.IsCuttingDone = false;
             KitchenStates.AreBeansWashed = false;
             KitchenStates.IsOrderCompleted = false;
+            KitchenStates.BeansList.Clear();
             SceneManager.LoadScene(1);
         }
     }
@@ -40,6 +41,7 @@ public class MenuBehaviour : MonoBehaviour
         KitchenStates.IsCuttingDone = false;
         KitchenStates.AreBeansWashed = false;
         KitchenStates.IsOrderCompleted = false;
+        KitchenStates.BeansList.Clear();
         SceneManager.LoadScene(0);
     }
 
