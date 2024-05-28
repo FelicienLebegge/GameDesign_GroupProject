@@ -418,11 +418,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6132043311193590605, guid: d43c2bfaded9d224d8f83f9bf9fd5d31, type: 3}
   m_PrefabInstance: {fileID: 3866922086149034809}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &82076146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5633540599369663112, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
-  m_PrefabInstance: {fileID: 522336658}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &157455852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10270,7 +10265,7 @@ MonoBehaviour:
   Uncommon: {fileID: 53576244}
   Rare: {fileID: 543392419}
   Epic: {fileID: 1937999639}
-  Godlike: {fileID: 82076146}
+  Legendary: {fileID: 0}
 --- !u!33 &1820076549
 MeshFilter:
   m_ObjectHideFlags: 0
