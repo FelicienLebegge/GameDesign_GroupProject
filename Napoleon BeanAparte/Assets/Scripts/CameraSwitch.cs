@@ -18,7 +18,7 @@ public class CameraSwitch : MonoBehaviour
 
     [SerializeField] private KitchenStates _kitchenStates;
 
-    private Vector3 _targetPosition;    
+    private Vector3 _targetPosition;
 
     [SerializeField]
     private int _index;
@@ -77,16 +77,25 @@ public class CameraSwitch : MonoBehaviour
             case 0:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Washing);
                 _drawCut.enabled = false;
+                _buttons[0].GetComponent<Image>().color = Color.green;
+                _buttons[1].GetComponent<Image>().color = Color.grey;
+                _buttons[2].GetComponent<Image>().color = Color.grey;
                 //_mouseClickCut.enabled = false;
                 break;
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
                 _drawCut.enabled = true;
+                _buttons[1].GetComponent<Image>().color = Color.green;
+                _buttons[0].GetComponent<Image>().color = Color.grey;
+                _buttons[2].GetComponent<Image>().color = Color.grey;
                 //_mouseClickCut.enabled = true;
                 break;
             case 2:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
                 _drawCut.enabled = false;
+                _buttons[2].GetComponent<Image>().color = Color.green;
+                _buttons[0].GetComponent<Image>().color = Color.grey;
+                _buttons[1].GetComponent<Image>().color = Color.grey;
                 //_mouseClickCut.enabled = false;
                 break;
         }
