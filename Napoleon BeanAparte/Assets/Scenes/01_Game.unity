@@ -413,6 +413,16 @@ RectTransform:
   m_AnchoredPosition: {x: -714, y: 552}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &53576244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6132043311193590605, guid: d43c2bfaded9d224d8f83f9bf9fd5d31, type: 3}
+  m_PrefabInstance: {fileID: 3866922086149034809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &82076146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5633540599369663112, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
+  m_PrefabInstance: {fileID: 522336658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &157455852
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +760,11 @@ MonoBehaviour:
   _secondTarget: {fileID: 1560757004}
   _speed: 0.2
   _randomOffsetRange: 0.1
+--- !u!1 &281081625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6550421103857011978, guid: 61254eb9d88e5a8469f650565bbb2ea6, type: 3}
+  m_PrefabInstance: {fileID: 7121813266749859358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &316582633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1695,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &543392419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8646785479678181936, guid: c0ed6d1123647f2429c8ad54700490bc, type: 3}
+  m_PrefabInstance: {fileID: 1757915957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &559299614
 GameObject:
   m_ObjectHideFlags: 0
@@ -10179,6 +10199,77 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1820076545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820076547}
+  - component: {fileID: 1820076546}
+  - component: {fileID: 1820076548}
+  m_Layer: 2
+  m_Name: Feedback Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1820076546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820076545}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.06, y: 1, z: 1.8}
+  m_Center: {x: 0, y: 0.48, z: 0.66}
+--- !u!4 &1820076547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820076545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4181158, y: 1.393, z: -6.54}
+  m_LocalScale: {x: 1, y: 1, z: 0.91965}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820076548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820076545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c219816ca59975549943731a74a29a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Common: {fileID: 281081625}
+  Uncommon: {fileID: 53576244}
+  Rare: {fileID: 543392419}
+  Epic: {fileID: 1937999639}
+  Godlike: {fileID: 82076146}
 --- !u!1 &1837077118
 GameObject:
   m_ObjectHideFlags: 0
@@ -10320,6 +10411,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1177210612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1937999639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7923836436158174954, guid: 68c1b37b080a1dc41a5c93f2d8bff35f, type: 3}
+  m_PrefabInstance: {fileID: 889072781386481794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1971813407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11315,3 +11411,4 @@ SceneRoots:
   - {fileID: 932357969}
   - {fileID: 2126247812}
   - {fileID: 774834060}
+  - {fileID: 1820076547}
