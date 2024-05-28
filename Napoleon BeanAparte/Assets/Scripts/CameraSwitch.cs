@@ -85,7 +85,7 @@ public class CameraSwitch : MonoBehaviour
                 _buttons[0].GetComponent<Image>().color = Color.green;
                 _buttons[1].GetComponent<Image>().color = Color.grey;
                 _buttons[2].GetComponent<Image>().color = Color.grey;
-                //_mouseClickCut.enabled = false;
+                _mouseClickCut.enabled = false;
                 break;
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
@@ -93,7 +93,7 @@ public class CameraSwitch : MonoBehaviour
                 _buttons[1].GetComponent<Image>().color = Color.green;
                 _buttons[0].GetComponent<Image>().color = Color.grey;
                 _buttons[2].GetComponent<Image>().color = Color.grey;
-                //_mouseClickCut.enabled = true;
+                _mouseClickCut.enabled = true;
                 break;
             case 2:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
@@ -101,7 +101,7 @@ public class CameraSwitch : MonoBehaviour
                 _buttons[2].GetComponent<Image>().color = Color.green;
                 _buttons[0].GetComponent<Image>().color = Color.grey;
                 _buttons[1].GetComponent<Image>().color = Color.grey;
-                //_mouseClickCut.enabled = false;
+                _mouseClickCut.enabled = true;
                 break;
         }
     }
@@ -140,7 +140,7 @@ public class CameraSwitch : MonoBehaviour
                 _buttons[0].GetComponent<Image>().color = Color.green;
                 _buttons[1].GetComponent<Image>().color = Color.grey;
                 _buttons[2].GetComponent<Image>().color = Color.grey;
-                //_mouseClickCut.enabled = false;
+                _mouseClickCut.enabled = false;
                 break;
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
@@ -148,12 +148,12 @@ public class CameraSwitch : MonoBehaviour
                 _buttons[1].GetComponent<Image>().color = Color.green;
                 _buttons[0].GetComponent<Image>().color = Color.grey;
                 _buttons[2].GetComponent<Image>().color = Color.grey;
-                //_mouseClickCut.enabled = true;
+                _mouseClickCut.enabled = true;
                 break;
             case 2:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cooking);
                 _drawCut.enabled = false;
-                //_mouseClickCut.enabled = false;
+                _mouseClickCut.enabled = true;
                 break;
         }
     }
