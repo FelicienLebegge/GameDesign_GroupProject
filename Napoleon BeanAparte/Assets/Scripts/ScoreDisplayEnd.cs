@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -26,8 +24,8 @@ public class ScoreDisplayEnd : MonoBehaviour
         }
 
         _endScore.text = "You scored: " + KitchenStates.Score;
-        _highscore.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
-        _name.text = "by: " + PlayerPrefs.GetString("HighScoreHolder");
+        _highscore.text = "" + PlayerPrefs.GetFloat("HighScore");
+        _name.text = "" + PlayerPrefs.GetString("HighScoreHolder");
 
     }
 }
