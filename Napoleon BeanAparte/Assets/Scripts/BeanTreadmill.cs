@@ -23,6 +23,11 @@ public class BeanTreadmill : MonoBehaviour
     private bool _hasTreadmillStarted = false;
     private Bean.BeanTypes _beanTypes;
 
+    [SerializeField]
+    private CameraSwitch _cameraSwitch;
+
+    private int _beansProcessed = 0;
+
     private void Update()
     {
         //Debug.Log(KitchenStates.BeansList.Count);
@@ -109,7 +114,13 @@ public class BeanTreadmill : MonoBehaviour
         Collider beanCollider = bean.GetComponent<Collider>(); //make sure the collider is not on trigger anymore to allow collisions
         beanCollider.isTrigger = false;
 
-        KitchenStates.IsCuttingDone = true;
+        _beansProcessed++;
+
+        if (_beansProcessed == KitchenStates.BeansList.Count)
+        {
+            KitchenStates.IsCuttingDone = true;
+            _cameraSwitch.StartCameraLerp(2); //go to cooking
+        }
 
     }
 
@@ -134,6 +145,7 @@ public class BeanTreadmill : MonoBehaviour
 
     public void StartTreadmill()
     {
+        _beansProcessed = 0; //reset
         StartCoroutine(StartBeans());
     }
 }
