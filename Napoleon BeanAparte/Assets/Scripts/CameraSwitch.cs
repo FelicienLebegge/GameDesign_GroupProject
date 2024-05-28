@@ -145,6 +145,9 @@ public class CameraSwitch : MonoBehaviour
             case 1:
                 _kitchenStates.SetKitchenState(KitchenStates.CookingStation.Cutting);
                 _drawCut.enabled = true;
+                _buttons[1].GetComponent<Image>().color = Color.green;
+                _buttons[0].GetComponent<Image>().color = Color.grey;
+                _buttons[2].GetComponent<Image>().color = Color.grey;
                 //_mouseClickCut.enabled = true;
                 break;
             case 2:
