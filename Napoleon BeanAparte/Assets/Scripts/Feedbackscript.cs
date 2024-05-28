@@ -13,7 +13,7 @@ public class Feedbackscript : MonoBehaviour
     [SerializeField]
     private GameObject Epic;
     [SerializeField]
-    private GameObject Godlike;
+    private GameObject Legendary;
     private string _string;
     
     
@@ -42,7 +42,7 @@ public class Feedbackscript : MonoBehaviour
                 break;
             case "French":
                 _string = "French";
-                Godlike.SetActive(true);
+                Legendary.SetActive(true);
                 break;
 
 
@@ -53,7 +53,7 @@ public class Feedbackscript : MonoBehaviour
     }
     IEnumerator TwoSecondTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         switch (_string)
         {
             case "Pea":
@@ -69,7 +69,7 @@ public class Feedbackscript : MonoBehaviour
                 Epic.SetActive(false);
                 break;
             case "French":
-                Godlike.SetActive(false);
+                Legendary.SetActive(false);
                 break;
         }
     }
@@ -78,12 +78,11 @@ public class Feedbackscript : MonoBehaviour
     {
        if(KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting)
         {
-            Debug.Log("dit is slecht voor performance");
             Common.SetActive(false);
             Uncommon.SetActive(false);
             Rare.SetActive(false);
             Epic.SetActive(false);
-            Godlike.SetActive(false);
+            Legendary.SetActive(false);
         }
     }
 }

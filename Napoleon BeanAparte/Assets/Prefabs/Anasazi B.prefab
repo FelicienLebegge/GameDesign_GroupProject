@@ -106,7 +106,7 @@ MonoBehaviour:
   _beanPosition: {x: -0.1, y: 2, z: -4.25}
   _offset: {x: 2, y: 4, z: 6, w: 8}
   BeanType: 3
-  BeanValue: 10
+  BeanValue: 12
 --- !u!54 &-6701583920911574513
 Rigidbody:
   m_ObjectHideFlags: 0
