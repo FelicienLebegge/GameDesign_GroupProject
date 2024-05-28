@@ -10265,7 +10265,7 @@ MonoBehaviour:
   Uncommon: {fileID: 53576244}
   Rare: {fileID: 543392419}
   Epic: {fileID: 1937999639}
-  Legendary: {fileID: 0}
+  Legendary: {fileID: 5633540599369663112, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
 --- !u!33 &1820076549
 MeshFilter:
   m_ObjectHideFlags: 0
