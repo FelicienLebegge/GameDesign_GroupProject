@@ -95,7 +95,7 @@ public class Feedbackscript : MonoBehaviour
         {
             if (_popups[i].gameObject.active == true)
             {
-                _popups[i].transform.position = Vector3.Lerp(_positions[i], new Vector3(50, Screen.height - 50, 0), _lerps[i]);
+                _popups[i].transform.position = Vector3.Lerp(_positions[i], new Vector3(Screen.width - 50, Screen.height - 50, 0), _lerps[i]);
                 _popups[i].transform.localScale = Vector3.Lerp(_scales[i], Vector3.zero, _lerps[i]);
                 _lerps[i] += 1 * Time.deltaTime;
             }
