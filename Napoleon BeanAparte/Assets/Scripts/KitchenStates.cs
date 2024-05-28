@@ -21,7 +21,7 @@ public class KitchenStates : MonoBehaviour
 
     public static string HighscoreHolder;
 
-    private float _totalTime = 180f; //3 minutes
+    private float _totalTime = 60f; //3 minutes
 
     [SerializeField]
     private TextMeshProUGUI _scoreUI;
