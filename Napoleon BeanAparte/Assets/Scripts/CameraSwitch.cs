@@ -32,6 +32,11 @@ public class CameraSwitch : MonoBehaviour
         Camera.main.transform.position = _cams[0].transform.position;
         _drawCut = gameObject.GetComponent<DrawCut>();
         _mouseClickCut = gameObject.GetComponent<MouseClickCut>();
+
+        _buttons[0].GetComponent<Image>().color = Color.green;
+        _buttons[1].GetComponent<Image>().color = Color.grey;
+        _buttons[2].GetComponent<Image>().color = Color.grey;
+
     }
 
     // Update is called once per frame
