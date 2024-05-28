@@ -8,16 +8,13 @@ public class InputScript : MonoBehaviour
     public static TMP_InputField inputfield;
     public static Button _OK;
     [SerializeField] private TextMeshProUGUI _playername;
+    [SerializeField] private TextMeshProUGUI _placeholderInside;
 
     private void Start()
     {
         inputfield = transform.Find("input").GetComponent<TMP_InputField>();
-        Debug.Log("hallo im running");
-    }
-
-    private void Update()
-    {
-        _playername.text = $"Player:  {MenuBehaviour.Name} ";
+        _playername.text = $"Enter name first !! ";
+        _placeholderInside.text = "Enter your name...";
     }
 
     public void EnteredName()
@@ -26,6 +23,7 @@ public class InputScript : MonoBehaviour
         {
             Debug.Log(inputfield.text);
             MenuBehaviour.Name = inputfield.text;
+            _playername.text = $"Player:  {MenuBehaviour.Name} ";
         }
 
     }
@@ -33,6 +31,8 @@ public class InputScript : MonoBehaviour
     public void RemoveName()
     {
         MenuBehaviour.Name = null;
+        _playername.text = $"Enter name first !! ";
+        _placeholderInside.text = "Enter your name...";
     }
 
 
