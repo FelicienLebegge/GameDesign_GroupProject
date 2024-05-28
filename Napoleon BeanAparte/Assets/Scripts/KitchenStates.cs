@@ -65,6 +65,11 @@ public class KitchenStates : MonoBehaviour
             AreBeansWashed = true;
         }
 
+        if(BeansList.Count == 20)
+        {
+            Washer.IsDirtTooSMall = false;
+        }
+
         _scoreUI.text = "Score: " + Score;
         UpdateTimer();
         UpdateHighScore();

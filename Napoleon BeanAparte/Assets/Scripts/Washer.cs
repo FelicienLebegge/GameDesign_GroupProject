@@ -57,6 +57,8 @@ public class Washer : MonoBehaviour
     {
         HandleInputs();
 
+        Debug.Log(IsDirtTooSMall);
+
         if (KitchenStates.BeansList.Count == 20 && !_hasLerped)
         {
             _hasLerped = true;
@@ -104,7 +106,7 @@ public class Washer : MonoBehaviour
     {
         float dirtSize = _dirt.transform.localScale.magnitude;
 
-        if(dirtSize < _activeTreshold)
+        if (dirtSize < _activeTreshold)
         {
             IsDirtTooSMall = true;
             Destroy(_dirt);
