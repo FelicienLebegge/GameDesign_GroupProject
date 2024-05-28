@@ -17,8 +17,8 @@ public class InputScript : MonoBehaviour
         inputfield = transform.Find("input").GetComponent<TMP_InputField>();
         _playername.text = $"Enter name first !! ";
         _placeholderInside.text = "Enter your name...";
-        _currentRecord.text = "Current HighScore: " + PlayerPrefs.GetFloat("HighScore");
-        _recordHolder.text = "by: " + PlayerPrefs.GetString("HighScoreHolder");
+        _currentRecord.text = "" + PlayerPrefs.GetFloat("HighScore");
+        _recordHolder.text = "" + PlayerPrefs.GetString("HighScoreHolder");
     }
 
     public void EnteredName()
