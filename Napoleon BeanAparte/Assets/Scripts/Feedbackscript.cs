@@ -14,6 +14,7 @@ public class Feedbackscript : MonoBehaviour
     private GameObject Epic;
     [SerializeField]
     private GameObject Godlike;
+    private string _string;
 
 
 
@@ -22,21 +23,23 @@ public class Feedbackscript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Pea":
-
                 Common.SetActive(true);
+                _string = "Pea";
                 break;
-
             case "Navy":
                 Uncommon.SetActive(true);
+                _string = "Navy";
                 break;
-
             case "Fava":
+                _string = "Fava";
                 Rare.SetActive(true);
                 break;
             case "Anasazi":
+                _string = "Anasazi";
                 Epic.SetActive(true);
                 break;
             case "French":
+                _string = "French";
                 Godlike.SetActive(true);
                 break;
 
@@ -49,10 +52,9 @@ public class Feedbackscript : MonoBehaviour
     IEnumerator TwoSecondTimer(Collider other)
     {
         yield return new WaitForSeconds(1f);
-        switch (other.gameObject.tag)
+        switch (_string)
         {
             case "Pea":
-
                 Common.SetActive(false);
                 break;
             case "Navy":
@@ -67,7 +69,6 @@ public class Feedbackscript : MonoBehaviour
             case "French":
                 Godlike.SetActive(false);
                 break;
-
         }
     }
 }
