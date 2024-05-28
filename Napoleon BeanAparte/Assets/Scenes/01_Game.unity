@@ -755,6 +755,7 @@ MonoBehaviour:
   _secondTarget: {fileID: 1560757004}
   _speed: 0.2
   _randomOffsetRange: 0.1
+  _cameraSwitch: {fileID: 963194229}
 --- !u!1 &281081625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6550421103857011978, guid: 61254eb9d88e5a8469f650565bbb2ea6, type: 3}
