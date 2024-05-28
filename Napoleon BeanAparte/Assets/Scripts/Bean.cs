@@ -97,6 +97,7 @@ public class Bean : MonoBehaviour
     {
         if(!_hasBeenAddedToList)
         {
+
             Destroy(gameObject);
         }
     }
@@ -118,7 +119,7 @@ public class Bean : MonoBehaviour
     }
 
         public void MoveBean()
-        { 
+    { 
         if (transform.position != _beanPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, _beanPosition, Time.deltaTime * _moveSpeed);

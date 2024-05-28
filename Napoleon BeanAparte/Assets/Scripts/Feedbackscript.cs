@@ -43,24 +43,26 @@ public class Feedbackscript : MonoBehaviour
                 Common.SetActive(true);
                 _string = "Pea";
                 break;
+
             case "Navy":
                 Uncommon.SetActive(true);
                 _string = "Navy";
                 break;
+
             case "Fava":
                 _string = "Fava";
                 Rare.SetActive(true);
                 break;
+
             case "Anasazi":
                 _string = "Anasazi";
                 Epic.SetActive(true);
                 break;
+
             case "French":
                 _string = "French";
                 Legendary.SetActive(true);
                 break;
-
-
         }
         StartCoroutine(TwoSecondTimer());
 
@@ -68,7 +70,7 @@ public class Feedbackscript : MonoBehaviour
     }
     IEnumerator TwoSecondTimer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         switch (_string)
         {
             case "Pea":

@@ -57,7 +57,7 @@ public class Washer : MonoBehaviour
     {
         HandleInputs();
 
-        Debug.Log(IsDirtTooSMall);
+        
 
         if (KitchenStates.BeansList.Count == 20 && !_hasLerped)
         {

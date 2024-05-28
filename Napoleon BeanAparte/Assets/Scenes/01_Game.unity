@@ -1587,13 +1587,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4072179611044540357, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
+    - {fileID: 7369673167279983226, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
---- !u!224 &522336659 stripped
-RectTransform:
+--- !u!4 &522336659 stripped
+Transform:
   m_CorrespondingSourceObject: {fileID: 6800511889539539023, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
   m_PrefabInstance: {fileID: 522336658}
   m_PrefabAsset: {fileID: 0}
@@ -10266,7 +10268,7 @@ MonoBehaviour:
   Uncommon: {fileID: 53576244}
   Rare: {fileID: 543392419}
   Epic: {fileID: 1937999639}
-  Legendary: {fileID: 5633540599369663112, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
+  Legendary: {fileID: 1985319874}
 --- !u!33 &1820076549
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10601,6 +10603,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &1985319874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5633540599369663112, guid: 2b7e24742d8f6ed4090e6660b2090a35, type: 3}
+  m_PrefabInstance: {fileID: 522336658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993431326
 GameObject:
   m_ObjectHideFlags: 0
