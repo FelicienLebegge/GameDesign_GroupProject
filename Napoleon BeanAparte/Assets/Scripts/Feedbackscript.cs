@@ -48,12 +48,7 @@ public class Feedbackscript : MonoBehaviour
     }
     IEnumerator TwoSecondTimer(Collider other)
     {
-        // Wait for 2 seconds
         yield return new WaitForSeconds(1f);
-
-        // Code to execute after the timer completes
-        Debug.Log("2 seconds have passed.");
-
         switch (other.gameObject.tag)
         {
             case "Pea":
