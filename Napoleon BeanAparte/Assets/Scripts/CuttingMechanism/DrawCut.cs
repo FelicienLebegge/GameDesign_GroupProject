@@ -28,7 +28,7 @@ public class DrawCut : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             pointA = new Vector3(Screen.width, Screen.height / 2 * 1.02f, cam.ScreenToWorldPoint(mouse).z);
-            pointB = new Vector3(0, Screen.height / 2 * 1.02f, cam.ScreenToWorldPoint(mouse).z);
+            pointB = new Vector3(0, Screen.height / 2, cam.ScreenToWorldPoint(mouse).z);
             cutRender.startColor = Color.gray;
             cutRender.endColor = Color.gray;
             CreateSlicePlane();

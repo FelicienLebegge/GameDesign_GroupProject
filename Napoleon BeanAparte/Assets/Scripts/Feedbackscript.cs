@@ -107,7 +107,7 @@ public class Feedbackscript : MonoBehaviour
                 _lerps[i] = 0;
             }
         }
-
+        /*
         if(KitchenStates.KitchenState == KitchenStates.CookingStation.Cutting)
         {
             for (int i = 0; i < _lerps.Length; i++)
@@ -120,6 +120,7 @@ public class Feedbackscript : MonoBehaviour
             Epic.SetActive(false);
             Legendary.SetActive(false);
         }
+        */
     }
 
     private void AddToArray()

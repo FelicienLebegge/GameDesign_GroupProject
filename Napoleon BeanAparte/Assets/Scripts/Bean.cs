@@ -62,17 +62,8 @@ public class Bean : MonoBehaviour
                 if (_isBeanMoving)
                 {
                     MoveBean();
-                };
-                if(_needsBeanText)
-                {
-                    TextGO.SetActive(true);
-                }
-                if(!_needsBeanText)
-                {
-                    TextGO.SetActive(false);
-                }   
+                };  
                 
-
                 break;
             case KitchenStates.CookingStation.Cutting:
                 if(KitchenStates.AreBeansWashed == true) //if the cutting station is activated and there are beans that are already washed, destroy the leftoverbeans

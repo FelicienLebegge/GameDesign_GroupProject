@@ -77,9 +77,7 @@ public class MouseClickCut : MonoBehaviour
                     {
                         KitchenStates.Score += 3* _points;
                     }
-                    
 
-  
                     AudioManager.instance.Play("BeanCut");
                     _timer = 0f;
                     
@@ -91,20 +89,20 @@ public class MouseClickCut : MonoBehaviour
                         _text.enabled = false;
                         _timer = 0;
                     }
-                    if (angle == Angle.Up)
+                    if (victim.transform.tag != "EditorOnly")
                     {
-                        Cutter.Cut(victim, hit.point, Vector3.up);
-
-                    }
-                    else if (angle == Angle.Forward)
-                    {
-                        Cutter.Cut(victim, hit.point, Vector3.forward);
-
-                    }
-                    else if (angle == Angle.Right)
-                    {
-                        Cutter.Cut(victim, hit.point, Vector3.right);
-
+                        if (angle == Angle.Up)
+                        {
+                            Cutter.Cut(victim, hit.point, Vector3.up);
+                        }
+                        else if (angle == Angle.Forward)
+                        {
+                            Cutter.Cut(victim, hit.point, Vector3.forward);
+                        }
+                        else if (angle == Angle.Right)
+                        {
+                            Cutter.Cut(victim, hit.point, Vector3.right);
+                        }
                     }
                 }
                 else
