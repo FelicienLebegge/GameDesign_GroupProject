@@ -9470,6 +9470,7 @@ MonoBehaviour:
   _overCooked: {fileID: 1308659960}
   _panParent: {fileID: 1560757003}
   _cameraSwitch: {fileID: 963194229}
+  _particles: {fileID: 1987349171}
 --- !u!135 &1560757007
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10587,7 +10588,7 @@ GameObject:
   - component: {fileID: 1987349174}
   - component: {fileID: 1987349173}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: Cooking_Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

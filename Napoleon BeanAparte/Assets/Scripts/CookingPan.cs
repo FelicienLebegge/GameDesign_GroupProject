@@ -46,7 +46,6 @@ public class CookingPan : MonoBehaviour
 
     private bool _isCooking;
     private bool _isCollecting;
-    private bool _isTrashing;
     private int _cookingpoints; //statemachine is beter 
     private bool _isServing;
 
@@ -56,6 +55,8 @@ public class CookingPan : MonoBehaviour
 
     [SerializeField]
     private CameraSwitch _cameraSwitch;
+
+    [SerializeField] private GameObject _particles;
 
 
     // Start is called before the first frame update
@@ -72,6 +73,8 @@ public class CookingPan : MonoBehaviour
 
         _mainCamera = Camera.main;
         _originalPosition = transform.position;
+
+        _particles.SetActive(false);
     }
 
     // Update is called once per frame
@@ -171,6 +174,7 @@ public class CookingPan : MonoBehaviour
         if (other.CompareTag("Stove"))
         {
             _isCooking = false;
+            _particles.SetActive(false);
             AudioManager.instance.Stop("Cooking");
         }
     }
@@ -179,6 +183,7 @@ public class CookingPan : MonoBehaviour
     {
         if (other.CompareTag("Stove"))
         {
+            _particles.SetActive(true);
             AudioManager.instance.Play("Cooking");
         }
     }
@@ -215,7 +220,6 @@ public class CookingPan : MonoBehaviour
         {
             _isCooking = false;
             _isCollecting = false;
-            _isTrashing = false;
             _isServing = false;
 
             ReturnToOriginalPosition();
