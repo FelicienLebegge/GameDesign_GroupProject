@@ -61,7 +61,7 @@ public class InputScript : MonoBehaviour
         {
             Debug.Log(inputfield.text);
             MenuBehaviour.Name = inputfield.text;
-            _playername.text = $"Player:  {MenuBehaviour.Name} ";
+            _playername.text = $"Player: {MenuBehaviour.Name} ";
         }
 
     }
