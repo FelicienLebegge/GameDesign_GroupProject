@@ -15,7 +15,7 @@ public class MenuBehaviour : MonoBehaviour
     private float _maxScale = 1.5f;   
     private Color _startColor = new Color(0.5f, 0, 0); 
     private Color _endColor = Color.red;
-
+    //THEfinalpush
     public void Play()
     {
         if (Name != null)
