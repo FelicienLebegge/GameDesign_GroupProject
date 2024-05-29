@@ -10587,7 +10587,7 @@ GameObject:
   - component: {fileID: 1987349172}
   - component: {fileID: 1987349174}
   - component: {fileID: 1987349173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooking_Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10603,8 +10603,8 @@ Transform:
   m_GameObject: {fileID: 1987349171}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70057374, y: -0, z: -0, w: 0.71358}
-  m_LocalPosition: {x: 0.065, y: -0.206, z: -0.021}
-  m_LocalScale: {x: 0.07818, y: 0.08237, z: 0.10509}
+  m_LocalPosition: {x: 0.091, y: -0.36, z: -0.008}
+  m_LocalScale: {x: 0.045132283, y: 0.047551114, z: 0.06066707}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1560757004}
@@ -10630,7 +10630,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 68c5301e9e9caf64aa8d9b822463c2c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10674,7 +10674,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 4939403887031284266, guid: 337f6e6e3b0b6f246b472f5e2aa9f6c1, type: 3}
+  m_Mesh: {fileID: -3016372798253454391, guid: 5a9fc990eeb875c4d8836bac6e7068b4, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -10691,7 +10691,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987349171}
   serializedVersion: 8
-  lengthInSec: 3.64
+  lengthInSec: 4.24
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -10766,7 +10766,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 1.08
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10819,7 +10819,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.52
+      scalar: 1.53
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -11254,7 +11254,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 336
+    maxNumParticles: 214
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -11958,8 +11958,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.9737945, b: 0.85849047, a: 0.827451}
-        key1: {r: 0.6603774, g: 0.6210904, b: 0.44648153, a: 0.7176471}
+        key0: {r: 1, g: 0.5863193, b: 0, a: 1}
+        key1: {r: 0.3433962, g: 0.10788507, b: 0.069327146, a: 1}
         key2: {r: 0.18238991, g: 0.18238991, b: 0.18238991, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -11982,7 +11982,7 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_Mode: 1
+        m_Mode: 0
         m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
@@ -14443,7 +14443,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 0
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
