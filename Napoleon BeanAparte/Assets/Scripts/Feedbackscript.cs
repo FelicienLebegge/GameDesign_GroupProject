@@ -60,6 +60,7 @@ public class Feedbackscript : MonoBehaviour
                 break;
 
             case "French":
+                AudioManager.instance.Play("Legendary");
                 _string = "French";
                 Legendary.SetActive(true);
                 break;

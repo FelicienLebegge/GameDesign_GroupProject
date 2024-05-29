@@ -2288,6 +2288,12 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 1
     IsPlaying: 0
+  - name: Legendary
+    clip: {fileID: 8300000, guid: cf47fe3e438b0584f83dd1d716568641, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+    IsPlaying: 0
   - name: Woosh
     clip: {fileID: 8300000, guid: 88bf3f5395615cb4c9970ef5b3fc3473, type: 3}
     volume: 1
