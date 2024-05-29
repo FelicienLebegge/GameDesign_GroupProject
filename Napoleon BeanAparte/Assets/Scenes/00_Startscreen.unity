@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 681348379}
   - component: {fileID: 681348381}
   - component: {fileID: 681348380}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.7283019, g: 0.7283019, b: 0.7283019, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4152,8 +4152,8 @@ Transform:
   - {fileID: 1616694662}
   - {fileID: 1015422416}
   - {fileID: 1154321065}
-  - {fileID: 762238216}
   - {fileID: 739101043}
+  - {fileID: 762238216}
   m_Father: {fileID: 187995639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2133083153
