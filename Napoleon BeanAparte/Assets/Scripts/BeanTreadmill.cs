@@ -116,9 +116,10 @@ public class BeanTreadmill : MonoBehaviour
 
         _beansProcessed++;
 
+        KitchenStates.IsCuttingDone = true;
+
         if (_beansProcessed == KitchenStates.BeansList.Count)
         {
-            KitchenStates.IsCuttingDone = true;
             _cameraSwitch.StartCameraLerp(2); //go to cooking
         }
 
