@@ -2267,7 +2267,7 @@ MonoBehaviour:
     loop: 0
     IsPlaying: 0
   - name: Washer
-    clip: {fileID: 8300000, guid: 91f7d35fbb238d847b269e39e57376c2, type: 3}
+    clip: {fileID: 8300000, guid: 64f247cef6f5e3241a119487c5a26809, type: 3}
     volume: 1
     source: {fileID: 0}
     loop: 1
