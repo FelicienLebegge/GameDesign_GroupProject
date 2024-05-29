@@ -249,7 +249,7 @@ public class CookingPan : MonoBehaviour
 
         _cookingTime += Time.deltaTime;
 
-        if (_cookingTime >= _burnedThreshold)
+        if (_cookingTime >= _burnedThreshold / KitchenStates.SpeedMultiplier)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _burnedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is overcooked!");
@@ -260,7 +260,7 @@ public class CookingPan : MonoBehaviour
             _overCooked.enabled = false;
 
         }
-        else if (_cookingTime >= _cookedThreshold)
+        else if (_cookingTime >= _cookedThreshold / KitchenStates.SpeedMultiplier)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _cookedMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is perfectly cooked!");
@@ -271,7 +271,7 @@ public class CookingPan : MonoBehaviour
             _overCooked.enabled = false;
 
         }
-        else if (_cookingTime >= _rawThreshold)
+        else if (_cookingTime >= _rawThreshold / KitchenStates.SpeedMultiplier)
         {
             _renderer.material.color = Color.Lerp(_renderer.material.color, _rawMaterial.color, Time.deltaTime * _colorChangeSpeed);
             Debug.Log("The dish is still raw!");
