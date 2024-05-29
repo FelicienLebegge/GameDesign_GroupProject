@@ -25,7 +25,7 @@ public class InputScript : MonoBehaviour
         _placeholderInside.text = "Enter your name...";
         _currentRecord.text = "" + PlayerPrefs.GetFloat("HighScore");
         _recordHolder.text = "" + PlayerPrefs.GetString("HighScoreHolder");
-        _slider.value = 0.5f;
+        _slider.value = 1f;
         _sliderValue.text = realSoundValue.ToString();
     }
 
