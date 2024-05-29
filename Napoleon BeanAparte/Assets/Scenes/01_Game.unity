@@ -2284,6 +2284,12 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     IsPlaying: 0
+  - name: Cooking
+    clip: {fileID: 8300000, guid: 8e0582fe23553bb4fb8326954b22911d, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 1
+    IsPlaying: 0
 --- !u!4 &745640306
 Transform:
   m_ObjectHideFlags: 0

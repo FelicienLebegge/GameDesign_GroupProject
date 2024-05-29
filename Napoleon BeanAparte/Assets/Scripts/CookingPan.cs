@@ -80,8 +80,6 @@ public class CookingPan : MonoBehaviour
         if (KitchenStates.IsCuttingDone) //only when the cutting is done may the pan move, otherwise people can cheat the washing system
         {
 
-            Debug.Log(_isCooking);
-
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -173,6 +171,15 @@ public class CookingPan : MonoBehaviour
         if (other.CompareTag("Stove"))
         {
             _isCooking = false;
+            AudioManager.instance.Stop("Cooking");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Stove"))
+        {
+            AudioManager.instance.Play("Cooking");
         }
     }
 
