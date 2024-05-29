@@ -51,7 +51,13 @@ public class InputScript : MonoBehaviour
 
     public void EnteredName()
     {
-        if (inputfield.text != null)
+        if (inputfield.text == "")
+        {
+            _playername.text = "Please enter a name";
+            Debug.Log("The string is empty");
+        }
+
+        if (inputfield.text != null && inputfield.text != string.Empty)
         {
             Debug.Log(inputfield.text);
             MenuBehaviour.Name = inputfield.text;
