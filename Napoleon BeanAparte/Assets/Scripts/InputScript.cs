@@ -62,6 +62,7 @@ public class InputScript : MonoBehaviour
 
     public void RemoveName()
     {
+        Debug.Log("no name entered?");
         MenuBehaviour.Name = null;
         _playername.text = $"Enter name first !! ";
         _placeholderInside.text = "Enter your name...";
