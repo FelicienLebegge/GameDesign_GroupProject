@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +9,8 @@ public class AudioPlayer : MonoBehaviour
 
     void Awake()
     {
+        gameObject.GetComponent<AudioSource>().volume = MenuBehaviour.SoundValue;
+
         if (instance == null)
         {
             instance = this;
@@ -22,6 +21,7 @@ public class AudioPlayer : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
     void OnEnable()
     {

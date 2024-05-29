@@ -1,7 +1,5 @@
-using UnityEngine.Audio;
-using UnityEngine;
 using System;
-using System.Collections;
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,7 +12,8 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
             return;
@@ -27,6 +26,7 @@ public class AudioManager : MonoBehaviour
 
             sound.source.volume = sound.volume;
             sound.source.loop = sound.loop;
+            sound.source.volume = MenuBehaviour.SoundValue;
         }
     }
 
@@ -45,9 +45,9 @@ public class AudioManager : MonoBehaviour
 
         if (foundSound != null)
         {
-            
+
             foundSound.source.Play();
-            
+
         }
         else //for debugging ;)
         {

@@ -5,6 +5,7 @@ public class MenuBehaviour : MonoBehaviour
 {
 
     public static string Name;
+    public static float SoundValue;
 
     public void Play()
     {

@@ -12,6 +12,12 @@ public class InputScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentRecord;
     [SerializeField] private TextMeshProUGUI _recordHolder;
 
+    [SerializeField]
+    private TextMeshProUGUI _sliderValue;
+    [SerializeField] private Slider _slider;
+    private float _convertValue;
+    private int realSoundValue;
+
     private void Start()
     {
         inputfield = transform.Find("input").GetComponent<TMP_InputField>();
@@ -19,6 +25,28 @@ public class InputScript : MonoBehaviour
         _placeholderInside.text = "Enter your name...";
         _currentRecord.text = "" + PlayerPrefs.GetFloat("HighScore");
         _recordHolder.text = "" + PlayerPrefs.GetString("HighScoreHolder");
+        _slider.value = 0.5f;
+        _sliderValue.text = realSoundValue.ToString();
+    }
+
+    private void Update()
+    {
+
+        if (_convertValue <= 1)
+        {
+            _convertValue *= 100;
+        }
+
+        realSoundValue = (int)_convertValue;
+
+        _sliderValue.text = realSoundValue.ToString();
+
+    }
+
+    public void SliderValueChange()
+    {
+        MenuBehaviour.SoundValue = _slider.value;
+        _convertValue = _slider.value;
     }
 
     public void EnteredName()
